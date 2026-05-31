@@ -36,6 +36,47 @@ npm run build
 
 The `dist/` folder is ready for any static host (Vercel, Netlify, S3 + CloudFront, Nginx, etc.).
 
+## Docker
+
+This site can be containerized and served with Nginx.
+
+### Build the Docker image
+
+```bash
+docker build -t wastelandfront:latest .
+```
+
+### Run with Docker
+
+```bash
+docker run -p 8080:80 wastelandfront:latest
+```
+
+Then visit **http://localhost:8080**
+
+### Run with Docker Compose (recommended for local testing)
+
+```bash
+docker compose up --build
+```
+
+### Production deployment notes
+
+The Docker image:
+- Uses a **multi-stage build** (final image is ~25MB)
+- Runs **Nginx as non-root user** for security
+- Includes aggressive caching headers for static assets
+- Has a `/health` endpoint for load balancers / orchestrators
+- Gzip compression enabled
+
+The image is suitable for:
+- Kubernetes
+- ECS / Fargate
+- Any VPS with Docker
+- Docker Swarm
+
+Example for Kubernetes or ECS: simply point your load balancer / ingress at port 80 of the container.
+
 ## Project Plan & Workflow
 
 See [Docs/IMPLEMENTATION_PLAN.md](Docs/IMPLEMENTATION_PLAN.md) for the full Phase 1 plan, page outlines, design system, and strict Git workflow (feature branches → PRs → Copilot review → squash merge).
