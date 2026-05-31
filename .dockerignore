@@ -1,0 +1,38 @@
+# Dependencies
+node_modules/
+
+# Build output (rebuilt inside container)
+dist/
+
+# Git
+.git/
+.gitignore
+
+# Documentation
+Docs/
+README.md
+
+# IDE / Editor
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment
+.env
+.env.*
+
+# Astro cache
+.astro/
+
+# Docker (prevent recursive copy)
+Dockerfile
+docker-compose*.yml
+.dockerignore
