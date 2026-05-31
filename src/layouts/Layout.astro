@@ -33,11 +33,13 @@ const canonical = new URL(Astro.url.pathname, Astro.site).href;
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:site_name" content="Wasteland Front" />
+    <meta property="og:image" content="https://wastelandfront.com/og-default.png" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={fullTitle} />
     <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="https://wastelandfront.com/og-default.png" />
 
     <!-- Preload critical fonts if we add custom later -->
   </head>
