@@ -1,27 +1,26 @@
 # Wasteland Front
 
-Practical, no-fluff guides for **Last War: Survival** — built for new and mid-game players.
+**Practical, no-fluff guides for Last War: Survival** — built specifically for new and mid-game players (HQ ~15-30).
 
 **Current domain:** cloutclimber.com (target: wastelandfront.com)
 
+## What Makes This Site Different
+
+- **Main Squad First** philosophy applied everywhere
+- Strong emphasis on **UR heroes** for long-term progression while being honest about mid-game SSR use
+- Clear explanation of the **Tank squad exception** (many mid-game players successfully run two Tank squads)
+- **Monica** heavily featured for Doomed Elite resource farming
+- Dozens of **ready-to-copy alliance messages** for VS, Alliance Trial, Arms Race, etc.
+- Extremely scannable pages with Quick Summary boxes, tables, and short paragraphs
+
 ## Tech Stack
 
-- Astro 6 (latest stable)
-- TypeScript (strict)
-- Tailwind CSS v4 (via Vite plugin)
+- Astro 6 + TypeScript
+- Tailwind CSS v4
 - Fully static output (`astro build`)
-- Minimal client JS (vanilla where possible)
+- Docker + Nginx production image included
 
-## Philosophy
-
-- Main Squad First
-- Strong UR focus with honest advice about mid-game SSR use
-- Tank squad exception (many mid-game players run two)
-- Monica heavily featured for Doomed Elite resource farming
-- Ready-to-copy Alliance messages for VS and Alliance Trial
-- Scannable pages with Quick Summary boxes, tables, and short paragraphs
-
-## Development
+## Quick Start (Development)
 
 ```bash
 npm install
@@ -34,59 +33,41 @@ npm run dev
 npm run build
 ```
 
-The `dist/` folder is ready for any static host (Vercel, Netlify, S3 + CloudFront, Nginx, etc.).
+Output is in `dist/`.
 
-## Docker
-
-This site can be containerized and served with Nginx.
-
-### Build the Docker image
+## Docker (Recommended for Self-Hosting)
 
 ```bash
+# Build
 docker build -t wastelandfront:latest .
-```
 
-### Run with Docker
-
-```bash
+# Run
 docker run -p 8080:8080 wastelandfront:latest
-```
 
-Then visit **http://localhost:8080**
-
-### Run with Docker Compose (recommended for local testing)
-
-```bash
+# Or with Docker Compose
 docker compose up --build
 ```
 
-### Production deployment notes
+See the [Docker section in the README](https://github.com/cblack34/wastelandfront#docker) for full details (multi-stage, non-root, healthchecks, caching headers).
 
-The Docker image:
-- Uses a **multi-stage build** (final image is ~25MB)
-- Runs **Nginx as non-root user** for security
-- Includes aggressive caching headers for static assets
-- Has a `/health` endpoint for load balancers / orchestrators
-- Gzip compression enabled
+## Deployment Options
 
-The image is suitable for:
-- Kubernetes
-- ECS / Fargate
-- Any VPS with Docker
-- Docker Swarm
+This site works great on:
+- **Docker** (VPS, Kubernetes, ECS, etc.) — see above
+- Vercel / Netlify (easiest for static)
+- S3 + CloudFront
+- Any Nginx / Apache static hosting
 
-Example for Kubernetes or ECS: simply point your load balancer / ingress at port 80 of the container.
+## Project Structure & Philosophy
 
-## Project Plan & Workflow
-
-See [Docs/IMPLEMENTATION_PLAN.md](Docs/IMPLEMENTATION_PLAN.md) for the full Phase 1 plan, page outlines, design system, and strict Git workflow (feature branches → PRs → Copilot review → squash merge).
+See [Docs/IMPLEMENTATION_PLAN.md](Docs/IMPLEMENTATION_PLAN.md) for the full build plan, content strategy, and Git workflow.
 
 ## Contributing
 
-Corrections, better strategies, and new sections are welcome. The goal is the best practical resource for players who want clear answers fast.
+We prioritize accuracy and speed of information over volume.
 
-Not affiliated with the game. Community-driven.
+If you have better mid-game advice, corrections, or new copy-paste messages that work well in your alliance, open an issue or PR.
 
 ## License
 
-Guides and content are provided freely for the Last War community.
+Community resource. Not affiliated with the game.
