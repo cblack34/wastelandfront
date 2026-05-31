@@ -12,14 +12,20 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "check": "astro check"
+    "check": "astro check",
+    "audit:a11y": "lhci autorun --config=.lighthouserc.json",
+    "audit:contrast": "lhci autorun --config=.lighthouserc.json --assert.preset=lighthouse:recommended",
+    "audit:full": "npm run build && lhci autorun --config=.lighthouserc.json",
+    "audit:contrast:tokens": "node scripts/contrast-audit.js"
   },
   "dependencies": {
     "astro": "^6.4.2"
   },
   "devDependencies": {
     "@astrojs/sitemap": "^3.7.3",
+    "@lhci/cli": "^0.15.1",
     "@tailwindcss/vite": "^4.3.0",
+    "puppeteer": "^25.1.0",
     "tailwindcss": "^4.3.0"
   }
 }
