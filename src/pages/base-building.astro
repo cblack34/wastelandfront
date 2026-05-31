@@ -7,8 +7,41 @@ import QuickSummary from '../components/QuickSummary.astro';
   <h1>Base Building</h1>
 
   <QuickSummary>
-    <p>HQ level is king early. After that, focus buildings and research that directly increase the power of your main squad type (Troop Center, relevant Research Lab tech, Gear Workshop, etc.).</p>
+    <p><strong>Early game:</strong> Rush HQ level. <strong>Mid-game:</strong> Only upgrade buildings and research that directly power your main squad.</p>
   </QuickSummary>
 
-  <p>Do not upgrade every building evenly. Some buildings give almost zero return until very high levels.</p>
+  <h2>Building Priority Order</h2>
+  <ol class="list-decimal pl-5 space-y-1 text-sm">
+    <li><strong>HQ</strong> — Unlocks everything else. Push this hard in the first 30–45 days.</li>
+    <li><strong>Troop Center</strong> for your main squad type (Tank/Aircraft/Missile).</li>
+    <li><strong>Research Lab</strong> — Focus on combat, troop load, and training speed for your chosen type.</li>
+    <li><strong>Gear Workshop / Enhancement buildings</strong> — Critical once you start getting good gear.</li>
+    <li><strong>Resource buildings</strong> — Only what you actually need to support training and healing.</li>
+    <li>Everything else (Barracks, Hospital, etc.) can wait or be upgraded minimally.</li>
+  </ol>
+
+  <h2>Research Priorities (New → Mid Game)</h2>
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr><th>Phase</th><th>Focus Areas</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Early</strong></td>
+          <td>HQ tech, basic troop training, resource production, first combat upgrades.</td>
+        </tr>
+        <tr>
+          <td><strong>Mid-Game</strong></td>
+          <td>Troop load, march size, type-specific combat research, skill-related tech, gear enhancement speed.</td>
+        </tr>
+        <tr>
+          <td><strong>Do Not Rush</strong></td>
+          <td>Most economy buildings past the point you can support your main squad, decorative buildings, late-game prestige tech.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p class="mt-4 text-sm text-[#8a96b0]">The biggest trap is upgrading every building to the same level. Many buildings give almost no meaningful power until very high levels. Stay focused on what helps your #1 squad today.</p>
 </Layout>

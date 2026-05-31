@@ -1,17 +1,38 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import QuickSummary from '../components/QuickSummary.astro';
 ---
 
 <Layout title="Stats" description="What each stat actually does for mid-game players in Last War: Survival and stat priority order.">
   <h1>Stats</h1>
-  <p class="text-lg text-[#8a96b0]">Not all stats are equal. Here’s what actually moves the needle for new and mid-game players.</p>
+  <p class="text-lg text-[#8a96b0]">Not all stats are equal. Focus on what actually helps your main squad right now.</p>
 
-  <h2>Priority Order (Mid-Game)</h2>
-  <ol class="list-decimal pl-5 space-y-1">
-    <li><strong>Attack / Lethality</strong> — Your damage output</li>
-    <li><strong>Defense / HP</strong> — Survivability (especially frontline)</li>
-    <li><strong>March Size</strong> — More troops = more power in almost every mode</li>
-    <li><strong>Troop Load</strong> — Critical for gathering and resource events</li>
-    <li>Secondary stats (accuracy, dodge, etc.) become more relevant later</li>
-  </ol>
+  <QuickSummary>
+    <p><strong>Mid-game priority:</strong> Attack/Lethality → Defense/HP → March Size → Troop Load. Everything else is secondary until these are solid.</p>
+  </QuickSummary>
+
+  <h2>What Each Stat Actually Does</h2>
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr><th>Stat</th><th>Practical Effect</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Attack / Lethality</strong></td><td>Increases damage dealt. Biggest priority for your backline DPS.</td></tr>
+        <tr><td><strong>Defense / HP</strong></td><td>Survivability. Extremely important for frontline tanks.</td></tr>
+        <tr><td><strong>March Size</strong></td><td>More troops in every march = more power in PvP, PvE, and rallies.</td></tr>
+        <tr><td><strong>Troop Load</strong></td><td>How many resources you can carry while gathering. Critical for economy.</td></tr>
+        <tr><td><strong>Skill-related stats</strong></td><td>Make your hero skills hit harder or last longer.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Where to Get Stats</h2>
+  <ul class="text-sm space-y-1">
+    <li>Hero levels and stars</li>
+    <li>Gear (especially Mythic pieces)</li>
+    <li>Research (biggest long-term source)</li>
+    <li>Exclusive weapons and hero talents</li>
+    <li>Base buildings (smaller but consistent gains)</li>
+  </ul>
 </Layout>

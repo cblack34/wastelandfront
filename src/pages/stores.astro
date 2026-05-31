@@ -1,11 +1,50 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import QuickSummary from '../components/QuickSummary.astro';
 ---
 
 <Layout title="Stores" description="In-game store priorities and real money value guide for Last War: Survival.">
   <h1>Stores</h1>
-  <p>In-game stores (Alliance Store, Black Market, Season Shop, VIP) have clear priority orders. Always buy the things that directly power your main squad first.</p>
 
-  <h2>Real Money Value (Honest Take)</h2>
-  <p>Monthly card and battle pass are generally the best value for consistent players. Big packs are for whales or specific high-value events. Never feel pressured — the game is very playable as low spender or F2P with good discipline.</p>
+  <QuickSummary>
+    <p>Always spend on things that directly upgrade your <strong>main squad</strong> first. Everything else is secondary until that squad is strong.</p>
+  </QuickSummary>
+
+  <h2>In-Game Store Priorities (Mid-Game)</h2>
+
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr><th>Store</th><th>Priority Buys</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Alliance Store</strong></td>
+          <td>Hero shards for your main squad heroes, Skill Medals, Gear materials. Avoid cosmetic items early.</td>
+        </tr>
+        <tr>
+          <td><strong>Black Market</strong></td>
+          <td>Universal shards, high-value gear components, and recruitment tickets when the price is good.</td>
+        </tr>
+        <tr>
+          <td><strong>Season Shop</strong></td>
+          <td>Season-exclusive shards and materials for your main type. Prioritize what helps your current squad.</td>
+        </tr>
+        <tr>
+          <td><strong>VIP / Monthly Rewards</strong></td>
+          <td>Consistent daily/weekly resources. Very efficient if you’re active.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Real Money Value Guide (Honest)</h2>
+  <p class="text-sm">For most new and mid-game players, the best value is usually:</p>
+  <ol class="list-decimal pl-5 text-sm space-y-1 mt-2">
+    <li><strong>Monthly Card</strong> — Steady resources every day with very little spending.</li>
+    <li><strong>Battle Pass</strong> — Excellent value if you play regularly and complete the missions.</li>
+    <li><strong>VIP levels</strong> (early ones) — Good permanent bonuses.</li>
+  </ol>
+
+  <p class="mt-3 text-sm text-[#8a96b0]">Big one-time packs are generally poor value compared to consistent small spending. The game is very playable as a disciplined low spender or even F2P if you focus on one squad and events.</p>
 </Layout>
