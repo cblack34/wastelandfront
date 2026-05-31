@@ -1,0 +1,96 @@
+---
+import Layout from '../layouts/Layout.astro';
+import QuickSummary from '../components/QuickSummary.astro';
+---
+
+<Layout 
+  title="Alliance Tools" 
+  description="Ready-to-copy daily VS focus messages, Alliance Trial posts, and Monica elite rally reminders for Last War: Survival alliance leaders."
+>
+  <h1>Alliance Tools</h1>
+  <p class="text-lg text-[#8a96b0]">Copy, paste, win. Replace anything in [brackets] with your actual numbers.</p>
+
+  <QuickSummary>
+    <p>Consistent, clear alliance communication is one of the highest-ROI things a leader can do. These templates are battle-tested patterns used by strong mid-game alliances.</p>
+  </QuickSummary>
+
+  <h2>Daily VS Focus</h2>
+  <p class="text-sm text-[#8a96b0]">Post one of these (or a variation) in alliance chat every day during VS.</p>
+
+  <div class="card p-4 mb-4">
+    <div class="flex justify-between items-start mb-2">
+      <div class="font-semibold">General VS Focus Message</div>
+      <button class="copy-btn text-xs" data-copy="Today’s VS focus: Prioritize [Day-specific goal, e.g. Hero Shards / Gear / Research]. We need strong participation in the 8pm rally window. Let’s push for top 3 on server!">Copy</button>
+    </div>
+    <pre class="text-sm bg-[#0b1220] p-3 rounded overflow-x-auto text-[#c4b5fd]">Today’s VS focus: Prioritize [Hero Shards / Gear Materials / Research Speed]. 
+
+We’re aiming for strong participation in the evening rally window. Every point helps the alliance.
+
+Let’s finish in the top 3 on server today!</pre>
+  </div>
+
+  <h2>Alliance Trial / 2x Events</h2>
+  <div class="card p-4 mb-4">
+    <div class="flex justify-between items-start mb-2">
+      <div class="font-semibold">Alliance Trial Reminder</div>
+      <button class="copy-btn text-xs" data-copy="Alliance Trial starts in ~30 min. Bring your best squad and be ready to rally. Focus on [specific boss or stage] for max points. Let’s clear it fast!">Copy</button>
+    </div>
+    <pre class="text-sm bg-[#0b1220] p-3 rounded overflow-x-auto">Alliance Trial starts in ~30 min. 
+
+Bring your best squad and be ready to rally on the main target. 
+
+Focus fire and we’ll clear it quickly. Good luck everyone!</pre>
+  </div>
+
+  <h2>Monica Elite Rally Call</h2>
+  <div class="card p-4 mb-6">
+    <div class="flex justify-between items-start mb-2">
+      <div class="font-semibold">Doomed Elite Farming (with Monica)</div>
+      <button class="copy-btn text-xs" data-copy="Reminder: For Doomed Elite rallies, please try to include Monica in your squad (even at low stars). Her skill gives a big resource bonus on elites. Swap her in for farming runs — it adds up fast for the whole alliance.">Copy</button>
+    </div>
+    <pre class="text-sm bg-[#0b1220] p-3 rounded overflow-x-auto">Reminder for elite farming: 
+
+Include Monica in your squad when hitting Doomed Elites (lead or join). Her resource bonus is significant and helps everyone.
+
+You can swap her back out for combat content afterward. Small effort, big RSS gains.</pre>
+  </div>
+
+  <h2>Other Useful Templates</h2>
+  <ul class="space-y-2 text-sm">
+    <li>• “Wall of Honor push this week — who still needs shards for [Hero]?”</li>
+    <li>• “Arms Race chest strategy: Save your big stamina for the final 4 hours. Pop chests together for alliance gifts.”</li>
+    <li>• “New members: Read the pinned Squad Building guide before asking hero questions.”</li>
+  </ul>
+
+  <script>
+    // Vanilla copy-to-clipboard for alliance messages (no React needed)
+    document.querySelectorAll('.copy-btn').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const text = btn.getAttribute('data-copy');
+        if (!text) return;
+
+        try {
+          await navigator.clipboard.writeText(text);
+          const originalText = btn.textContent;
+          btn.textContent = 'Copied!';
+          btn.classList.add('copied');
+
+          setTimeout(() => {
+            btn.textContent = originalText;
+            btn.classList.remove('copied');
+          }, 1800);
+        } catch (err) {
+          // Fallback for older browsers
+          const textarea = document.createElement('textarea');
+          textarea.value = text;
+          document.body.appendChild(textarea);
+          textarea.select();
+          document.execCommand('copy');
+          document.body.removeChild(textarea);
+          btn.textContent = 'Copied!';
+          setTimeout(() => { btn.textContent = 'Copy'; }, 1800);
+        }
+      });
+    });
+  </script>
+</Layout>
