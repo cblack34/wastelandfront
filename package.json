@@ -24,7 +24,7 @@
   "devDependencies": {
     "@astrojs/sitemap": "^3.7.3",
     "@lhci/cli": "^0.15.1",
-    "@tailwindcss/vite": "^4.3.0",
+    "@tailwindcss/postcss": "^4.3.0",
     "puppeteer": "^25.1.0",
     "tailwindcss": "^4.3.0"
   }
