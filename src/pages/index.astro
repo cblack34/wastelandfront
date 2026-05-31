@@ -1,0 +1,76 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout 
+  title="Home" 
+  description="Practical, no-fluff guides for Last War: Survival. Focused on new and mid-game players — squad building, VS events, alliance tools, and clear priorities."
+>
+  <!-- Hero -->
+  <div class="text-center py-10 md:py-14">
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#1a253f] text-[#f59e0b] text-xs font-medium tracking-widest mb-4">
+      LAST WAR: SURVIVAL
+    </div>
+    <h1 class="text-4xl md:text-5xl font-semibold tracking-tighter mb-4">
+      Practical guides.<br class="hidden md:block" /> No fluff.
+    </h1>
+    <p class="max-w-2xl mx-auto text-xl text-[#8a96b0]">
+      Built for new and mid-game players who want clear answers fast.
+    </p>
+    <div class="mt-8 flex flex-wrap justify-center gap-3">
+      <a href="/squad-building" class="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-[#f59e0b] text-[#0b1220] font-semibold hover:bg-[#fbbf24] transition">
+        Start with Squad Building
+      </a>
+      <a href="/alliance-tools" class="inline-flex items-center justify-center px-6 py-3 rounded-lg border border-[#3a4966] hover:bg-[#111a2e] transition">
+        Grab Alliance Messages
+      </a>
+    </div>
+    <p class="mt-4 text-xs text-[#5e6b85]">Main Squad First • UR Focus • Real mid-game advice</p>
+  </div>
+
+  <!-- Quick Value Props -->
+  <div class="grid md:grid-cols-3 gap-4 mb-12">
+    <div class="card p-5">
+      <div class="text-[#f59e0b] text-sm font-semibold mb-2">SQUAD BUILDING</div>
+      <h3 class="font-semibold mb-2">UR heroes + Main Squad First</h3>
+      <p class="text-sm text-[#8a96b0]">Why one strong squad beats three average ones. Tank squad exception explained. Ready-to-use mid-game builds.</p>
+      <a href="/squad-building" class="text-sm inline-block mt-3 text-[#f59e0b]">Read the core guide →</a>
+    </div>
+    <div class="card p-5">
+      <div class="text-[#f59e0b] text-sm font-semibold mb-2">EVENTS &amp; ALLIANCE</div>
+      <h3 class="font-semibold mb-2">VS daily focus + Arms Race chests</h3>
+      <p class="text-sm text-[#8a96b0]">Exact daily priorities. Best chest strategy. Copy-paste messages for alliance leaders that actually get results.</p>
+      <a href="/events" class="text-sm inline-block mt-3 text-[#f59e0b]">See the event guides →</a>
+    </div>
+    <div class="card p-5">
+      <div class="text-[#f59e0b] text-sm font-semibold mb-2">ALLIANCE TOOLS</div>
+      <h3 class="font-semibold mb-2">Ready-to-copy messages</h3>
+      <p class="text-sm text-[#8a96b0]">Daily VS focus posts, Alliance Trial reminders, Monica elite rally calls. One click to copy.</p>
+      <a href="/alliance-tools" class="text-sm inline-block mt-3 text-[#f59e0b]">Open the message templates →</a>
+    </div>
+  </div>
+
+  <!-- Main Squad First Teaser -->
+  <div class="quick-summary">
+    <h3>Core Philosophy</h3>
+    <p><strong>Main Squad First.</strong> Put almost all your shards, gear, and research into your #1 squad. A dominant first squad carries you through most content while your second and third squads are still weak. This is the fastest path for new and mid-game players.</p>
+  </div>
+
+  <!-- Navigation Grid -->
+  <h2 class="text-xl font-semibold mb-4 mt-8">Browse by Topic</h2>
+  <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+    <a href="/getting-started" class="card p-4 hover:border-[#f59e0b]/40 block">Getting Started <span class="text-xs text-[#5e6b85] block">First 30 days priorities &amp; common mistakes</span></a>
+    <a href="/heroes" class="card p-4 hover:border-[#f59e0b]/40 block">Heroes <span class="text-xs text-[#5e6b85] block">Rarity, types, when to drop SSRs</span></a>
+    <a href="/squad-building" class="card p-4 hover:border-[#f59e0b]/40 block font-medium">Squad Building <span class="text-xs text-[#5e6b85] block">The most important section</span></a>
+    <a href="/stats" class="card p-4 hover:border-[#f59e0b]/40 block">Stats <span class="text-xs text-[#5e6b85] block">What actually matters mid-game</span></a>
+    <a href="/resources" class="card p-4 hover:border-[#f59e0b]/40 block">Resources <span class="text-xs text-[#5e6b85] block">Best farming methods ranked</span></a>
+    <a href="/stores" class="card p-4 hover:border-[#f59e0b]/40 block">Stores <span class="text-xs text-[#5e6b85] block">What to buy first (in-game + real money)</span></a>
+    <a href="/events" class="card p-4 hover:border-[#f59e0b]/40 block">Events <span class="text-xs text-[#5e6b85] block">VS schedule, Arms Race, Alliance Trial</span></a>
+    <a href="/alliance-tools" class="card p-4 hover:border-[#f59e0b]/40 block">Alliance Tools <span class="text-xs text-[#5e6b85] block">Copy-paste messages for leaders</span></a>
+    <a href="/base-building" class="card p-4 hover:border-[#f59e0b]/40 block">Base Building <span class="text-xs text-[#5e6b85] block">Priorities new → mid game</span></a>
+  </div>
+
+  <div class="mt-10 text-center text-xs text-[#5e6b85]">
+    Content is accurate for mid-game (roughly HQ 20–30). Meta shifts by season and server — always cross-check recent alliance advice.
+  </div>
+</Layout>

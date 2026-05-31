@@ -1,0 +1,53 @@
+---
+import Layout from '../layouts/Layout.astro';
+import QuickSummary from '../components/QuickSummary.astro';
+---
+
+<Layout 
+  title="Getting Started" 
+  description="First 30 days priorities and common mid-game mistakes for Last War: Survival. Clear, actionable advice for new players."
+>
+  <h1>Getting Started</h1>
+  <p class="text-lg text-[#8a96b0] max-w-3xl">Focus on the fundamentals. The first 30–60 days are about building momentum, not spreading yourself thin.</p>
+
+  <QuickSummary>
+    <p><strong>Rule #1:</strong> Pick one squad type (start with Tank for most players) and pour almost everything into it. Your HQ level and main squad strength unlock everything else.</p>
+  </QuickSummary>
+
+  <h2>First 30 Days Priorities</h2>
+  
+  <div class="grid md:grid-cols-2 gap-6">
+    <div>
+      <h3 class="text-base">Week 1–2</h3>
+      <ul class="list-disc pl-5 space-y-1 text-sm">
+        <li>Rush your <strong>HQ</strong> as the primary power source</li>
+        <li>Focus recruitment on getting early SSR heroes (don't chase UR yet)</li>
+        <li>Build your first mono-type squad (5 heroes of the same type)</li>
+        <li>Complete all daily/weekly events for free resources</li>
+        <li>Join an active alliance immediately</li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="text-base">Week 3–4</h3>
+      <ul class="list-disc pl-5 space-y-1 text-sm">
+        <li>Start pushing research that directly powers your main squad</li>
+        <li>Unlock and upgrade your Troop Center for your chosen type</li>
+        <li>Begin saving recruitment tickets for better pity timing</li>
+        <li>Learn Doomed Elite farming (bring Monica when you can)</li>
+        <li>Stop upgrading every building evenly — be ruthless</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Common Mid-Game Mistakes</h2>
+  <ul class="space-y-3">
+    <li class="flex gap-3"><span class="text-[#f59e0b] font-bold mt-1">✕</span> <span>Spreading shards and gear across 8+ heroes. One strong squad beats three mediocre ones.</span></li>
+    <li class="flex gap-3"><span class="text-[#f59e0b] font-bold mt-1">✕</span> <span>Ignoring VS and Arms Race. These are the biggest consistent sources of progress for mid-game players.</span></li>
+    <li class="flex gap-3"><span class="text-[#f59e0b] font-bold mt-1">✕</span> <span>Upgrading every building to the same level. Some buildings give almost nothing until much later.</span></li>
+    <li class="flex gap-3"><span class="text-[#f59e0b] font-bold mt-1">✕</span> <span>Saving everything "for later." Hoarding too long slows your actual power curve.</span></li>
+  </ul>
+
+  <div class="mt-8 p-4 bg-[#111a2e] border border-[#2a3854] rounded">
+    <p class="text-sm"><strong>Next step:</strong> Go to <a href="/squad-building">Squad Building</a> and internalize the "Main Squad First" philosophy. Everything else becomes easier once you accept that your #1 squad is 70% of your power for a long time.</p>
+  </div>
+</Layout>

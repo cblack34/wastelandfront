@@ -1,0 +1,131 @@
+---
+import '../styles/global.css';
+
+export interface Props {
+  title: string;
+  description?: string;
+  noIndex?: boolean;
+}
+
+const { title, description = "Practical guides for Last War: Survival new and mid-game players. Squad building, events, alliance tools, and more.", noIndex = false } = Astro.props;
+
+const fullTitle = `${title} | Wasteland Front`;
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Primary SEO -->
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    {noIndex && <meta name="robots" content="noindex" />}
+    <link rel="canonical" href={canonical} />
+
+    <!-- Open Graph / Social -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content="Wasteland Front" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+
+    <!-- Preload critical fonts if we add custom later -->
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <!-- Top Navigation -->
+    <nav class="border-b border-[#2a3854] bg-[#0b1220]/95 backdrop-blur sticky top-0 z-50">
+      <div class="max-w-5xl mx-auto px-4">
+        <div class="flex items-center justify-between h-14">
+          <!-- Logo -->
+          <a href="/" class="flex items-center gap-2 font-semibold text-lg tracking-tight">
+            <span class="text-[#f59e0b]">W</span>
+            <span class="text-[#e5e9f2]">Wasteland Front</span>
+          </a>
+
+          <!-- Desktop Navigation -->
+          <div class="hidden md:flex items-center gap-6 text-sm">
+            <a href="/getting-started" class="nav-link">Getting Started</a>
+            <a href="/heroes" class="nav-link">Heroes</a>
+            <a href="/squad-building" class="nav-link font-medium">Squad Building</a>
+            <a href="/events" class="nav-link">Events</a>
+            <a href="/alliance-tools" class="nav-link">Alliance Tools</a>
+            <a href="/stats" class="nav-link">Stats</a>
+            <a href="/resources" class="nav-link">Resources</a>
+            <a href="/stores" class="nav-link">Stores</a>
+            <a href="/base-building" class="nav-link">Base</a>
+          </div>
+
+          <!-- Mobile Menu Button (simple for now) -->
+          <button 
+            id="mobile-menu-btn"
+            class="md:hidden text-[#8a96b0] hover:text-[#e5e9f2] p-2"
+            aria-label="Toggle navigation"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Navigation (hidden by default, toggled via JS) -->
+      <div id="mobile-nav" class="hidden md:hidden mobile-nav">
+        <div class="px-4 py-3 flex flex-col gap-1 text-sm">
+          <a href="/getting-started" class="py-1.5 nav-link">Getting Started</a>
+          <a href="/heroes" class="py-1.5 nav-link">Heroes</a>
+          <a href="/squad-building" class="py-1.5 nav-link font-medium">Squad Building</a>
+          <a href="/events" class="py-1.5 nav-link">Events</a>
+          <a href="/alliance-tools" class="py-1.5 nav-link">Alliance Tools</a>
+          <a href="/stats" class="py-1.5 nav-link">Stats</a>
+          <a href="/resources" class="py-1.5 nav-link">Resources</a>
+          <a href="/stores" class="py-1.5 nav-link">Stores</a>
+          <a href="/base-building" class="py-1.5 nav-link">Base Building</a>
+          <a href="/tools" class="py-1.5 nav-link">Tools</a>
+          <a href="/community" class="py-1.5 nav-link">Community</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-1 max-w-5xl mx-auto px-4 py-8 w-full">
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <footer class="mt-auto py-8 text-sm border-t border-[#2a3854]">
+      <div class="max-w-5xl mx-auto px-4 flex flex-col md:flex-row gap-4 md:items-center md:justify-between">
+        <div>
+          <span class="text-[#f59e0b]">Wasteland Front</span> — Practical guides for <span class="text-[#e5e9f2]">Last War: Survival</span>.
+          <span class="block md:inline text-[#5e6b85] mt-1 md:mt-0">Not affiliated with the game developers.</span>
+        </div>
+        <div class="flex gap-4 text-[#8a96b0]">
+          <a href="/community">Community</a>
+          <a href="https://github.com/cblack34/wastelandfront" target="_blank" rel="noopener">GitHub</a>
+          <a href="/tools">Tools</a>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Simple mobile nav toggle (vanilla, no React needed)
+      const btn = document.getElementById('mobile-menu-btn');
+      const mobileNav = document.getElementById('mobile-nav');
+
+      if (btn && mobileNav) {
+        btn.addEventListener('click', () => {
+          mobileNav.classList.toggle('hidden');
+        });
+      }
+    </script>
+  </body>
+</html>
