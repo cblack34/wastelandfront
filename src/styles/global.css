@@ -31,8 +31,8 @@
    * Source: WCAG 2.2 Success Criteria 1.4.3 (Contrast Minimum) and 1.4.6 (Contrast Enhanced)
    * Safety net: Explicit classes + high-contrast verified pairs
    */
-  --btn-primary-bg: #b45309;      /* Deep amber-700 — white text = ~8.5:1 contrast (AAA) */
-  --btn-primary-bg-hover: #92400e; /* Even deeper for hover state */
+  --btn-primary-bg: #7c2d12;      /* Very deep amber — white text ≈ 9.2:1 (AAA) */
+  --btn-primary-bg-hover: #5c2410; /* Even deeper for hover */
   --btn-primary-text: #ffffff;
 
   --btn-secondary-bg: transparent;
