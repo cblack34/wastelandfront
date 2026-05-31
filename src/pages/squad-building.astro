@@ -5,61 +5,146 @@ import QuickSummary from '../components/QuickSummary.astro';
 
 <Layout 
   title="Squad Building" 
-  description="Main Squad First philosophy, UR hero focus, Tank squad strategy for mid-game, Monica for Doomed Elites, and practical mono-type builds for Last War: Survival."
+  description="Main Squad First philosophy, UR hero focus, Tank squad strategy for mid-game players, Monica for Doomed Elites, and practical mono-type builds for Last War: Survival."
 >
   <h1>Squad Building</h1>
-  <p class="text-lg text-[#8a96b0]">This is the most important section on the site. Read it twice.</p>
+  <p class="text-lg text-[#8a96b0]">This is the single most important section on the entire site. Everything else is secondary until your main squad is strong.</p>
 
-  <QuickSummary title="The Core Rule">
-    <p><strong>Main Squad First.</strong> Concentrate the vast majority of your shards, skill medals, gear, and research into one squad. A dominant #1 squad lets you clear content that would otherwise require three average squads. Your second and third squads can be 60–70% as strong and still be effective.</p>
+  <QuickSummary title="The Golden Rule — Main Squad First">
+    <p><strong>Put 70-80% of your resources into one squad.</strong></p>
+    <p>A dominant #1 squad carries you through the vast majority of content (Alliance events, Doomed Elites, most PvE, decent Arena). Your 2nd and 3rd squads only need to be "good enough" to clean up the rest.</p>
+    <p class="mt-2">Spreading shards, gear, and research evenly across multiple squads is the #1 reason mid-game players feel stuck.</p>
   </QuickSummary>
 
-  <h2>Squad Basics</h2>
-  <ul class="space-y-2">
-    <li>Each squad is <strong>5 heroes</strong> in a fixed formation.</li>
-    <li><strong>Mono-type squads only</strong> (all Tank, all Aircraft, or all Missile). The type bonus is too strong to ignore (~20% effective power in most matchups).</li>
-    <li>Positioning matters: Frontline draws fire, backline focuses damage. Use the in-game formation view.</li>
-  </ul>
-
-  <h2>The Tank Squad Exception (Mid-Game Reality)</h2>
-  <p>Many experienced mid-game players run <strong>two full Tank squads</strong> before heavily investing in Aircraft or Missile. Tank is durable, forgiving for F2P/low spenders, and excellent for PvE, gathering, and defense.</p>
-  <p class="text-sm text-[#8a96b0] mt-2">Only start a serious second type once your primary Tank squad has most core heroes at 4–5 stars with decent gear and skills.</p>
-
-  <h2>UR Hero Focus</h2>
-  <p>UR heroes are the long-term endgame. Their base stats and skill ceilings are significantly higher. However, well-built SSR heroes (especially season promotables like Mason, Scarlett, etc.) can carry you through most mid-game content.</p>
-  <p><strong>Transition rule:</strong> Keep 1–2 strong SSR/promotable heroes in your main squad while you slowly replace them with UR as you pull and star them up. Do not bench a 5-star SSR for a 1-star UR.</p>
-
-  <h2>Monica — The Elite Farmer</h2>
-  <div class="quick-summary">
-    <p><strong>Slot Monica</strong> into your Doomed Elite rallies (lead or just participate). Her "Treasure Hunter" skill gives a large resource bonus (Metal, Food, Gold, and other RSS) on elites and regular zombies — reports range from +30% at low investment to +70%+ when skilled up.</p>
-    <p class="mt-2">Investment level: 3–4 stars + skill level ~10 is usually enough. Do not max her over your main combat heroes.</p>
+  <h2>Squad Fundamentals</h2>
+  
+  <div class="grid md:grid-cols-2 gap-6">
+    <div>
+      <h3 class="text-base">Core Rules</h3>
+      <ul class="space-y-2 text-sm">
+        <li><strong>5 heroes per squad</strong></li>
+        <li><strong>Mono-type only</strong> (all Tank / all Aircraft / all Missile). The type bonus is massive — mixing types is almost always a mistake in mid-game.</li>
+        <li><strong>Positioning matters</strong>. Frontline tanks draw fire. Backline DPS focuses the same target.</li>
+      </ul>
+    </div>
+    <div>
+      <h3 class="text-base">Formation (Visual)</h3>
+      <div class="bg-[#111a2e] p-4 rounded border border-[#2a3854]">
+        <svg viewBox="0 0 320 180" class="w-full max-w-[280px] mx-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Background grid -->
+          <rect x="20" y="20" width="280" height="140" rx="4" fill="#1a253f" stroke="#3a4966"/>
+          
+          <!-- Front row label -->
+          <text x="30" y="45" fill="#8a96b0" font-size="10">FRONT (Draws fire)</text>
+          
+          <!-- Front Left -->
+          <rect x="50" y="55" width="70" height="45" rx="4" fill="#1e3a5f" stroke="#3b82f6" stroke-width="2"/>
+          <text x="85" y="78" fill="#93c5fd" font-size="11" text-anchor="middle" font-weight="600">Main Tank</text>
+          <text x="85" y="92" fill="#64748b" font-size="9" text-anchor="middle">Williams / Murphy</text>
+          
+          <!-- Front Right -->
+          <rect x="140" y="55" width="70" height="45" rx="4" fill="#1e3a5f" stroke="#3b82f6" stroke-width="2"/>
+          <text x="175" y="78" fill="#93c5fd" font-size="11" text-anchor="middle" font-weight="600">Support Tank</text>
+          <text x="175" y="92" fill="#64748b" font-size="9" text-anchor="middle">Murphy / Lucius</text>
+          
+          <!-- Back row label -->
+          <text x="30" y="120" fill="#8a96b0" font-size="10">BACK (DPS focus fire)</text>
+          
+          <!-- Back Left (Primary DPS) -->
+          <rect x="50" y="130" width="70" height="35" rx="4" fill="#3f2a00" stroke="#f59e0b" stroke-width="2"/>
+          <text x="85" y="148" fill="#fcd34d" font-size="10" text-anchor="middle" font-weight="600">Primary DPS</text>
+          <text x="85" y="160" fill="#64748b" font-size="8" text-anchor="middle">Kim / Scarlett</text>
+          
+          <!-- Back Center -->
+          <rect x="140" y="130" width="70" height="35" rx="4" fill="#3f2a00" stroke="#f59e0b" stroke-width="2"/>
+          <text x="175" y="148" fill="#fcd34d" font-size="10" text-anchor="middle" font-weight="600">Strong DPS</text>
+          <text x="175" y="160" fill="#64748b" font-size="8" text-anchor="middle">Stetmann</text>
+          
+          <!-- Back Right -->
+          <rect x="230" y="130" width="70" height="35" rx="4" fill="#2a1f4d" stroke="#a78bfa" stroke-width="2"/>
+          <text x="265" y="148" fill="#c4b5fd" font-size="10" text-anchor="middle" font-weight="600">Support</text>
+          <text x="265" y="160" fill="#64748b" font-size="8" text-anchor="middle">Marshall / Adam</text>
+        </svg>
+      </div>
+      <p class="text-[10px] text-[#5e6b85] text-center mt-1">Adjust slightly based on matchup. Murphy is excellent vs Missile.</p>
+    </div>
   </div>
 
-  <h2>Practical Mid-Game Builds (Examples)</h2>
-  <p class="text-sm text-[#8a96b0]">These are directionally correct for many servers. Adjust based on what you actually have starred. Always prioritize your highest-starred heroes in the right positions.</p>
-
-  <h3 class="text-base mt-6">Example Tank Squad (Mid-Game Focus)</h3>
+  <h2>The Tank Squad Exception (Very Common in Mid-Game)</h2>
+  <p>Many strong mid-game players (especially F2P/low spenders) run <strong>two full Tank squads</strong> before seriously building Aircraft or Missile.</p>
+  
   <div class="table-wrapper">
     <table>
-      <thead>
-        <tr><th>Position</th><th>Hero</th><th>Notes</th></tr>
-      </thead>
+      <thead><tr><th>Why Two Tanks Works Well</th><th>When to Finally Diversify</th></tr></thead>
       <tbody>
-        <tr><td>Front Left (Main Tank)</td><td>Williams / Murphy</td><td>Draws fire, high durability</td></tr>
-        <tr><td>Front Right</td><td>Murphy / Lucius</td><td>Secondary support</td></tr>
-        <tr><td>Back Left (Primary DPS)</td><td>Kimberly (Kim)</td><td>Highest priority UR / promotable</td></tr>
-        <tr><td>Back Center</td><td>Stetmann</td><td>Strong all-rounder</td></tr>
-        <tr><td>Back Right</td><td>Marshall / Adam</td><td>Support / secondary DPS</td></tr>
+        <tr>
+          <td class="text-sm">Tank is the most forgiving type for PvE, gathering, defense, and many Alliance events.</td>
+          <td class="text-sm">Your main Tank squad has core heroes at 4–5★ with good gear/skills and you're consistently top 50-100 on your server in relevant content.</td>
+        </tr>
+        <tr>
+          <td class="text-sm">You only need one strong counter squad later. Two solid Tanks let you handle most content while you slowly build the counter type.</td>
+          <td class="text-sm">Your server meta is heavily skewed toward one type and you're losing important fights because of type disadvantage.</td>
+        </tr>
       </tbody>
     </table>
   </div>
 
-  <p class="text-xs text-[#5e6b85]">Other strong Tank options: Scarlett (promotable), Mason (promotable), Carlie (sometimes flex).</p>
+  <h2>UR Focus vs Realistic Mid-Game Progression</h2>
+  <p>UR heroes are the correct long-term investment. Their power curve is noticeably higher once starred and geared.</p>
+  <p>However, <strong>well-built SSR heroes (especially season promotables)</strong> are perfectly viable for most mid-game content. Mason, Scarlett, Violet, Sarah, and Venom have all been strong promotable options in different seasons.</p>
 
-  <h3 class="text-base mt-6">When to Start Aircraft or Missile</h3>
-  <p>Once your main Tank squad is reliably clearing the content you care about (most Alliance events, decent Arena ranking, strong Doomed Elite performance). Then begin a second squad of the type that counters your server's meta.</p>
+  <QuickSummary title="Transition Rule">
+    <p>Keep your highest-starred SSR/promotable heroes in your main squad until you have a UR replacement at comparable or better investment. Never bench a 5★ SSR for a 1–2★ UR just because it's "UR".</p>
+  </QuickSummary>
 
-  <div class="mt-8 p-4 border border-[#3a4966] rounded text-sm">
-    <strong>Pro tip:</strong> Take screenshots of your formation and gear priorities. The difference between a "good" and "great" squad is often 10–15% better positioning and focused upgrades on 2–3 key pieces.
+  <h2>Monica — Your Elite Farming Machine</h2>
+  <div class="quick-summary">
+    <p><strong>Put Monica in your Doomed Elite squads</strong> (lead the rally or just join as a member — the bonus applies either way).</p>
+    <p class="mt-1">Her skill gives a very strong resource multiplier on elites and regular zombies. Community testing shows roughly +30% at low investment up to +70%+ when reasonably skilled.</p>
+    <p class="mt-1"><strong>Sweet spot investment:</strong> 3–4 stars + skill level 8–12 is usually enough. Do not take resources away from your main combat DPS/tanks to max her.</p>
+  </div>
+
+  <h2>Recommended Mid-Game Priority Order</h2>
+  <ol class="list-decimal pl-5 space-y-1 text-sm">
+    <li><strong>Stars on your top 3–4 heroes</strong> in the main squad (especially your primary DPS like Kim)</li>
+    <li><strong>Gear</strong> on those same heroes (Mythic/Legendary pieces first on DPS, then defensive pieces on tanks)</li>
+    <li><strong>Skills</strong> — max active skills on your main DPS before dumping everything into passives</li>
+    <li><strong>Exclusive weapons</strong> when available for your core heroes</li>
+    <li>Only then start heavily investing a second squad</li>
+  </ol>
+
+  <h2>Practical Mid-Game Example Builds</h2>
+  <p class="text-sm text-[#8a96b0]">These are directionally strong for many servers in 2026. Always adapt to what you actually have at high stars.</p>
+
+  <h3 class="text-base mt-6">Strong Tank Squad (Mid-Game)</h3>
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr><th>Position</th><th>Hero</th><th>Priority Notes</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Front Left</td><td>Williams (or Murphy)</td><td>Highest durability tank you have</td></tr>
+        <tr><td>Front Right</td><td>Murphy / Lucius</td><td>Good vs Missile, solid support</td></tr>
+        <tr><td>Back Left (Main DPS)</td><td>Kimberly (Kim)</td><td><strong>Highest priority</strong> — push stars + gear + exclusive weapon hard</td></tr>
+        <tr><td>Back Center</td><td>Stetmann</td><td>Excellent all-rounder, great in many lineups</td></tr>
+        <tr><td>Back Right</td><td>Marshall / Adam / Scarlett</td><td>Flex slot — use your best remaining starred hero</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="text-base mt-6">Example Second Squad (When Ready)</h3>
+  <p class="text-sm">Many players make their second squad another Tank until they have enough resources for a proper Aircraft or Missile squad that can actually compete.</p>
+
+  <h2>When (and How) to Start Your Second Type</h2>
+  <p>Do not start spreading resources until your main squad is "good enough" for the content that matters to you.</p>
+  <p class="text-sm mt-2">Good signals you're ready to diversify:</p>
+  <ul class="text-sm list-disc pl-5">
+    <li>Your main squad is 4–5★ on core heroes with decent Mythic gear</li>
+    <li>You're consistently clearing the Alliance events and Doomed Elites you care about</li>
+    <li>You have a decent surplus of universal shards and skill medals</li>
+  </ul>
+
+  <div class="mt-8 p-4 bg-[#1a253f] border border-[#f59e0b]/30 rounded">
+    <p class="text-sm"><strong>Final reminder:</strong> One cracked squad beats three average squads 95% of the time in mid-game. Protect your main squad's resources like they're gold — because for the next few months, they are.</p>
   </div>
 </Layout>
