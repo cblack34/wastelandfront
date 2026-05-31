@@ -49,7 +49,7 @@ docker build -t wastelandfront:latest .
 ### Run with Docker
 
 ```bash
-docker run -p 8080:80 wastelandfront:latest
+docker run -p 8080:8080 wastelandfront:latest
 ```
 
 Then visit **http://localhost:8080**

@@ -12,7 +12,7 @@ WORKDIR /app
 
 # Install dependencies first (better layer caching)
 COPY package*.json ./
-RUN npm ci --only=production=false
+RUN npm ci
 
 # Copy source and build
 COPY . .
@@ -42,12 +42,12 @@ RUN chown -R nginxuser:nginxuser /usr/share/nginx/html && \
 # Switch to non-root user
 USER nginxuser
 
-# Expose port
-EXPOSE 80
+# Expose port (internal port is 8080)
+EXPOSE 8080
 
 # Healthcheck (used by Docker and orchestrators)
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
-    CMD wget --no-verbose --tries=1 --spider http://localhost/health || exit 1
+    CMD wget --no-verbose --tries=1 --spider http://localhost:8080/health || exit 1
 
 # Start nginx (in foreground)
 CMD ["nginx", "-g", "daemon off;"]
