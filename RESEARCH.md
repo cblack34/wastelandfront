@@ -8,6 +8,37 @@ Living list of everything to research before rewriting site content. Goal: repla
 
 ---
 
+## 0. Content repair — full-site audit, July 2026 (P0, blocks new content)
+
+Adversarial audit of all 19 pages (5 research clusters, per-claim verification; full findings in [#37](https://github.com/cblack34/wastelandfront/pull/37)). Verdicts: no page needs DELETE; base-building/resources/aircraft/missile need REWRITE; heroes/upgrade-roadmap are the strongest pages but still carry confirmed errors. **Rule: nothing new ships until the P0 fixes land.** Each item below is one story-sized PR; every fix must carry its citations and add/refresh the page's "Last verified" stamp.
+
+### P0 — confirmed wrong facts (correction known, cited)
+
+- [ ] heroes.astro: move Lucius (Aircraft-type) and Adam (Missile-type) out of "Tanks (front row)"; move Stetmann from Support to DPS/all-rounder; clarify Morrison's −25% DEF shred is a stacking debuff (5%/hit, 25% cap over 9s); add Season 6 / Hero Awakening context to the S1–S5 EW list
+- [ ] upgrade-roadmap.astro: fix EW L30 cumulative total 2,830 → 2,880 (internal math error); narrow the shard-refund claim to Wall of Honor shards only (star-ascension shards do NOT refund — page currently contradicts its own WoH section); Resonance triggers on chip rarity (4× Legendary/Epic), not star level; drone left/right framing (left drops ~2×, that's why choice-picks go right); complete the T10 gate (also Barracks L30 + Special Forces research)
+- [ ] events.astro: fix the Saturday shield claim — scouting/attacking triggers War Fever (blocks shield *activation* ~15 min), it does not permanently pop an active shield; fix Desert Storm scale (not 20v20 — task forces up to 60/side); downgrade every single-source point value in the VS day table to an explicit [VERIFY] flag; remove or flag the unverified "Duel Expert" / "Premium Rewards" research names; soften the Dec-2025 schedule-unification claim until verified against a live source
+- [ ] stats.astro: remove or reconcile the "2M T1 ≈ 292K effective vs 1M T10" example (contradicts the page's own T1=24/T10=1,647 figures by 10×); label "Murphy Exception" as a house term, not community consensus; reframe Severe Wound −5% per the official Zendesk wording (active combat effect while Armored units attack, not passive spec stat); flag the type-counter cycle direction as disputed between sources
+- [ ] resource-chest-calculator: switch gold-coin factor to 0.60 (cited by theriagames) unless 0.636 can be reproduced from a live calculator screenshot — 0.636 is numerically identical to the page's own HQ20→35 growth ratio (12,600/19,800), almost certainly a derivation mix-up; fix the Hero EXP exclusion rationale (the ratios 10.0/80.1/240.3× DO match the standard pattern — correct reason is "base figures unsourced"); fix the self-contradictory "8.6K → 8,424" example (anchor is 8,640)
+- [ ] speedup-calculator: rewrite the QuickSummary "spend rule" (currently double-counts Friday, omits Mon/Thu/Sat and Healing entirely) as a day-by-theme table sourced from lastwartutorial VS/Arms Race pages; flag 15m/30m/24h denominations as unconfirmed
+- [ ] Cross-site naming & citation fixes (one PR): "Doomed Elites" → "Doom Elites" (resources, getting-started, squad-building, README); resolve "Alliance Trial" per page context (alliance-tools' rally event → Alliance Duel; index's reminder example → General's Trial — verify each); delete the fabricated "tooltician's Black Market guide" citation (stores); delete or fix the Bond Badges / Universal Overlord Shards Alliance Store line (they belong to Gorilla Overlord / General's Trial systems); fix tools.astro "Coming Soon" still listing the shipped resource calculator; verify-or-remove the Aethernis (Server #1210) attribution + ko-fi link on squad-building/tank/community (unverified named person + payment link = liability)
+- [ ] Honesty pass on verification language: events.astro footer ("matches every screenshot-verified community source"), stats.astro footer ("cross-checked against 2+ sources"), tools.astro ("independently validated") all overclaim vs audit findings — soften each until the underlying claims are actually verified; getting-started's "70% of your power" and base-building's "first 30–45 days" are unsourced invented precision — cut or explicitly label as opinion
+
+### P1 — rewrites (research first, then page-writer)
+
+- [ ] base-building.astro REWRITE — worst page on the site (~90% generic): invents building names ("Troop Center", "Research Lab", "Gear Workshop"; real: Tank/Air/Missile Center, Tech Center, Gear Factory, Drill Ground), zero numbers, no stamp. Needs real HQ-gated building research first
+- [ ] resources.astro REWRITE (~60–70% generic) — keep the Monica/Doom Elite mechanic (fix name, source the bonus %: 25 vs 39% disputed), correct or remove the Arms Race chest-timing advice (sources say phase-matched, not final-hours hoarding), replace unsourced priority rankings with cited numbers or cut
+- [ ] aircraft.astro + missile.astro — either complete as real guides (needs hero-type verification for DVA/Carlie/Schuyler and Tesla/Swift/McGregor first) or strip to honest placeholders that make no unverified type claims
+- [ ] alliance-tools.astro — fix the data-copy vs visible-text mismatches in 3 of 4 templates (copy button copies different text than shown); replace generic filler templates with event-specific ones after Alliance Duel research
+
+### P2 — external verification gaps (single-source or site-internal-only claims)
+
+- [ ] Mono-type formation bonus (+5/10/15/20%) and ±20% type-counter cycle: only ever self-cited between our own pages; already flagged "reverse-engineered only" in §1. Get Tier-1/2 citations or in-game screenshots — Whiteout Survival contamination is the named risk
+- [ ] Re-run the squad-cluster research passes that didn't complete in the audit (squad-building, aircraft, missile, tank external verification; row-targeting; wishlist ~10 shards/200 recruits; 5★ EW/WoH gate)
+- [ ] "Season Hero Swap vouchers" (heroes.astro): highest fabrication suspicion on the site — no footprint anywhere else in the repo; verify it exists or remove
+- [ ] "Back row center targeted last" (squad-building, tank): zero corroboration for within-row targeting priority — source or cut
+- [ ] Monica/Doom-Elite bonus % + 3–4★ threshold: README markets it as a differentiator while this backlog flags it unverified — escalated priority
+- [ ] Single-source store numerics (stores.astro): Dielectric Ceramic VIP 6 vs 9; Campaign Store #1-buy priority (disputed); Black Market daily cap/refresh; "Season Medals" vs "Season Points" naming
+
 ## 1. Stats & Combat Mechanics (P0)
 
 - [ ] **P0** Full stat glossary with practical effect of each: Squad ATK / DEF / HP, type-specific bonuses (Tank/Missile Vehicle/Aircraft ATK/DEF/HP), Hero ATK/DEF/HP, Crit, Skill/tactic damage, Damage Reduction, Morale, Troop Load, Power, march size
