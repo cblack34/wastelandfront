@@ -107,7 +107,6 @@ Build interactive calculators. **Rule: validate every assumption and number inde
 - [ ] Troop training cost/time calculator (incl. T10→T11 promotion math)
 - [ ] Arms Race / VS point planner: given planned spends, projected points/chest thresholds
 - [ ] Candidates no one has built well: hospital/healing cost, Wall of Honor material planner, wishlist ROI, march-size stacking
-- [ ] Officer/squad positioning FAQ; awakening schedule per season week
 
 ## Inbox (unsorted — add new items here)
 
