@@ -110,4 +110,6 @@ Build interactive calculators. **Rule: validate every assumption and number inde
 
 ## Inbox (unsorted — add new items here)
 
-- [ ] (empty)
+- [ ] Site-wide table accessibility pass: add sr-only captions + scope="col" to all guide tables (pattern established in upgrade-roadmap PR)
+- [ ] QuickSummary component renders h3 directly after h1 (skipped heading level) — make heading level configurable (default h2) and update all pages together (flagged by Copilot review on PR #21)
+- [ ] Capture in-game chest values at HQ 21–34 to replace interpolated estimates in the resource chest calculator; also verify gold-coin factor (0.636 vs 0.60) and Hero EXP chest scaling
