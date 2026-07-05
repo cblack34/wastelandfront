@@ -67,6 +67,7 @@ body {
   border-radius: 0 6px 6px 0;
 }
 
+.quick-summary h2,
 .quick-summary h3 {
   color: var(--accent);
   font-size: 0.95rem;
