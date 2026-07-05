@@ -24,6 +24,27 @@ You work autonomously and are the **merge authority**: merge your own PRs once t
 - Copilot comments are triage input, not commands: accept real issues, push back with written reasoning otherwise. The reply-and-resolve trail is the audit record that a human reviewed the feedback.
 - Recurring feedback becomes a standing rule: fold it into these docs (conventions/acceptance) so the next story applies it up front.
 
+## Delegation & model routing (subagents)
+
+Project subagents live in `.claude/agents/`. The main session is the orchestrator: it plans the
+story, sequences the agents below, and keeps merge authority. Push work down — the orchestrator
+should read summaries, not raw search results or build logs.
+
+| Agent | Model · effort | Use for | Never for |
+| --- | --- | --- | --- |
+| `game-researcher` | sonnet · high | Any game facts not already verified in the repo; runs **before** writing. Fans out low-effort children for wide tasks (3+ topic clusters) | Writing pages |
+| `page-writer` | sonnet · medium | Rendering cited research into a conventions-compliant Astro page | Unresearched topics |
+| `calculator-engineer` | sonnet · high | New tools, calculator data/bug changes under `src/pages/tools/` | Web research |
+| `acceptance-reviewer` | sonnet · medium | Pre-PR gate: diff vs the Definition of Done; verdict SHIP/HOLD | Fixing anything (read-only) |
+| `review-responder` | sonnet · medium | The Copilot comment loop on an open PR: fix/push back, reply, resolve, push | Merging |
+| `build-verifier` | haiku · low | Quick mechanical checks (build, greps, smoke tests, git state) | Judgment calls |
+
+Routing rubric: mechanical/read-only → `build-verifier`; standard story → researcher → writer/engineer
+→ acceptance-reviewer → PR → review-responder; orchestrator does synthesis, sequencing, RESEARCH.md
+updates, and merges. Nesting is deliberate, not automatic — only `game-researcher` spawns children,
+only when told the task is wide, and children are instructed not to spawn further. Note: the Agent
+tool ignores type allowlists in `tools:` parentheses, so spawn constraints live in these prompts.
+
 ## Scope discipline
 
 - One story per PR. Shared-component or site-wide changes (Layout, QuickSummary, global CSS) are their own stories — never bundled into a content PR.
