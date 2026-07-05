@@ -106,6 +106,12 @@ import QuickSummary from '../../components/QuickSummary.astro';
       return Math.round(12600 + (hq - 20) * 480);
     }
 
+    function clampInt(value, min, max, fallback) {
+      const n = parseInt(value, 10);
+      if (Number.isNaN(n)) return fallback;
+      return Math.min(max, Math.max(min, n));
+    }
+
     function chestValue(hq, resource, rarity) {
       const base = greenValue(hq) * RARITY_MULT[rarity];
       return resource === 'gold' ? Math.round(base * GOLD_COIN_FACTOR) : base;
@@ -122,14 +128,18 @@ import QuickSummary from '../../components/QuickSummary.astro';
       let total = 0;
       for (const r of RARITIES) {
         const el = document.getElementById('c-' + resource + '-' + r);
-        total += (parseInt(el.value, 10) || 0) * chestValue(hq, resource, r);
+        total += clampInt(el.value, 0, 999999, 0) * chestValue(hq, resource, r);
       }
       return total;
     }
 
     function recalc() {
-      const hq = parseInt(document.getElementById('hq-level').value, 10);
-      const target = parseInt(document.getElementById('target-hq').value, 10);
+      const hqEl = document.getElementById('hq-level');
+      const targetEl = document.getElementById('target-hq');
+      const hq = clampInt(hqEl.value, 15, 35, 25);
+      const target = clampInt(targetEl.value, 15, 35, 30);
+      hqEl.value = String(hq);
+      targetEl.value = String(target);
       document.getElementById('hq-value').textContent = String(hq);
       document.getElementById('target-value').textContent = String(target);
       document.getElementById('hq-note').textContent = VERIFIED_LEVELS.has(hq)
@@ -143,22 +153,37 @@ import QuickSummary from '../../components/QuickSummary.astro';
         document.getElementById('t-' + res).textContent = fmt(stackTotal(hq, res));
       }
 
-      const nowTotal = RESOURCES.reduce((s, res) => s + stackTotal(hq, res), 0);
-      const thenTotal = RESOURCES.reduce((s, res) => s + stackTotal(target, res), 0);
+      // All chest values scale by the same HQ factor, so the % change is
+      // identical for every resource — report it once, with per-resource deltas.
       const resultEl = document.getElementById('wait-result');
-      if (nowTotal === 0) {
+      const anyStack = RESOURCES.some((res) => stackTotal(hq, res) > 0);
+      if (!anyStack) {
         resultEl.textContent = 'Enter some chest counts above to compare.';
+      } else if (target === hq) {
+        resultEl.textContent = 'Same HQ level — no difference.';
       } else {
-        const diff = thenTotal - nowTotal;
-        const pct = ((thenTotal / nowTotal - 1) * 100).toFixed(1);
-        resultEl.innerHTML = diff > 0
-          ? 'Waiting would add <strong>+' + fmt(diff) + '</strong> total resources (<strong>+' + pct + '%</strong>). Open only what you need now.'
-          : diff < 0
-            ? 'That target is <em>lower</em> than your current HQ — opening now is worth ' + fmt(-diff) + ' more.'
-            : 'Same HQ level — no difference.';
+        const pct = ((greenValue(target) / greenValue(hq) - 1) * 100).toFixed(1);
+        const parts = [];
+        for (const res of RESOURCES) {
+          const now = stackTotal(hq, res);
+          if (now === 0) continue;
+          const diff = stackTotal(target, res) - now;
+          const label = res === 'gold' ? 'Gold' : res.charAt(0).toUpperCase() + res.slice(1);
+          parts.push(label + ' ' + (diff >= 0 ? '+' : '−') + fmt(Math.abs(diff)));
+        }
+        resultEl.innerHTML = target > hq
+          ? 'Waiting is worth <strong>+' + pct + '%</strong> per chest: ' + parts.join(' · ') + '. Open only what you need now.'
+          : 'That target is <em>lower</em> than your current HQ (' + pct + '% per chest): ' + parts.join(' · ') + '.';
       }
 
-      saveState();
+      requestSave();
+    }
+
+    let saveTimer = null;
+    function requestSave() {
+      // Debounced: recalc runs per keystroke, but localStorage writes at most ~3/sec.
+      if (saveTimer) clearTimeout(saveTimer);
+      saveTimer = setTimeout(saveState, 300);
     }
 
     function saveState() {
