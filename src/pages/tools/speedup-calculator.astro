@@ -38,7 +38,7 @@ import QuickSummary from '../../components/QuickSummary.astro';
       <label>Hours<br/><input type="number" min="0" value="0" id="t-hours" class="chest-input" /></label>
       <label>Minutes<br/><input type="number" min="0" value="0" id="t-mins" class="chest-input" /></label>
     </div>
-    <div id="target-result" class="text-sm mt-3"></div>
+    <div id="target-result" class="text-sm mt-3" role="status" aria-live="polite"></div>
   </div>
 
   <h2>Notes</h2>
@@ -57,6 +57,14 @@ import QuickSummary from '../../components/QuickSummary.astro';
       const n = parseInt(value, 10);
       if (Number.isNaN(n)) return fallback;
       return Math.min(max, Math.max(min, n));
+    }
+
+    // Clamp AND normalize the visible input so the UI never shows a value
+    // different from what the math uses (review feedback on PR #27).
+    function readClamped(el, min, max, fallback) {
+      const n = clampInt(el.value, min, max, fallback);
+      if (el.value !== '' && String(n) !== el.value) el.value = String(n);
+      return n;
     }
 
     function fmtMins(total) {
@@ -86,7 +94,7 @@ import QuickSummary from '../../components/QuickSummary.astro';
     function catTotal(cat) {
       let mins = 0;
       DENOMS.forEach((d, i) => {
-        mins += clampInt(document.getElementById('s-' + cat + '-' + i).value, 0, 99999, 0) * d;
+        mins += readClamped(document.getElementById('s-' + cat + '-' + i), 0, 99999, 0) * d;
       });
       return mins;
     }
@@ -100,9 +108,9 @@ import QuickSummary from '../../components/QuickSummary.astro';
 
       const cat = document.getElementById('target-cat').value;
       const target =
-        clampInt(document.getElementById('t-days').value, 0, 9999, 0) * 1440 +
-        clampInt(document.getElementById('t-hours').value, 0, 9999, 0) * 60 +
-        clampInt(document.getElementById('t-mins').value, 0, 99999, 0);
+        readClamped(document.getElementById('t-days'), 0, 9999, 0) * 1440 +
+        readClamped(document.getElementById('t-hours'), 0, 9999, 0) * 60 +
+        readClamped(document.getElementById('t-mins'), 0, 99999, 0);
       const el = document.getElementById('target-result');
       if (target === 0) {
         el.textContent = 'Enter your target time (from the in-game timer).';
@@ -146,7 +154,13 @@ import QuickSummary from '../../components/QuickSummary.astro';
     }
 
     loadState();
-    document.querySelectorAll('input, select').forEach((el) => el.addEventListener('input', recalc));
+    // Scope listeners to this tool's controls only (event delegation on the
+    // grid body + the four target controls) so unrelated page inputs never
+    // trigger recalcs or localStorage writes.
+    tbody.addEventListener('input', recalc);
+    for (const id of ['target-cat', 't-days', 't-hours', 't-mins']) {
+      document.getElementById(id).addEventListener('input', recalc);
+    }
     recalc();
   </script>
 
