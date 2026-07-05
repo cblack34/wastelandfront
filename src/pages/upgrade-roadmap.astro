@@ -1,0 +1,127 @@
+---
+import Layout from '../layouts/Layout.astro';
+import QuickSummary from '../components/QuickSummary.astro';
+---
+
+<Layout title="Upgrade Roadmap" description="Where to invest in Last War: Survival — gear vs Exclusive Weapons vs Wall of Honor vs drone, with a concrete priority order for HQ 15-20, 20-25, and 25-30.">
+  <h1>Upgrade Roadmap</h1>
+  <p class="text-lg text-[#8a96b0]">Gear vs Exclusive Weapons vs Wall of Honor vs drone — what actually competes with what, and the order to do it in. Last verified: July 2026.</p>
+
+  <QuickSummary>
+    <p><strong>The one-line version:</strong> HQ level → main-squad hero stars (race carry + tank to 5★) → carry's EW to level 20 → carry's Gun to Legendary 4★ → Wall of Honor with surplus shards → drone chips at ~day 85 → Mythic Gun at HQ 25+. Never split blueprints or EW shards across heroes.</p>
+  </QuickSummary>
+
+  <h2>First: Most Systems Don't Actually Compete</h2>
+  <p class="text-sm">"Gear vs EW" is mostly a false choice — they run on separate, non-transferable currencies. The real decisions live where currencies overlap:</p>
+  <div class="table-wrapper">
+    <table>
+      <caption class="sr-only">Upgrade systems that compete for the same resources, and the recommended choice for each</caption>
+      <thead>
+        <tr><th scope="col">Real trade-off</th><th scope="col">The call</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Hero shards:</strong> stars vs Wall of Honor</td><td>Stars first (they gate EW unlock and Wall of Honor itself). Softened by a key mechanic: shards invested in SSRs are <em>refunded on UR promotion</em>, so early investment is low-risk.</td></tr>
+        <tr><td><strong>Honor Points:</strong> blueprints vs everything else</td><td>Legendary Blueprints every refresh. Nothing else.</td></tr>
+        <tr><td><strong>Alliance Coins:</strong> hero shards vs drone parts</td><td>Shards until your core 5 are built, then drone parts.</td></tr>
+        <tr><td><strong>Diamonds</strong></td><td>VIP points until VIP 6 (second builder), then stamina/ceramics.</td></tr>
+        <tr><td><strong>Construction queue time</strong></td><td>HQ chain first; Component Factory and Chip Lab ride alongside, never ahead.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Gear (Blueprints)</h2>
+  <ul class="text-sm space-y-1">
+    <li><strong>Slot order, DPS:</strong> Gun first — universal consensus. Second slot is genuinely disputed (Chip vs Radar camps); pick per your PvP exposure. <strong>Tanks:</strong> Armor/Radar first, Gun last.</li>
+    <li><strong>Stars:</strong> Legendary stars cost 5/10/15/20 blueprints (50 total per piece); a piece must be Legendary 4★ at Level 40 before Mythic promotion.</li>
+    <li><strong>One hero, one piece at a time.</strong> First Mythic target = your carry's Gun (Kimberly in Tank meta). The one sanctioned detour: Murphy's Radar for team-wide damage reduction.</li>
+    <li><strong>Blueprint income</strong> is gated almost entirely by the Honor Shop plus Ammo Bonanza and season events. Realistic F2P timeline: first Mythic piece ≈ server day 100+.</li>
+    <li>Gun and EW are <strong>multiplicative</strong> — grow them together.</li>
+  </ul>
+
+  <h2>Exclusive Weapons — The Best-Documented Math in the Game</h2>
+  <p class="text-sm">Unlock: <strong>50 named shards</strong> + hero at 5★. Cost per level rises in bands: 20/level (1–5), 40 (5–10), 60 (10–15), 100 (15–20), 150 (20–25), 200 (25–30).</p>
+  <div class="table-wrapper">
+    <table>
+      <caption class="sr-only">Exclusive Weapon shard costs by milestone level</caption>
+      <thead>
+        <tr><th scope="col">Milestone</th><th scope="col">Cumulative shards</th><th scope="col">What you get</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Unlock</td><td>50</td><td>EW active, ~0.3M squad power</td></tr>
+        <tr><td><strong>Level 20</strong></td><td>1,130</td><td><strong>+7.5% boost — the stop point.</strong> Best cost/benefit in the game.</td></tr>
+        <tr><td>Level 30</td><td>2,830 (another 1,750 for the back half)</td><td>Deliberately bad value until every main-squad EW is at 20.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <ul class="text-sm space-y-1 mt-2">
+    <li><strong>Order:</strong> carry first (Kimberly in Tank meta), then your #2 and #3 heroes to 20 before anyone goes past 20.</li>
+    <li><strong>Universal shards:</strong> bank surplus for next season's EW so it hits 20 immediately. F2P unlock path: post-season Black Market shard boxes.</li>
+    <li>Every 3 EW levels raises the skill cap by 1 — but those skill levels cost 10,000+ medals each past 20. Don't chase them mid-game.</li>
+  </ul>
+
+  <h2>Wall of Honor</h2>
+  <ul class="text-sm space-y-1">
+    <li><strong>Unlock:</strong> hero at 5★ + that troop type's Center (Tank/Missile/Aircraft) at level 20.</li>
+    <li><strong>Fuel:</strong> surplus hero shards — and they're <em>refunded if the hero promotes to UR</em>, so there's no waste.</li>
+    <li><strong>Order: ATK → DEF → HP, skip Troop Load.</strong> This is real consensus across sources. Bonuses apply to <em>all</em> heroes of that troop type and stack with gear/EW/research.</li>
+    <li>No level cap; every 50 levels the bonus ticks up (+0.25% to +1.00% depending on hero). Focus one ATK hero (Kimberly/Mason for Tank) rather than spreading.</li>
+  </ul>
+
+  <h2>Tactical Drone &amp; Chips</h2>
+  <ul class="text-sm space-y-1">
+    <li>The drone buffs <strong>every squad in every battle</strong> — its daily habits are near-free and always worth doing: collect Component Factory chests, always pick <strong>right-side components</strong> (Missile/Fuel Cell/Thermal Imager — left-side drops passively at ~2× the rate anyway).</li>
+    <li><strong>Combat Boost level 10 opens all four chip slots</strong> (arrives ~server day 85 via Age-of-Oil tech).</li>
+    <li><strong>Chip priority, 2026 meta: Interference first</strong> (counters tactic-damage burst), then Defense → Initial → Attack. Note: 2024–25 guides said Attack second — that meta shifted, ignore older advice.</li>
+    <li>Keep all four chips at <strong>uniform star levels</strong> for the Resonance set bonus. Park the Chip Lab at level 20; 21–35 is expensive polish.</li>
+    <li>Drone <em>spending</em> ranks below carry EW-20 and carry Gun; drone <em>habits</em> rank above almost everything because they're free.</li>
+  </ul>
+
+  <h2>Hero Investment: Stars &gt; Levels &gt; Skills</h2>
+  <ul class="text-sm space-y-1">
+    <li><strong>Stars are the biggest ROI</strong> — base stats plus they gate skill caps, EW unlock, and Wall of Honor. 5★ on your carry and tank is the mid-game race.</li>
+    <li><strong>Levels</strong> are cheap, steady, capped by HQ — they ride HQ progression.</li>
+    <li><strong>Skill medals:</strong> spread relatively evenly across squad #1; costs spike hard past level 20. Medals are refunded on UR promotion too.</li>
+    <li>Build exactly one squad of 5 before anything else gets a single shard.</li>
+  </ul>
+
+  <h2>The Roadmap</h2>
+
+  <h3>HQ 15–20 — build the engine</h3>
+  <ol class="list-decimal pl-5 text-sm space-y-1 mt-2">
+    <li>HQ + economy buildings + Development/Economy research — everything else is gated behind these.</li>
+    <li>Hero stars + levels for squad #1 only; race carry and tank toward 5★.</li>
+    <li>Free drone habits: daily Component Factory, right-side rule, level drone with Battle Data.</li>
+    <li>Craft/level whatever gear you have; dismantle SR gear. Blueprints barely flow yet.</li>
+    <li><strong>Ignore:</strong> decorations (event freebies only), EW (gated anyway), Mythic anything, second squad.</li>
+  </ol>
+
+  <h3>HQ 20–25 — the EW-20 and Legendary-gear window</h3>
+  <ol class="list-decimal pl-5 text-sm space-y-1 mt-2">
+    <li><strong>Carry's EW to level 20</strong> — 1,130 shards for +7.5% is the best pound-for-pound buy in this band.</li>
+    <li>Honor Shop discipline: Legendary Blueprints every refresh. Push carry's Gun to Legendary 4★ / Lv 40.</li>
+    <li>Wall of Honor: troop Centers to 20, then dump surplus shards into your top ATK hero.</li>
+    <li>Drone Combat Boost to 10 (~day 85); equip 4 Epic chips immediately, Interference first.</li>
+    <li>Research: Alliance Duel tree + hero-gear nodes.</li>
+    <li>Squad #1 all 5★; squad #2 gets hand-me-down gear only.</li>
+  </ol>
+
+  <h3>HQ 25–30 — concentrate into Mythic and chips</h3>
+  <ol class="list-decimal pl-5 text-sm space-y-1 mt-2">
+    <li><strong>Carry's Mythic Gun</strong> — never split blueprints across heroes. Then Chip or Radar second (the documented community split), with Murphy's Radar as the team-wide detour.</li>
+    <li>EWs to 20 on heroes #2 and #3 before anyone goes 20→30.</li>
+    <li>Legendary chips + Resonance uniformity; stockpile Drone Parts for the post-150 wall.</li>
+    <li><strong>Don't let any of this delay HQ 30 + Tech Center 30</strong> — T10 troops are the single biggest power cliff in this range.</li>
+    <li>Wall of Honor becomes the long-term sink for now-surplus shards (ATK → DEF → HP).</li>
+    <li>Decorations: take event-earned ones (Damage Reduction lines first); never a spending priority.</li>
+  </ol>
+
+  <h2>Where the Community Disagrees</h2>
+  <ul class="text-sm space-y-1">
+    <li><strong>Chip vs Radar</strong> as the second Mythic slot (survivability camp vs multiplier camp).</li>
+    <li><strong>EW straight to 30</strong> for spenders — consensus says no until all main EWs are 20, but whale guides differ.</li>
+    <li><strong>Drone chip order</strong> — settled in 2026 (Interference first), but older guides still circulate the Attack-second advice.</li>
+    <li>Unverified numbers we're tracking: the Honor Shop monthly blueprint cap, the drone parts-per-level curve past 150, and exact per-tier gear stat values. Flagged rather than asserted.</li>
+  </ul>
+
+  <p class="mt-4 text-xs text-[#8a96b0]">Sources: cpt-hedge.com (EW cost table — verified against lastwarhandbook's chart), lastwarvault.com (Mythic gear, Wall of Honor), lastwar.wiki (WoH per-hero table), lastwar-tutorial.com (hero leveling), packsify.com (drone, research), heaven-guardian.com (chips). 2025–2026 pages; meta shifts are called out where they happened.</p>
+</Layout>
