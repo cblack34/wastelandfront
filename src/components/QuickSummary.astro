@@ -1,12 +1,14 @@
 ---
 export interface Props {
   title?: string;
+  level?: 2 | 3 | 4 | 5 | 6;
 }
 
-const { title = "Quick Summary" } = Astro.props;
+const { title = "Quick Summary", level = 2 } = Astro.props;
+const Heading = `h${level}`;
 ---
 
 <div class="quick-summary">
-  <h3>{title}</h3>
+  <Heading>{title}</Heading>
   <slot />
 </div>

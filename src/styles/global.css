@@ -67,7 +67,7 @@ body {
   border-radius: 0 6px 6px 0;
 }
 
-.quick-summary h3 {
+.quick-summary :is(h2, h3, h4, h5, h6) {
   color: var(--accent);
   font-size: 0.95rem;
   font-weight: 600;
