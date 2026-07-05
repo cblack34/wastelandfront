@@ -12,7 +12,7 @@ Every guide page follows this skeleton, top to bottom:
 ## Components & styling
 
 - Layout: `src/layouts/Layout.astro` (nav, footer, SEO tags). Pages pass `title` and `description` props.
-- `<QuickSummary>`: `src/components/QuickSummary.astro`. Known issue: it renders an `h3` directly after the page `h1` (skipped heading level) — a configurable-heading fix is in the RESEARCH.md backlog; don't work around it per-page.
+- `<QuickSummary>`: `src/components/QuickSummary.astro`. Heading level is configurable via the `level` prop (2–6, default `2`); the default is correct when the component sits directly after the page `h1` — only pass `level` when it's nested deeper.
 - Tailwind v4 utility classes; site palette: background `#0b1220`/`#0e1730`, borders `#2a3854`, body text `#e5e9f2`, muted `#8a96b0`, accent `#f59e0b`.
 - Tables: wrap in `<div class="table-wrapper">`.
 
