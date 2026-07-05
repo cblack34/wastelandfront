@@ -98,13 +98,13 @@ The big one: where does each resource/currency go, in what order, at each HQ ban
 
 Build interactive calculators. **Rule: validate every assumption and number independently** (in-game verification or multiple corroborating sources) — don't copy other sites' numbers blind. Document our validation for each.
 
-- [ ] **P0** Resource Chest calculator (like lastwarvault.com/resource-chests/): total resources from banked chests by tier/size. Validate chest yield tables ourselves
+- [x] **P0** Resource Chest calculator (like lastwarvault.com/resource-chests/): total resources from banked chests by tier/size. Validate chest yield tables ourselves — built in [#22](https://github.com/cblack34/wastelandfront/pull/22)
 - [ ] **P0** Survey existing calculators (cpt-hedge.com/calculators, lastwar.streamlit.app, lastwarnexus.net, lastwarvault) — what exists, what's wrong/stale, what's missing
-- [ ] Speedup calculator: total speedup time in inventory vs a build/research target
+- [x] Speedup calculator: total speedup time in inventory vs a build/research target — built in [#27](https://github.com/cblack34/wastelandfront/pull/27)
 - [ ] Gear cost calculator: blueprints/materials from current → target tier
 - [ ] EW shard calculator: shards needed to level X→Y (validate the lvl-20 breakpoint math)
 - [ ] Drone chip / Combat Data calculator
-- [ ] Troop training cost/time calculator (incl. T10→T11 promotion math)
+- [ ] Troop training cost/time calculator (incl. T10→T11 promotion math) — **BLOCKED on in-game capture** (researched July 2026: no Tier-1/2 source publishes per-troop cost or per-tier time data at any tier; building on placeholders would violate editorial standards). Key corrections from research: single troop line T1–T11 (no per-type cost split — that's Whiteout Survival contamination); T11 is promotion-only from T10, so the useful output is promotion cost/time, not promote-vs-train comparison. See capture items in Inbox.
 - [ ] Arms Race / VS point planner: given planned spends, projected points/chest thresholds
 - [ ] Candidates no one has built well: hospital/healing cost, Wall of Honor material planner, wishlist ROI, march-size stacking
 
@@ -113,3 +113,8 @@ Build interactive calculators. **Rule: validate every assumption and number inde
 - [ ] Site-wide table accessibility pass: add sr-only captions + scope="col" to all guide tables (pattern established in upgrade-roadmap PR)
 - [ ] QuickSummary component renders h3 directly after h1 (skipped heading level) — make heading level configurable (default h2) and update all pages together (flagged by Copilot review on PR #21)
 - [ ] Capture in-game chest values at HQ 21–34 to replace interpolated estimates in the resource chest calculator; also verify gold-coin factor (0.636 vs 0.60) and Hero EXP chest scaling
+- [ ] In-game capture pass for troop training data (unblocks the troop training calculator): per-troop Food/Iron/Coin cost T1–T11 (screenshot Barracks screen per tier); per-tier training time at a reference Barracks level; whether cost/time scale linearly with queue quantity (time 10 vs 100 at same tier — single-sourced from lastwartutorial.com, highest-priority test); speed-bonus stacking model (additive vs multiplicative — A/B toggle VIP/research/building buffs); Drill Ground capacity per level and HQ 16/21 unlock gates; marginal per-troop T10→T11 promotion cost/time (distinct from the Armament Institute unlock cost)
+- [ ] Verify T11 unlock cost (120k Armament Materials + 200 Armament Cores + 1.2M Oil) and HQ 27 / Season-4 off-season gating against the official Zendesk "Lv11 Unit Info" article (403 to automated fetch) or in-game screenshot — currently single-source (cpt-hedge)
+- [ ] Confirm or reject "assign survivors to Barracks increases training cap" — appeared in fetch summaries but no Last War source confirms; likely cross-game contamination
+- [ ] Manual browser check of cpt-hedge.com /buildings/barracks and /calculators (automated fetch 403'd twice) for troop cost/time tables that may already exist; also check whether lastwar.streamlit.app's login wall is permanent before citing it as dead in competitor copy
+- [ ] Confirm VIP training/research speed percentages with a Tier-1/2 source before use (only Tier-3 ldshop.gg cites "VIP 11: +15% research"; VIP 16 training claim is vague)
