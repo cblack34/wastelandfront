@@ -19,12 +19,12 @@
     "audit:contrast:tokens": "node scripts/contrast-audit.js"
   },
   "dependencies": {
+    "@tailwindcss/vite": "^4.3.2",
     "astro": "^7.0.6"
   },
   "devDependencies": {
     "@astrojs/sitemap": "^3.7.3",
     "@lhci/cli": "^0.15.1",
-    "@tailwindcss/postcss": "^4.3.0",
     "puppeteer": "^25.1.0",
     "tailwindcss": "^4.3.0"
   }
