@@ -92,7 +92,21 @@ The big one: where does each resource/currency go, in what order, at each HQ ban
 - [ ] Gift/redeem codes page (evergreen SEO, needs maintenance plan)
 - [ ] March size optimization (Drill Ground, type Centers, Shirley)
 - [ ] Alliance leadership: rally etiquette, tech donations, reinforcement rules
-- [ ] Calculators to emulate: gear cost, drone chips, troop training (cpt-hedge.com/calculators, lastwar.streamlit.app, lastwarnexus.net)
+- [ ] Officer/squad positioning FAQ; awakening schedule per season week
+
+## 8. Calculator Tools (P0 — requested)
+
+Build interactive calculators. **Rule: validate every assumption and number independently** (in-game verification or multiple corroborating sources) — don't copy other sites' numbers blind. Document our validation for each.
+
+- [ ] **P0** Resource Chest calculator (like lastwarvault.com/resource-chests/): total resources from banked chests by tier/size. Validate chest yield tables ourselves
+- [ ] **P0** Survey existing calculators (cpt-hedge.com/calculators, lastwar.streamlit.app, lastwarnexus.net, lastwarvault) — what exists, what's wrong/stale, what's missing
+- [ ] Speedup calculator: total speedup time in inventory vs a build/research target
+- [ ] Gear cost calculator: blueprints/materials from current → target tier
+- [ ] EW shard calculator: shards needed to level X→Y (validate the lvl-20 breakpoint math)
+- [ ] Drone chip / Combat Data calculator
+- [ ] Troop training cost/time calculator (incl. T10→T11 promotion math)
+- [ ] Arms Race / VS point planner: given planned spends, projected points/chest thresholds
+- [ ] Candidates no one has built well: hospital/healing cost, Wall of Honor material planner, wishlist ROI, march-size stacking
 - [ ] Officer/squad positioning FAQ; awakening schedule per season week
 
 ## Inbox (unsorted — add new items here)
