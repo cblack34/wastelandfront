@@ -98,9 +98,9 @@ The big one: where does each resource/currency go, in what order, at each HQ ban
 
 Build interactive calculators. **Rule: validate every assumption and number independently** (in-game verification or multiple corroborating sources) — don't copy other sites' numbers blind. Document our validation for each.
 
-- [ ] **P0** Resource Chest calculator (like lastwarvault.com/resource-chests/): total resources from banked chests by tier/size. Validate chest yield tables ourselves
+- [x] **P0** Resource Chest calculator (like lastwarvault.com/resource-chests/): total resources from banked chests by tier/size. Validate chest yield tables ourselves — built in [#22](https://github.com/cblack34/wastelandfront/pull/22)
 - [ ] **P0** Survey existing calculators (cpt-hedge.com/calculators, lastwar.streamlit.app, lastwarnexus.net, lastwarvault) — what exists, what's wrong/stale, what's missing
-- [ ] Speedup calculator: total speedup time in inventory vs a build/research target
+- [x] Speedup calculator: total speedup time in inventory vs a build/research target — built in [#27](https://github.com/cblack34/wastelandfront/pull/27)
 - [ ] Gear cost calculator: blueprints/materials from current → target tier
 - [ ] EW shard calculator: shards needed to level X→Y (validate the lvl-20 breakpoint math)
 - [ ] Drone chip / Combat Data calculator
