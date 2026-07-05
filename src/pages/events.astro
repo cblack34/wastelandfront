@@ -3,60 +3,71 @@ import Layout from '../layouts/Layout.astro';
 import QuickSummary from '../components/QuickSummary.astro';
 ---
 
-<Layout 
-  title="Events" 
-  description="VS daily focus schedule, best Arms Race chest strategy, and Alliance Trial tips for Last War: Survival mid-game players."
+<Layout
+  title="VS &amp; Arms Race Guide"
+  description="The verified VS (Alliance Duel) day-by-day table, Arms Race syncing, hoarding rules, and Saturday shield discipline."
 >
-  <h1>Events</h1>
+  <h1>VS &amp; Arms Race</h1>
+  <p class="text-lg text-[#8a96b0]">The weekly optimization loop: what scores each VS day, which Arms Race phase to sync it with, and what to hoard. Last verified: July 2026.</p>
 
   <QuickSummary>
-    <p>Events are your most consistent source of progress. Treat VS and Arms Race as non-negotiable daily/weekly activities.</p>
+    <p><strong>The loop:</strong> hoard everything, spend it only on the matching VS day <em>inside</em> the matching Arms Race slot (08:00/20:00 server time) — one action, two events. Never spend during the ~5-minute dead zone after daily reset. Saturday: shield unless your alliance is actively fighting.</p>
   </QuickSummary>
 
-  <h2>VS (Victory Showdown) Daily Focus</h2>
-  <p>Each day has a primary focus. Align your spending and participation with the daily theme for maximum efficiency.</p>
-
+  <h2>The VS Day Table</h2>
+  <p class="text-sm text-[#8a96b0]">Many blog sites publish a wrong day order (they're AI-generated and cite mechanics from other games). The table below matches the official game account and every screenshot-verified community source. Point values: lower = base, higher = with Alliance Duel research boosts.</p>
   <div class="table-wrapper">
     <table>
-      <thead><tr><th>Day</th><th>Primary Focus</th><th>Notes</th></tr></thead>
+      <caption class="sr-only">VS Alliance Duel daily themes, scoring actions, preparation, and matching Arms Race phase</caption>
+      <thead>
+        <tr><th scope="col">Day</th><th scope="col">Theme</th><th scope="col">What scores</th><th scope="col">Hoard / prepare</th><th scope="col">Arms Race sync</th></tr>
+      </thead>
       <tbody>
-        <tr><td>Monday</td><td>Hero Shards / Recruitment</td><td>Good day to use tickets and alliance store shards</td></tr>
-        <tr><td>Tuesday</td><td>Gear &amp; Enhancement</td><td>Ore and component events often align</td></tr>
-        <tr><td>Wednesday</td><td>Research / Tech</td><td>Push research speed and academy</td></tr>
-        <tr><td>Thursday</td><td>Troops &amp; Training</td><td>Train the type you’re currently pushing</td></tr>
-        <tr><td>Friday</td><td>Resources / Gathering</td><td>Load marches and elite runs</td></tr>
-        <tr><td>Saturday</td><td>PvP / Arena focused</td><td>Stronger rally windows, use best squads</td></tr>
-        <tr><td>Sunday</td><td>General / Cleanup</td><td>Catch up on missed chests and dailies</td></tr>
+        <tr><td><strong>Mon</strong></td><td>Radar Training</td><td>Radar tasks (~10–25K each); stamina spent (~300/pt); drone combat data &amp; parts; map gathers (score when troops <em>leave</em> the tile); drone chip chests</td><td>Stack completed-but-unclaimed radar tasks Sunday; start long gathers Sunday night; save stamina + drone data</td><td>Drone Boost</td></tr>
+        <tr><td><strong>Tue</strong></td><td>Base Expansion</td><td>Construction speedups (~50–120/min); building power (scores when you unwrap the gift box); <strong>UR trade trucks (~100–200K each)</strong>; Legendary Secret Tasks (~75–150K); survivor recruits</td><td>Gift-wrap finished buildings Monday night; bank construction speedups + secret-order refreshes</td><td>Base Building</td></tr>
+        <tr><td><strong>Wed</strong></td><td>Age of Science</td><td>Research speedups; tech power (claim completed research today); <strong>Valor Badges spent (~300–600 each)</strong>; Drone Component Chests; radar scores again</td><td>Time long research to finish Wed; save ALL component chests; spend Valor Badges on Duel research today — the spend itself scores</td><td>Tech Research</td></tr>
+        <tr><td><strong>Thu</strong></td><td>Train Heroes</td><td>Hero shards (Legendary ~10–20K, epic ~3.5–7K); EW shards (~10–20K); skill medals; hero EXP; recruit tickets</td><td>Save every hero resource all week — EXP, shards, medals, tickets. Resist mid-week level-ups</td><td>Hero Advancement</td></tr>
+        <tr><td><strong>Fri</strong></td><td>Total Mobilization</td><td><em>Everything</em>: all speedup types, building/tech power, radar, and troops by <em>arrival</em> tier (T10 ~110–258 each)</td><td>The waterfall: pre-train cheap low tiers Thursday, then promote T5→6→7→8 today — each step scores again. Hold a gift-wrapped building + remaining speedups</td><td>Unit Progression</td></tr>
+        <tr><td><strong>Sat</strong></td><td>Enemy Buster</td><td>Rival-alliance kills (~5× value of normal kills); own losses (~6–20/unit); healing speedups; UR trucks &amp; Legendary tasks score again</td><td>Shields, hospital capacity, healing speedups. See shield discipline below</td><td>— (combat isn't an AR phase)</td></tr>
       </tbody>
     </table>
   </div>
 
-  <h2>Arms Race Chest Strategy (High Value)</h2>
-  
-  <QuickSummary>
-    <p><strong>Save your big stamina and high-tier chests for the final 3–4 hours.</strong> This is when alliance gift multipliers and personal milestone rewards are at their strongest.</p>
-  </QuickSummary>
-
-  <p>The single biggest mistake mid-game players make is popping every chest as soon as they earn it.</p>
-
-  <div class="table-wrapper">
-    <table>
-      <thead><tr><th>Phase</th><th>What You Should Do</th></tr></thead>
-      <tbody>
-        <tr><td>Early/Mid Event</td><td>Complete daily missions with smaller/medium chests. Save legendary and high-stamina chests.</td></tr>
-        <tr><td>Last 3–4 Hours</td><td>Pop your saved high-value chests. Coordinate with alliance for maximum gift points.</td></tr>
-        <tr><td>Final Hour</td><td>Focus on personal milestone chests if you're close. Alliance gifts are usually maxed by now.</td></tr>
-      </tbody>
-    </table>
-  </div>
-
-  <h2>Alliance Trial</h2>
-  <p>Runs twice per week in most servers. This is one of the best sources of alliance ranking points and individual rewards.</p>
-  <ul class="text-sm">
-    <li>Bring your strongest available squad</li>
-    <li>Focus fire on the alliance-designated main target</li>
-    <li>Many alliances create a dedicated voice/text channel for the event so everyone rallies the same boss</li>
+  <h2>How the Week Is Scored</h2>
+  <ul class="text-sm space-y-1">
+    <li>Daily winner earns Victory Points: <strong>Mon 1, Tue–Fri 2 each, Sat 4</strong> (13 total — first to 7 wins, so sweeping Mon–Thu locks the week before Friday).</li>
+    <li>Personal chests at 9 point tiers (40K up to 7.2M/day); tiers 4–9 require the Premium Rewards research. Realistic mid-game floor: chest 3–4 daily.</li>
+    <li><strong>Dead zone:</strong> no points during the ~5-minute countdown after daily reset. Check the event page shows the new day before spending anything.</li>
+    <li><strong>Alliance Duel research is the biggest mid-game lever</strong> — Duel Expert roughly doubles your points at max. Fund it with Valor Badges from VS chests, and spend them on Wednesdays.</li>
+    <li>Infinite Roulette (bonus spins past the 7.2M daily cap) exists on newer servers but is irrelevant until you routinely max the last chest — not a mid-game concern.</li>
   </ul>
 
-  <p class="text-sm text-[#8a96b0] mt-2">Pro tip: If your alliance is small or disorganized, you can still get excellent personal rewards by just showing up with your best squad and following whatever target the stronger players are hitting.</p>
+  <h2>Arms Race Mechanics</h2>
+  <ul class="text-sm space-y-1">
+    <li>Six 4-hour slots per day cycling five phases (one repeats): Base Building, Unit Progression, Tech Research, Drone Boost, Hero Advancement.</li>
+    <li><strong>Since the Dec 2025 update the schedule is unified across all servers and repeats weekly</strong>, with the VS-matching phase at 08:00 and 20:00 server time. Older guides saying "check your server's rotation" are outdated. Verify the 08:00/20:00 anchor in your in-game calendar once.</li>
+    <li>Each phase has 3 chests granting 1/2/3 badges (6 per phase, 36/day max). Daily Goal Chests open at <strong>2 / 8 / 18 badges</strong> — fully clearing just 3 phases hits the gold chest.</li>
+    <li><strong>Slot Swap</strong> (once/day): trade the current slot with any <em>later</em> slot to pull the phase you need into your play window. You restart the swapped-in phase at 0; no extra rewards beyond the normal 36-badge cap.</li>
+    <li>You're ranked against ~12–15 commanders in your HQ bracket. Point requirements jump with HQ level — don't rush an HQ level right before a big spending day.</li>
+    <li>Free phase tracker: <a href="https://lastwarnexus.net" target="_blank" rel="noopener" class="text-[#f59e0b] hover:underline">lastwarnexus.net</a>.</li>
+  </ul>
+
+  <h2>Saturday Shield Discipline</h2>
+  <ul class="text-sm space-y-1">
+    <li><strong>Default = shielded all day.</strong> Rivals can teleport to unshielded bases straight from the event UI. At HQ 15–30 you are exactly the easy-points target.</li>
+    <li><strong>Scouting or attacking pops your own shield</strong> — permanently, no refund. Don't peek.</li>
+    <li>Remove wall/drill-ground defenders Friday night — drill-ground troops count as attacker kills even with no defense set. An empty base gives the enemy almost nothing.</li>
+    <li>Shield your farm accounts too; feeding the enemy gets people kicked from serious alliances.</li>
+    <li>If you do fight: scout first (troopless bases give ~no points), join rallies rather than solo, and keep hospital space + healing speedups ready — your losses score points too, so controlled end-of-day trading can top up a chest.</li>
+  </ul>
+
+  <h2>Other Alliance Events (Quick Notes)</h2>
+  <ul class="text-sm space-y-1">
+    <li><strong>Desert Storm</strong> (weekly 20v20): no permanent troop losses; split roles (frontline/backcap/harass) instead of mobbing one building; key structures unlock at 10 minutes. Pays Honor Points — which fund your Legendary Gear Blueprints.</li>
+    <li><strong>Zombie Siege</strong> (20 waves): an alliance-depth problem, not a personal-power one; reinforce teammates after wave 11.</li>
+    <li><strong>Zombie Invasion</strong> (biweekly): spend stamina here; Courage Medals → stamina and EW fragments in the trade store.</li>
+    <li>Full per-event pages are on the roadmap — see the <a href="/stores" class="text-[#f59e0b] hover:underline">store guides</a> for what to buy with each event currency.</li>
+  </ul>
+
+  <p class="mt-4 text-xs text-[#8a96b0]">Sources: lastwartutorial.com (screenshot-verified, dev-corroborated), cpt-hedge.com (Dec 2025 schedule-change coverage), lastwarvault.com, medievalfun.com, official @lastwarsurvival posts. The competing day order on several blog sites was rejected as AI-generated (it cites mechanics from other games). Single-sourced numbers (component chest values, exact roulette rates) are treated as approximate.</p>
 </Layout>
