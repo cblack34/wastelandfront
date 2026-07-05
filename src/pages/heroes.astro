@@ -3,19 +3,60 @@ import Layout from '../layouts/Layout.astro';
 import QuickSummary from '../components/QuickSummary.astro';
 ---
 
-<Layout title="Heroes" description="Hero rarity, vehicle types, and when to transition away from SSR heroes in Last War: Survival.">
-  <h1>Heroes</h1>
+<Layout title="Hero & Squad Meta" description="Which Last War: Survival heroes to invest in, squad composition rules, wishlist strategy, and when to start a second squad.">
+  <h1>Hero &amp; Squad Meta</h1>
+  <p class="text-lg text-[#8a96b0]">Who gets your shards, how to build the squad around them, and when squad #2 starts. Last verified: July 2026.</p>
 
   <QuickSummary>
-    <p>SR = early filler. SSR = strong mid-game workhorses (some promotable to UR). UR = long-term investment. Focus on mono-type teams.</p>
+    <p><strong>Build exactly one squad of 5 before anything else gets a single shard.</strong> Tank meta first (Kimberly carry), mono-type always, race carry + tank to 5★ (it gates EW and Wall of Honor). A 5★ SSR beats a 1–2★ UR — don't bench proven power for potential.</p>
   </QuickSummary>
 
-  <h2>Vehicle Types</h2>
-  <p>Tank, Aircraft, and Missile follow a counter cycle. Always build mono-type squads for the significant type bonus.</p>
+  <h2>Squad Composition Rules</h2>
+  <ul class="text-sm space-y-1">
+    <li><strong>Mono-type is non-negotiable:</strong> 5 same-type heroes = +20% ATK/DEF/HP to the whole march (3 = +5%, 3+2 = +10%, 4 = +15%). A mono squad of weaker heroes usually beats a mixed squad of stronger ones.</li>
+    <li><strong>2 front / 3 back:</strong> tanks with Damage Reduction up front; skill DPS and support behind. Never put DPS in front.</li>
+    <li><strong>The one sanctioned exception</strong> is the "Murphy Exception" 4+1 hybrid — his personal tankiness (with his EW at 20+) can outweigh the lost 5% formation bonus, mainly in Aircraft squads. The Marshall 4+1 variant is the other debated hybrid; pure mono remains the safe default.</li>
+    <li><strong>Type counters</strong> (Tank &gt; Missile &gt; Aircraft &gt; Tank, ±20% both ways) decide close fights; a large raw-power lead overrides them.</li>
+  </ul>
 
-  <h2>When to Stop Using SSR Heroes</h2>
-  <p>Keep your highest-starred SSR/promotable heroes in your main squad until you have UR replacements at comparable or better investment.</p>
-  <p class="mt-2"><strong>Rule of thumb:</strong> A 5-star SSR (especially a promotable one) is almost always better than a 1–2 star UR in mid-game. Do not bench proven power for potential.</p>
-  
-  <p class="mt-2">Promotable SSRs (Mason, Scarlett, and season-specific heroes) are worth extra investment because they eventually become UR.</p>
+  <h2>Who to Invest In (2026 Consensus)</h2>
+  <div class="table-wrapper">
+    <table>
+      <caption class="sr-only">Key heroes by role with investment guidance</caption>
+      <thead>
+        <tr><th scope="col">Role</th><th scope="col">Heroes</th><th scope="col">Notes</th></tr>
+      </thead>
+      <tbody>
+        <tr><th scope="row">Tank-meta carry</th><td><strong>Kimberly</strong></td><td>The premier investment: first EW to 20, first Legendary/Mythic Gun, first Wall of Honor focus.</td></tr>
+        <tr><th scope="row">Tanks (front row)</th><td><strong>Murphy</strong> (shield), <strong>Williams</strong> (damage reduction), Lucius, Adam</td><td>Murphy's Radar is the sanctioned Mythic detour (team-wide DR). Williams stacks DR to tank far above his power.</td></tr>
+        <tr><th scope="row">DPS (back row)</th><td><strong>DVA</strong> (crit burst), <strong>Tesla</strong> (hits back row directly), Fiona, Schuyler, Morrison (−25% enemy DEF shred)</td><td>Season EWs: S1 Kimberly/DVA/Tesla, S2 Murphy/Carlie/Swift, S3 Marshall/Schuyler/McGregor, S4 Lucius/Adam/Williams, S5 Fiona/Stetmann/Morrison.</td></tr>
+        <tr><th scope="row">Support</th><td><strong>Marshall</strong> (only UR support — squad crit buffs), Stetmann</td><td>Marshall fits any squad type; that's what makes the 4+1 debate real.</td></tr>
+        <tr><th scope="row">Promotable SSRs</th><td><strong>Mason, Violet, Scarlett</strong></td><td>Safe investments: shards and skill medals are <em>refunded on UR promotion</em>. Mason is the Tank-meta pick; Alliance Store sells his shards.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="text-sm text-[#8a96b0] mt-2">Tier lists shift each season — treat any specific ranking as a snapshot. What doesn't shift: concentrate on 5 heroes, and prefer heroes whose EWs you can actually unlock (Black Market shard boxes, Campaign Store universal fragments).</p>
+
+  <h2>Stars Before Everything</h2>
+  <ul class="text-sm space-y-1">
+    <li><strong>5★ is the hard gate</strong> for both Exclusive Weapon unlock and Wall of Honor — racing your carry and main tank to 5★ is the mid-game objective.</li>
+    <li>Stars &gt; levels &gt; skills in ROI. Levels are cheap and ride HQ progression; skill medal costs spike past level 20.</li>
+    <li><strong>Wishlist/Tavern:</strong> set your Wish Hero to your carry — ~10 shards of your chosen hero per 200 recruits. Change it only when the carry caps.</li>
+  </ul>
+
+  <h2>When Does Squad #2 Start?</h2>
+  <ul class="text-sm space-y-1">
+    <li>Only after squad #1 is all 5★ with its carry EW at 20 — and even then, squad #2 gets hand-me-down gear only.</li>
+    <li><strong>The Aircraft transition</strong> (~server day 70+ claim) is genuinely contested: some servers' metas demand it, others stay Tank-heavy. Watch what wins fights on <em>your</em> server before committing shards. Running two Tank squads mid-game is a legitimate, common path.</li>
+    <li>Second squads exist for rallies, garrisons, and event marches — they can be much weaker than squad #1 and still do their job.</li>
+  </ul>
+
+  <h2>SSR → UR Transition</h2>
+  <ul class="text-sm space-y-1">
+    <li>Keep high-star SSRs in the squad until the UR replacement has comparable investment — a 5★ SSR outperforms a 1–2★ UR.</li>
+    <li>Promotable SSRs (Mason, Violet, Scarlett) are the exception to "UR only" advice: invest freely, the shards come back on promotion.</li>
+    <li>Season Hero Swap vouchers (S2+) convert cheap SSR progress into rare-shard UR heroes (Mason→Stetmann, Violet→DVA) — another reason SSR investment isn't wasted.</li>
+  </ul>
+
+  <p class="mt-4 text-xs text-[#8a96b0]">Sources: allclash.com tier coverage, lastwarvault.com squad building, cpt-hedge.com EW season list, lastwar-tutorial.com hero leveling, packsify.com squad guide (2025–2026). Contested calls (Aircraft transition timing, 4+1 hybrids) are labeled as contested rather than settled.</p>
 </Layout>
