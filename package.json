@@ -27,5 +27,15 @@
     "@tailwindcss/vite": "^4.3.2",
     "puppeteer": "^25.3.0",
     "tailwindcss": "^4.3.2"
+  },
+  "overrides": {
+    "astro": {
+      "js-yaml": "^4.3.0"
+    },
+    "@lhci/cli": {
+      "js-yaml": "^3.15.0",
+      "tmp": "^0.2.6",
+      "uuid": "^11.1.1"
+    }
   }
 }
