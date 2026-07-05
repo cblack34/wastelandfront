@@ -4,7 +4,7 @@ Guide for AI coding agents working in this repo. Humans: see `README.md`.
 
 ## Project overview
 
-Static **Astro 6** guide site for the mobile game **Last War: Survival**, aimed at HQ 15–30 players. The product is **trustworthy numbers**: verified, current, disputes flagged. Guide pages live in `src/pages/`, interactive calculators in `src/pages/tools/`. No backend.
+Static **Astro 7** guide site for the mobile game **Last War: Survival**, aimed at HQ 15–30 players. The product is **trustworthy numbers**: verified, current, disputes flagged. Guide pages live in `src/pages/`, interactive calculators in `src/pages/tools/`. No backend.
 
 Read `Docs/00-project-brief.md` first — it maps the full documentation set:
 

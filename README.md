@@ -15,7 +15,7 @@
 
 ## Tech Stack
 
-- Astro 6 + TypeScript
+- Astro 7 + TypeScript
 - Tailwind CSS v4
 - Fully static output (`astro build`)
 - Docker + Nginx production image included
