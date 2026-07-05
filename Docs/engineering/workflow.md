@@ -13,7 +13,7 @@ You work autonomously and are the **merge authority**: merge your own PRs once t
 1. **Branch** off `main`: `feat/<slug>` (or `research/<slug>` for backlog-only changes).
 2. **Research first** for content stories (see [`../03-editorial-standards.md`](../03-editorial-standards.md)) — delegate to a research subagent where available; write the page only from verified findings.
 3. **Build + verify**: `PUPPETEER_SKIP_DOWNLOAD=1 npm run build`; smoke-test calculator math standalone; grep built HTML when touching titles/meta.
-4. **Commit** with imperative, story-scoped messages. Don't commit `package-lock.json` churn from incidental installs.
+4. **Commit** with imperative, story-scoped messages. Revert incidental `package-lock.json` diffs (e.g., from environment-triggered installs) unless the story intentionally changes dependencies — then commit the lockfile with it.
 5. **PR to `main`** with a summary of what was researched/built, what was verified and how, and what was flagged.
 6. **Copilot review**: the repo has Copilot auto-review enabled — it reviews on PR open (not on subsequent pushes; re-request if a re-review is needed). Wait for it.
 7. **Respond to every comment**: fix it, or push back with reasoning (component-wide changes don't ride along in a page PR — Inbox them). Reply on the PR saying what was done per comment, and **resolve each thread**.

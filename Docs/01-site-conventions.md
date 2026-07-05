@@ -25,7 +25,7 @@ Every guide page follows this skeleton, top to bottom:
 ## SEO / meta rules
 
 - `description` prop: ~100–130 characters, matching the rest of the site. Never enumerate lists that can drift out of sync with page content (e.g., don't list which stores a page covers).
-- `title` prop: pass **raw text** (`&`, not `&amp;`) — Astro escapes props; pre-escaped entities double-encode in `<title>` and OG tags. In HTML body markup, use `&amp;` as normal.
+- `title` and `description` props: pass **raw text** (`&`, not `&amp;`) — Astro escapes props; pre-escaped entities double-encode in `<title>`, meta, and OG tags. In HTML body markup, use `&amp;` as normal.
 - The meta description must never claim content the page doesn't have.
 
 ## Navigation

@@ -34,7 +34,7 @@ PUPPETEER_SKIP_DOWNLOAD=1 npm run build   # required build check before every co
 npm run dev                        # local dev server
 ```
 
-Puppeteer is a transitive dev dependency (Lighthouse CI config); its Chrome download fails in sandboxed/CI environments — always set `PUPPETEER_SKIP_DOWNLOAD=1`. It does not affect the site build.
+Puppeteer is a direct devDependency (used by the Lighthouse CI setup); its Chrome download fails in sandboxed/CI environments — always set `PUPPETEER_SKIP_DOWNLOAD=1`. It does not affect the site build.
 
 ## Environment quirks
 

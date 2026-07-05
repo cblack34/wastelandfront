@@ -14,7 +14,7 @@
 - [ ] Every number satisfies the 2-source rule or is explicitly flagged ([`03-editorial-standards.md`](03-editorial-standards.md)).
 - [ ] Disputed claims labeled as disputed; stale-advice warnings included where the meta changed.
 - [ ] Tables: sr-only caption, `scope="col"`, `<th scope="row">` where applicable.
-- [ ] Meta description ~100–130 chars, accurate, no drift-prone enumerations; raw `&` in the title prop.
+- [ ] Meta description ~100–130 chars, accurate, no drift-prone enumerations; raw `&` in the title and description props.
 - [ ] "Last verified" stamp is current.
 
 ## Every calculator

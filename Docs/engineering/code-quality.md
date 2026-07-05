@@ -5,7 +5,7 @@ Write code a strict senior engineer would approve on first read. This is a small
 ## Astro pages
 
 - One page = one `.astro` file; shared chrome lives in `Layout.astro` and components, never duplicated per page.
-- Pages are content-first: minimal frontmatter logic, no client JS unless the page is a calculator.
+- Pages are content-first: minimal frontmatter logic; no page-level client JS unless the page is a calculator. (The layout's small mobile-nav toggle script is the one sanctioned exception, and it lives in `Layout.astro`, not in pages.)
 - Follow the conventions doc for structure/a11y/meta ([`../01-site-conventions.md`](../01-site-conventions.md)) — those rules exist because reviews keep enforcing them.
 
 ## Calculator JS
