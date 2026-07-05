@@ -1,0 +1,164 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import QuickSummary from '../../components/QuickSummary.astro';
+---
+
+<Layout title="Speedup Calculator" description="Total up your Last War: Survival speedup inventory and see whether it covers a build, research, or training target.">
+  <h1>Speedup Calculator</h1>
+  <p class="text-lg text-[#8a96b0]">Count your speedups, get total time by category, and see if it covers your next big upgrade. Counts save in your browser.</p>
+
+  <QuickSummary>
+    <p><strong>Spend rule:</strong> speedups are VS points waiting to happen — burn construction on Tuesday, research on Wednesday, training on Friday, anything on Friday (Total Mobilization), always inside the matching Arms Race slot. See the <a href="/events" class="text-[#f59e0b] hover:underline">VS guide</a>.</p>
+  </QuickSummary>
+
+  <h2>Your Inventory</h2>
+  <p class="text-sm text-[#8a96b0]">Enter counts per denomination for each category. Universal speedups work on anything, so they're totaled separately and added where needed.</p>
+  <div class="table-wrapper mt-2">
+    <table>
+      <caption class="sr-only">Speedup counts by category and denomination</caption>
+      <thead>
+        <tr><th scope="col">Category</th><th scope="col">1m</th><th scope="col">5m</th><th scope="col">15m</th><th scope="col">30m</th><th scope="col">1h</th><th scope="col">3h</th><th scope="col">8h</th><th scope="col">24h</th><th scope="col">Total</th></tr>
+      </thead>
+      <tbody id="inv-body"></tbody>
+    </table>
+  </div>
+
+  <h2>Does It Cover Your Target?</h2>
+  <div class="my-4 p-4 rounded-lg border border-[#2a3854] bg-[#0e1730]">
+    <div class="flex flex-wrap gap-3 items-end text-sm">
+      <label>Category<br/>
+        <select id="target-cat" class="chest-input" style="width:auto">
+          <option value="construction">Construction</option>
+          <option value="research">Research</option>
+          <option value="training">Training</option>
+          <option value="healing">Healing</option>
+        </select>
+      </label>
+      <label>Days<br/><input type="number" min="0" value="0" id="t-days" class="chest-input" /></label>
+      <label>Hours<br/><input type="number" min="0" value="0" id="t-hours" class="chest-input" /></label>
+      <label>Minutes<br/><input type="number" min="0" value="0" id="t-mins" class="chest-input" /></label>
+    </div>
+    <div id="target-result" class="text-sm mt-3"></div>
+  </div>
+
+  <h2>Notes</h2>
+  <ul class="text-sm space-y-1">
+    <li>Denominations (1m/5m/15m/30m/1h/3h/8h/24h) are the standard set; event rewards occasionally add odd sizes — count them under the nearest denomination or add the minutes to your target instead.</li>
+    <li>The coverage check assumes universal speedups fill any gap after category-specific ones — that matches in-game behavior (the game consumes specific speedups first when you choose them, but universals apply anywhere).</li>
+    <li>This tool does math only — no scraped upgrade-duration tables to go stale. Read your target's remaining time straight from the in-game timer.</li>
+  </ul>
+
+  <script>
+    const DENOMS = [1, 5, 15, 30, 60, 180, 480, 1440]; // minutes
+    const CATS = ['construction', 'research', 'training', 'healing', 'universal'];
+    const LABELS = { construction: 'Construction', research: 'Research', training: 'Training', healing: 'Healing', universal: 'Universal (any)' };
+
+    function clampInt(value, min, max, fallback) {
+      const n = parseInt(value, 10);
+      if (Number.isNaN(n)) return fallback;
+      return Math.min(max, Math.max(min, n));
+    }
+
+    function fmtMins(total) {
+      const d = Math.floor(total / 1440);
+      const h = Math.floor((total % 1440) / 60);
+      const m = total % 60;
+      const parts = [];
+      if (d) parts.push(d + 'd');
+      if (h) parts.push(h + 'h');
+      if (m || parts.length === 0) parts.push(m + 'm');
+      return parts.join(' ');
+    }
+
+    // Build the input grid.
+    const tbody = document.getElementById('inv-body');
+    for (const cat of CATS) {
+      const tr = document.createElement('tr');
+      let cells = '<th scope="row">' + LABELS[cat] + '</th>';
+      DENOMS.forEach((d, i) => {
+        cells += '<td><input type="number" min="0" value="0" id="s-' + cat + '-' + i + '" class="chest-input" style="width:3.5rem" /></td>';
+      });
+      cells += '<td id="total-' + cat + '" class="font-semibold"></td>';
+      tr.innerHTML = cells;
+      tbody.appendChild(tr);
+    }
+
+    function catTotal(cat) {
+      let mins = 0;
+      DENOMS.forEach((d, i) => {
+        mins += clampInt(document.getElementById('s-' + cat + '-' + i).value, 0, 99999, 0) * d;
+      });
+      return mins;
+    }
+
+    function recalc() {
+      const totals = {};
+      for (const cat of CATS) {
+        totals[cat] = catTotal(cat);
+        document.getElementById('total-' + cat).textContent = fmtMins(totals[cat]);
+      }
+
+      const cat = document.getElementById('target-cat').value;
+      const target =
+        clampInt(document.getElementById('t-days').value, 0, 9999, 0) * 1440 +
+        clampInt(document.getElementById('t-hours').value, 0, 9999, 0) * 60 +
+        clampInt(document.getElementById('t-mins').value, 0, 99999, 0);
+      const el = document.getElementById('target-result');
+      if (target === 0) {
+        el.textContent = 'Enter your target time (from the in-game timer).';
+      } else {
+        const available = totals[cat] + totals.universal;
+        const diff = available - target;
+        el.innerHTML = diff >= 0
+          ? 'Covered: <strong>' + fmtMins(available) + '</strong> available (' + fmtMins(totals[cat]) + ' ' + LABELS[cat].toLowerCase() + ' + ' + fmtMins(totals.universal) + ' universal) vs ' + fmtMins(target) + ' needed — <strong>' + fmtMins(diff) + ' left over</strong>.'
+          : 'Short by <strong>' + fmtMins(-diff) + '</strong>: ' + fmtMins(available) + ' available vs ' + fmtMins(target) + ' needed.';
+      }
+      requestSave();
+    }
+
+    let saveTimer = null;
+    function requestSave() {
+      if (saveTimer) clearTimeout(saveTimer);
+      saveTimer = setTimeout(saveState, 300);
+    }
+
+    function saveState() {
+      const state = { counts: {}, cat: document.getElementById('target-cat').value,
+        d: document.getElementById('t-days').value, h: document.getElementById('t-hours').value, m: document.getElementById('t-mins').value };
+      for (const cat of CATS) DENOMS.forEach((d, i) => { state.counts[cat + '-' + i] = document.getElementById('s-' + cat + '-' + i).value; });
+      try { localStorage.setItem('wf-speedup-calc', JSON.stringify(state)); } catch (e) { /* private mode */ }
+    }
+
+    function loadState() {
+      try {
+        const raw = localStorage.getItem('wf-speedup-calc');
+        if (!raw) return;
+        const s = JSON.parse(raw);
+        for (const key in s.counts || {}) {
+          const el = document.getElementById('s-' + key);
+          if (el) el.value = s.counts[key];
+        }
+        if (s.cat) document.getElementById('target-cat').value = s.cat;
+        if (s.d) document.getElementById('t-days').value = s.d;
+        if (s.h) document.getElementById('t-hours').value = s.h;
+        if (s.m) document.getElementById('t-mins').value = s.m;
+      } catch (e) { /* ignore corrupt state */ }
+    }
+
+    loadState();
+    document.querySelectorAll('input, select').forEach((el) => el.addEventListener('input', recalc));
+    recalc();
+  </script>
+
+  <style>
+    .chest-input {
+      width: 5rem;
+      background: #0b1220;
+      border: 1px solid #2a3854;
+      border-radius: 0.375rem;
+      padding: 0.25rem 0.5rem;
+      color: #e5e9f2;
+      font-size: 0.875rem;
+    }
+  </style>
+</Layout>
