@@ -1,0 +1,231 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import QuickSummary from '../../components/QuickSummary.astro';
+---
+
+<Layout title="Resource Chest Calculator" description="Calculate the total Food, Iron, Gold, and Hero EXP in your banked Last War: Survival chests at your HQ level — and see how much more they're worth if you wait.">
+  <h1>Resource Chest Calculator</h1>
+  <p class="text-lg text-[#8a96b0]">Chests in Last War have no fixed value — payout scales with your HQ level <em>when you open them</em>. Enter your stack to see what it's worth now, and what waiting gets you.</p>
+
+  <QuickSummary>
+    <p><strong>The rule this tool exists for:</strong> resource chests are priced at open-time, not drop-time. Opening at HQ 20 instead of HQ 35 costs you ~36% of the chest's value. Bank chests until you actually need them.</p>
+  </QuickSummary>
+
+  <div class="my-6 p-4 rounded-lg border border-[#2a3854] bg-[#0e1730]">
+    <label for="hq-level" class="text-sm font-semibold">Your HQ level: <span id="hq-value" class="text-[#f59e0b]">25</span></label>
+    <input type="range" id="hq-level" min="15" max="35" value="25" class="w-full mt-2" />
+    <p id="hq-note" class="text-xs text-[#8a96b0] mt-1"></p>
+  </div>
+
+  <h2>Yield Per Chest at Your Level</h2>
+  <div class="table-wrapper">
+    <table id="yield-table">
+      <thead>
+        <tr><th>Resource</th><th>Green (Uncommon)</th><th>Blue (Rare)</th><th>Purple (Epic)</th><th>Gold (Legendary)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Food</strong></td><td id="y-food-g"></td><td id="y-food-b"></td><td id="y-food-p"></td><td id="y-food-l"></td></tr>
+        <tr><td><strong>Iron</strong></td><td id="y-iron-g"></td><td id="y-iron-b"></td><td id="y-iron-p"></td><td id="y-iron-l"></td></tr>
+        <tr><td><strong>Gold (coins)</strong></td><td id="y-gold-g"></td><td id="y-gold-b"></td><td id="y-gold-p"></td><td id="y-gold-l"></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Your Stack</h2>
+  <p class="text-sm text-[#8a96b0]">Enter how many chests you're holding (inventory → Special tab). Counts are saved in your browser.</p>
+  <div class="table-wrapper mt-2">
+    <table>
+      <thead>
+        <tr><th>Chest type</th><th>Green</th><th>Blue</th><th>Purple</th><th>Gold</th><th>Total value</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Food</strong></td>
+          <td><input type="number" min="0" value="0" id="c-food-g" class="chest-input" /></td>
+          <td><input type="number" min="0" value="0" id="c-food-b" class="chest-input" /></td>
+          <td><input type="number" min="0" value="0" id="c-food-p" class="chest-input" /></td>
+          <td><input type="number" min="0" value="0" id="c-food-l" class="chest-input" /></td>
+          <td id="t-food" class="font-semibold"></td>
+        </tr>
+        <tr>
+          <td><strong>Iron</strong></td>
+          <td><input type="number" min="0" value="0" id="c-iron-g" class="chest-input" /></td>
+          <td><input type="number" min="0" value="0" id="c-iron-b" class="chest-input" /></td>
+          <td><input type="number" min="0" value="0" id="c-iron-p" class="chest-input" /></td>
+          <td><input type="number" min="0" value="0" id="c-iron-l" class="chest-input" /></td>
+          <td id="t-iron" class="font-semibold"></td>
+        </tr>
+        <tr>
+          <td><strong>Gold (coins)</strong></td>
+          <td><input type="number" min="0" value="0" id="c-gold-g" class="chest-input" /></td>
+          <td><input type="number" min="0" value="0" id="c-gold-b" class="chest-input" /></td>
+          <td><input type="number" min="0" value="0" id="c-gold-p" class="chest-input" /></td>
+          <td><input type="number" min="0" value="0" id="c-gold-l" class="chest-input" /></td>
+          <td id="t-gold" class="font-semibold"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="text-xs text-[#8a96b0] mt-1">Resource <em>Choice</em> Chests: count them under whichever resource you'd pick — a Legendary Resource Choice Chest pays the same as a Legendary chest of that resource.</p>
+
+  <h2>Is Waiting Worth It?</h2>
+  <div class="my-4 p-4 rounded-lg border border-[#2a3854] bg-[#0e1730]">
+    <label for="target-hq" class="text-sm font-semibold">If you opened this stack at HQ <span id="target-value" class="text-[#f59e0b]">30</span> instead:</label>
+    <input type="range" id="target-hq" min="15" max="35" value="30" class="w-full mt-2" />
+    <div id="wait-result" class="text-sm mt-3"></div>
+  </div>
+
+  <h2>Where These Numbers Come From</h2>
+  <ul class="text-sm space-y-1">
+    <li><strong>Rarity ratios are the best-verified numbers:</strong> Blue = 10× Green, Purple = 80× Green, Gold = 240× Green. Three independent datasets conform exactly (theriagames item guides, Last War Vault's tool, Cpt Hedge's tool).</li>
+    <li><strong>Exact per-HQ values</strong> are community-collected for HQ 15–20 and HQ 35. We validated internal consistency ourselves (e.g., HQ 20: 12.6K green × 240 = 3.02M gold — matches the published Legendary value; HQ 35: 19.8K × 240 = 4.75M — matches).</li>
+    <li><strong>HQ 21–34 values are interpolated estimates</strong> (marked on the slider). The real curve steps irregularly by level, so expect roughly ±5% off until we capture in-game values. If you can screenshot chest tooltips at these levels, send them our way.</li>
+    <li><strong>Gold-coin chests pay ~0.64×</strong> a food/iron chest of the same rarity. Sources disagree slightly (theriagames says 0.60; both published calculator datasets imply 0.636 at HQ 35) — we use 0.636 because it reproduces the published table values exactly, and flag the conflict.</li>
+    <li>Displayed in-game values are rounded (a chest labeled "8.6K" grants 8,424), so totals here are ±1%.</li>
+    <li>Chest yield scales with <strong>HQ level only</strong> — no source shows VIP, research, or season modifiers affecting it.</li>
+    <li><strong>Hero EXP chests are excluded for now:</strong> only HQ 35 values are documented (127K/1.27M/10.17M/30.52M), and they don't follow the ×240 ratio exactly at Legendary. We'd rather leave them out than guess.</li>
+  </ul>
+
+  <p class="mt-4 text-xs text-[#8a96b0]">Data cross-checked July 2026 against theriagames.com chest guides, lastwarvault.com/resource-chests, and cpt-hedge.com/calculators/resource-chests. Note the public datasets likely share one community origin ("kp7") — treat this as strongly consistent, not fully independent, until we verify in-game.</p>
+
+  <script>
+    // Green-tier (Uncommon) food/iron chest values by HQ level.
+    // VERIFIED (2+ sources or ratio-consistent): 15-20, 35. See "Where These Numbers Come From".
+    const GREEN_ANCHORS = {
+      15: 8640, 16: 9000, 17: 9720, 18: 10080, 19: 10800, 20: 12600, 35: 19800,
+    };
+    const VERIFIED_LEVELS = new Set([15, 16, 17, 18, 19, 20, 35]);
+    const RARITY_MULT = { g: 1, b: 10, p: 80, l: 240 };
+    const GOLD_COIN_FACTOR = 0.636; // gold-coin chest vs food/iron chest of same rarity (matches both published calculator datasets at HQ 35; theriagames quotes 0.6)
+    const RESOURCES = ['food', 'iron', 'gold'];
+    const RARITIES = ['g', 'b', 'p', 'l'];
+
+    function greenValue(hq) {
+      if (GREEN_ANCHORS[hq] !== undefined) return GREEN_ANCHORS[hq];
+      // Linear interpolation between HQ 20 (12,600) and HQ 35 (19,800): +480/level.
+      return Math.round(12600 + (hq - 20) * 480);
+    }
+
+    function clampInt(value, min, max, fallback) {
+      const n = parseInt(value, 10);
+      if (Number.isNaN(n)) return fallback;
+      return Math.min(max, Math.max(min, n));
+    }
+
+    function chestValue(hq, resource, rarity) {
+      const base = greenValue(hq) * RARITY_MULT[rarity];
+      return resource === 'gold' ? Math.round(base * GOLD_COIN_FACTOR) : base;
+    }
+
+    function fmt(n) {
+      if (n >= 1e9) return (n / 1e9).toFixed(2) + 'B';
+      if (n >= 1e6) return (n / 1e6).toFixed(2) + 'M';
+      if (n >= 1e3) return (n / 1e3).toFixed(1) + 'K';
+      return String(n);
+    }
+
+    function stackTotal(hq, resource) {
+      let total = 0;
+      for (const r of RARITIES) {
+        const el = document.getElementById('c-' + resource + '-' + r);
+        total += clampInt(el.value, 0, 999999, 0) * chestValue(hq, resource, r);
+      }
+      return total;
+    }
+
+    function recalc() {
+      const hqEl = document.getElementById('hq-level');
+      const targetEl = document.getElementById('target-hq');
+      const hq = clampInt(hqEl.value, 15, 35, 25);
+      const target = clampInt(targetEl.value, 15, 35, 30);
+      hqEl.value = String(hq);
+      targetEl.value = String(target);
+      document.getElementById('hq-value').textContent = String(hq);
+      document.getElementById('target-value').textContent = String(target);
+      document.getElementById('hq-note').textContent = VERIFIED_LEVELS.has(hq)
+        ? 'Community-verified values for this level.'
+        : 'Estimated for this level (interpolated, ±5%) — verified data covers HQ 15–20 and 35.';
+
+      for (const res of RESOURCES) {
+        for (const r of RARITIES) {
+          document.getElementById('y-' + res + '-' + r).textContent = fmt(chestValue(hq, res, r));
+        }
+        document.getElementById('t-' + res).textContent = fmt(stackTotal(hq, res));
+      }
+
+      // All chest values scale by the same HQ factor, so the % change is
+      // identical for every resource — report it once, with per-resource deltas.
+      const resultEl = document.getElementById('wait-result');
+      const anyStack = RESOURCES.some((res) => stackTotal(hq, res) > 0);
+      if (!anyStack) {
+        resultEl.textContent = 'Enter some chest counts above to compare.';
+      } else if (target === hq) {
+        resultEl.textContent = 'Same HQ level — no difference.';
+      } else {
+        const pct = ((greenValue(target) / greenValue(hq) - 1) * 100).toFixed(1);
+        const parts = [];
+        for (const res of RESOURCES) {
+          const now = stackTotal(hq, res);
+          if (now === 0) continue;
+          const diff = stackTotal(target, res) - now;
+          const label = res === 'gold' ? 'Gold' : res.charAt(0).toUpperCase() + res.slice(1);
+          parts.push(label + ' ' + (diff >= 0 ? '+' : '−') + fmt(Math.abs(diff)));
+        }
+        resultEl.innerHTML = target > hq
+          ? 'Waiting is worth <strong>+' + pct + '%</strong> per chest: ' + parts.join(' · ') + '. Open only what you need now.'
+          : 'That target is <em>lower</em> than your current HQ (' + pct + '% per chest): ' + parts.join(' · ') + '.';
+      }
+
+      requestSave();
+    }
+
+    let saveTimer = null;
+    function requestSave() {
+      // Debounced: recalc runs per keystroke, but localStorage writes at most ~3/sec.
+      if (saveTimer) clearTimeout(saveTimer);
+      saveTimer = setTimeout(saveState, 300);
+    }
+
+    function saveState() {
+      const state = { hq: document.getElementById('hq-level').value, target: document.getElementById('target-hq').value, counts: {} };
+      for (const res of RESOURCES) for (const r of RARITIES) {
+        state.counts[res + '-' + r] = document.getElementById('c-' + res + '-' + r).value;
+      }
+      try { localStorage.setItem('wf-chest-calc', JSON.stringify(state)); } catch (e) { /* private mode */ }
+    }
+
+    function loadState() {
+      try {
+        const raw = localStorage.getItem('wf-chest-calc');
+        if (!raw) return;
+        const state = JSON.parse(raw);
+        if (state.hq) document.getElementById('hq-level').value = state.hq;
+        if (state.target) document.getElementById('target-hq').value = state.target;
+        for (const key in state.counts || {}) {
+          const el = document.getElementById('c-' + key);
+          if (el) el.value = state.counts[key];
+        }
+      } catch (e) { /* ignore corrupt state */ }
+    }
+
+    loadState();
+    document.getElementById('hq-level').addEventListener('input', recalc);
+    document.getElementById('target-hq').addEventListener('input', recalc);
+    for (const res of RESOURCES) for (const r of RARITIES) {
+      document.getElementById('c-' + res + '-' + r).addEventListener('input', recalc);
+    }
+    recalc();
+  </script>
+
+  <style>
+    .chest-input {
+      width: 5rem;
+      background: #0b1220;
+      border: 1px solid #2a3854;
+      border-radius: 0.375rem;
+      padding: 0.25rem 0.5rem;
+      color: #e5e9f2;
+      font-size: 0.875rem;
+    }
+  </style>
+</Layout>
