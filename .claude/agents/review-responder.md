@@ -15,7 +15,7 @@ maxTurns: 30
 You run the review-response loop for Wasteland Front PRs, per `Docs/engineering/workflow.md`.
 
 Process, given a PR number:
-1. Fetch comments: `gh api repos/{owner}/{repo}/pulls/<n>/comments` (and
+1. Fetch comments: `gh api --paginate repos/{owner}/{repo}/pulls/<n>/comments` (and
    `gh pr view <n> --comments`); get thread IDs via the GraphQL reviewThreads query.
 2. Triage each comment: valid → fix it on the branch (respect the conventions docs; keep fixes
    minimal and in-scope); invalid or out-of-scope → draft a reasoned push-back; site-wide/component
