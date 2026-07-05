@@ -4,8 +4,8 @@
 
 | Concern | Choice | Notes |
 | --- | --- | --- |
-| Framework | **Astro 6** + TypeScript | Fully static output (`astro build`), sitemap integration |
-| Styling | **Tailwind CSS v4** | Via `@tailwindcss/postcss`; utility classes only, no component library |
+| Framework | **Astro 7** + TypeScript | Fully static output (`astro build`), sitemap integration |
+| Styling | **Tailwind CSS v4** | Via `@tailwindcss/vite` plugin in `astro.config.mjs`; utility classes only, no component library |
 | Interactivity | **Vanilla JS** in `<script>` tags | Calculators are plain DOM + `localStorage`; no framework islands |
 | Hosting | **Docker + nginx** | Self-hosted static image; see Deployment |
 
