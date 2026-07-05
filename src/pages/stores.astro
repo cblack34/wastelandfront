@@ -3,48 +3,106 @@ import Layout from '../layouts/Layout.astro';
 import QuickSummary from '../components/QuickSummary.astro';
 ---
 
-<Layout title="Stores" description="In-game store priorities and real money value guide for Last War: Survival.">
-  <h1>Stores</h1>
+<Layout title="Store Buy Guides" description="Every in-game store in Last War: Survival — currencies, reset schedules, ranked best buys, and what to never buy in each.">
+  <h1>Store Buy Guides</h1>
+  <p class="text-lg text-[#8a96b0]">Every store, its currency, when it resets, what to buy in what order — and what to skip. Last verified: July 2026.</p>
 
   <QuickSummary>
-    <p>Always spend on things that directly upgrade your <strong>main squad</strong> first. Everything else is secondary until that squad is strong.</p>
+    <p><strong>Universal rule:</strong> currencies you can't buy with money (Honor Points, Alliance Coins, Campaign Medals) go to <em>permanent main-squad power</em> — gear blueprints, shards for heroes you actually run, drone parts. Never spend scarce currency on resources or small speedups.</p>
   </QuickSummary>
 
-  <h2>In-Game Store Priorities (Mid-Game)</h2>
-
+  <h2>Cheat Sheet</h2>
   <div class="table-wrapper">
     <table>
       <thead>
-        <tr><th>Store</th><th>Priority Buys</th></tr>
+        <tr><th>Store</th><th>Reset</th><th>#1 Buy</th><th>Hard Skip</th></tr>
       </thead>
       <tbody>
-        <tr>
-          <td><strong>Alliance Store</strong></td>
-          <td>Hero shards for your main squad heroes, Skill Medals, Gear materials. Avoid cosmetic items early.</td>
-        </tr>
-        <tr>
-          <td><strong>Black Market</strong></td>
-          <td>Universal shards, high-value gear components, and recruitment tickets when the price is good.</td>
-        </tr>
-        <tr>
-          <td><strong>Season Shop</strong></td>
-          <td>Season-exclusive shards and materials for your main type. Prioritize what helps your current squad.</td>
-        </tr>
-        <tr>
-          <td><strong>VIP / Monthly Rewards</strong></td>
-          <td>Consistent daily/weekly resources. Very efficient if you’re active.</td>
-        </tr>
+        <tr><td><strong>Alliance Store</strong></td><td>Weekly (Mon)</td><td>UR Universal Shards</td><td>Resource bundles</td></tr>
+        <tr><td><strong>Honor Shop</strong></td><td>Monthly cap, weekly rotation</td><td>ALL Legendary Gear Blueprints</td><td>Gems, resources</td></tr>
+        <tr><td><strong>VIP Store</strong></td><td>Weekly (Mon)</td><td>Stamina, Dielectric Ceramic (after VIP 6)</td><td>Full-price Diamond Store items</td></tr>
+        <tr><td><strong>Campaign Store</strong></td><td>Weekly (Mon)</td><td>Buy nearly everything; UR + EW fragments first</td><td>—</td></tr>
+        <tr><td><strong>Season Store</strong></td><td>Per season</td><td>Stat-bearing base skin</td><td>Pure cosmetics</td></tr>
+        <tr><td><strong>Black Market</strong></td><td>Post-season, ~4 weeks</td><td>Exclusive Weapon shards</td><td>Hero shards, speedups</td></tr>
+        <tr><td><strong>Glittering Market</strong></td><td>~Monthly, 6 days</td><td>Mythic BP fragments (late) / Hero Chest (mid)</td><td>1h speedups, Valor Badges</td></tr>
+        <tr><td><strong>Zombie Invasion Trade Store</strong></td><td>Biweekly event</td><td>Stamina → EW fragments</td><td>Resource chests</td></tr>
       </tbody>
     </table>
   </div>
 
-  <h2>Real Money Value Guide (Honest)</h2>
-  <p class="text-sm">For most new and mid-game players, the best value is usually:</p>
+  <h2>Alliance Store (Alliance Coins)</h2>
+  <p class="text-sm"><strong>Earning:</strong> alliance tech donations, build/research helps, alliance quests, trade trucks, Wanted Boss rallies. <strong>Restocks Mondays.</strong> Check daily — shard stock sells out.</p>
   <ol class="list-decimal pl-5 text-sm space-y-1 mt-2">
-    <li><strong>Monthly Card</strong> — Steady resources every day with very little spending.</li>
-    <li><strong>Battle Pass</strong> — Excellent value if you play regularly and complete the missions.</li>
-    <li><strong>VIP levels</strong> (early ones) — Good permanent bonuses.</li>
+    <li><strong>UR Hero Universal Shards</strong> (3,000 coins, 5/week) — flexible shards for your main-squad UR. Highest value by a wide margin.</li>
+    <li><strong>SSR shards</strong> (Mason/Violet/Sarah — 1,000 coins, 30/week) — only for heroes in your squad or a planned SSR→UR promotion.</li>
+    <li><strong>Drone Parts / Component Chests</strong> — permanent account-wide buff, chronic bottleneck.</li>
+    <li><strong>Shields (8/12/24h)</strong> — cheapest shield source in the game; keep 1–2 banked for Enemy Buster day.</li>
+    <li>Recruitment tickets and 1h/8h speedups with leftovers.</li>
+  </ol>
+  <p class="text-sm mt-2"><strong>Never buy:</strong> resource bundles, small speedups, shards for bench heroes. From Season 3+, Bond Badges and Universal Overlord Shards move to the top of the list.</p>
+
+  <h2>Honor Shop (Honor Points)</h2>
+  <p class="text-sm"><strong>Earning:</strong> Capitol Conquest, Desert Storm, rally rankings, zombie kills — <em>not purchasable with money</em>, which is exactly why it matters.</p>
+  <p class="text-sm mt-2"><strong>The one rule: buy Legendary Gear Blueprints, cap them every cycle, ignore almost everything else.</strong> The Honor Shop is effectively the only efficient F2P blueprint source — you need ~50 blueprints to fully star one hero's piece and 250+ for a squad, so a skipped month is a permanent gap.</p>
+  <p class="text-sm mt-2">After blueprints: Mythic Blueprints when stocked (HQ 30+ concern), then UR shards for active heroes, then skill medals. <strong>Never buy:</strong> resources, speedups, diamonds, shards for unused heroes, chance boxes.</p>
+  <p class="text-sm text-[#8a96b0] mt-2">Unverified: sources conflict on the exact blueprint price and cap (one says 50/month cap, another ~5/weekly rotation). Check your server's shop — the strategy is identical either way: buy every one you can.</p>
+
+  <h2>VIP Store (Diamonds)</h2>
+  <p class="text-sm"><strong>Big caveat first:</strong> until VIP 6 (permanent second builder), nearly all diamonds should go to VIP points — that outvalues anything in any store. For F2P players, reaching VIP 6 takes roughly 75 days.</p>
+  <p class="text-sm mt-2">After VIP 6, weekly priorities (refreshes Monday, discounted vs the regular Diamond Store):</p>
+  <ol class="list-decimal pl-5 text-sm space-y-1 mt-2">
+    <li><strong>Stamina (50)</strong> — more boss/zombie hits = more event currency. Cheap and capped.</li>
+    <li><strong>Dielectric Ceramic</strong> — legendary gear material, hard to farm.</li>
+    <li><strong>Drone parts / skill chip chests</strong> — if a few short of a breakpoint.</li>
+    <li><strong>3h/8h speedups</strong> — bank for VS Day 5, where they're worth ~4× the points.</li>
+    <li><strong>Teleporters</strong> — situational.</li>
+  </ol>
+  <p class="text-sm mt-2"><strong>Never buy</strong> from the unlimited full-price Diamond Store except emergency shields/teleports.</p>
+
+  <h2>Campaign Store (Campaign Medals)</h2>
+  <p class="text-sm"><strong>Earning:</strong> campaign stages via the Alert Tower, Honorable Campaign missions. Restocks Mondays. This is the easiest currency in the game and the guidance is unusual: <strong>buy nearly everything, every week.</strong> If medals are tight:</p>
+  <ol class="list-decimal pl-5 text-sm space-y-1 mt-2">
+    <li><strong>Universal UR Hero Fragments</strong></li>
+    <li><strong>Universal Exclusive Weapon Fragments</strong> — the F2P path to EW level 20</li>
+    <li>UR Campaign Chests / SSR skill chip chests</li>
+    <li>Drone parts, upgrade ore, chip material</li>
   </ol>
 
-  <p class="mt-3 text-sm text-[#8a96b0]">Big one-time packs are generally poor value compared to consistent small spending. The game is very playable as a disciplined low spender or even F2P if you focus on one squad and events.</p>
+  <h2>Season Store (Season Medals)</h2>
+  <p class="text-sm">The rarest shop currency — distributed mainly by your alliance leader from end-of-season rewards. Mid-game you'll have few medals, so <strong>bank them for one stat-bearing base skin</strong> (permanent, compounding combat stats) rather than splitting. Late game, Mythic blueprints take over. Skip pure cosmetics.</p>
+
+  <h2>Black Market (Black Market Cash)</h2>
+  <p class="text-sm">Runs ~4 weeks during the post-season Season Celebration. F2P income is ~10,000+ cash: Week 1 Bingo Board (~5,500), then daily challenges capped at 600/day, plus free Champion's Duel predictions (no downside — always place all 5). Store refreshes 8×/day, first refresh free — roll all of them.</p>
+  <ol class="list-decimal pl-5 text-sm space-y-1 mt-2">
+    <li><strong>Exclusive Weapon shards</strong> (~60/shard, ~3,000 for a full 50-shard unlock) — unlocks otherwise-paywalled EWs. The biggest permanent power gain here.</li>
+    <li><strong>Legendary Gear Blueprints</strong> — supplements the Honor Shop supply.</li>
+    <li><strong>Tower of Victory decoration</strong> (800/copy, get to Lv3) — permanent army stats.</li>
+    <li>Discounted skill medals / drone parts / ore only for specific bottlenecks.</li>
+  </ol>
+  <p class="text-sm mt-2"><strong>Never buy:</strong> hero shards, plain resources, speedups — and skip the paid cash packs; free income covers the top items.</p>
+
+  <h2>Glittering Market (Glittering Coins)</h2>
+  <p class="text-sm">Runs 6 days roughly every month under Events → Hot Deals. Main free income: the daily 60-coin exchange (max ~360/event). <strong>Coins never expire and carry across cycles</strong> — that's the whole strategy.</p>
+  <ol class="list-decimal pl-5 text-sm space-y-1 mt-2">
+    <li><strong>Mythic Gear Blueprint fragments</strong> (300 coins each) — the top late-game buy; hoard across cycles for these.</li>
+    <li><strong>Legendary Gear Blueprints</strong> — always worth it.</li>
+    <li><strong>Hero Choice Chest</strong> (60 coins, 1/day) — mid-game only, if still missing core roster.</li>
+  </ol>
+  <p class="text-sm mt-2"><strong>Never buy:</strong> 1h speedups, Valor Badges, armament materials, resource chests. Mid-game (HQ 15–24): Hero Chest + Legendary blueprints. HQ 27+: hoard everything for Mythic fragments.</p>
+
+  <h2>Zombie Invasion Trade Store (Courage Medals)</h2>
+  <p class="text-sm">Only open during the biweekly Invading Zombies event; medals persist across cycles. Priorities: <strong>Stamina first</strong> (it compounds — more stamina → more kills → more medals), then <strong>Universal EW Fragments</strong>, then recruitment tickets and SSR skill chips. Skip level-bound resource chests and 5-minute speedups.</p>
+
+  <h2>"VS Store" and "Arms Race Store" Don't Exist</h2>
+  <p class="text-sm">Neither event has a point shop — Arms Race pays via phase chests and daily rankings; VS pays via point milestones. The store-adjacent move is <strong>banking</strong>: hold speedups, training, and chests for the matching VS day (Day 5 training/speedups ≈ 4× value) and Arms Race phase. Honor Points you earn in Desert Storm and Capitol Conquest feed the Honor Shop above.</p>
+
+  <h2>Real Money Value (Honest)</h2>
+  <ol class="list-decimal pl-5 text-sm space-y-1 mt-2">
+    <li><strong>Monthly Card</strong> — steady daily value, tiny spend.</li>
+    <li><strong>Battle Pass</strong> — excellent if you actually complete missions.</li>
+    <li><strong>Early VIP levels</strong> — permanent bonuses; VIP 6's second builder is the milestone.</li>
+  </ol>
+  <p class="text-sm text-[#8a96b0] mt-2">Big one-time packs are generally poor value vs consistent small spending. The game is very playable as a disciplined low spender or F2P if you focus one squad and play the event/store loops above.</p>
+
+  <p class="mt-4 text-xs text-[#8a96b0]">Sources: lastwar-tutorial.com, lastwarvault.com, cpt-hedge.com, tooltician's Black Market guide, packsify.com, theriagames.com (2025–2026). Prices and stock rotate with seasons and server age — cross-check against your own shop, and treat any conflict noted above as "verify in-game".</p>
 </Layout>
