@@ -3,36 +3,96 @@ import Layout from '../layouts/Layout.astro';
 import QuickSummary from '../components/QuickSummary.astro';
 ---
 
-<Layout title="Stats" description="What each stat actually does for mid-game players in Last War: Survival and stat priority order.">
-  <h1>Stats</h1>
-  <p class="text-lg text-[#8a96b0]">Not all stats are equal. Focus on what actually helps your main squad right now.</p>
+<Layout title="Stats Explained" description="What every stat in Last War: Survival actually does — ATK, DEF, HP, crit, damage reduction, morale, lethality — and which ones to prioritize for front row vs back row.">
+  <h1>Stats Explained</h1>
+  <p class="text-lg text-[#8a96b0]">What each stat actually does mechanically, and which ones matter for your squad. Last verified: July 2026.</p>
 
   <QuickSummary>
-    <p><strong>Mid-game priority:</strong> Attack/Lethality → Defense/HP → March Size → Troop Load. Everything else is secondary until these are solid.</p>
+    <p><strong>Front row (2 tanks):</strong> Damage Reduction &gt; HP &gt; DEF &gt; ATK. <strong>Back row (3 DPS):</strong> ATK &gt; Skill Damage/Crit &gt; HP. <strong>Account-wide % buffs</strong> (Wall of Honor, research): ATK first — until your squad starts dying before ultimates fire, then rotate to HP/DEF.</p>
   </QuickSummary>
 
-  <h2>What Each Stat Actually Does</h2>
+  <h2>Stat Glossary</h2>
   <div class="table-wrapper">
     <table>
       <thead>
-        <tr><th>Stat</th><th>Practical Effect</th></tr>
+        <tr><th>Stat</th><th>What it actually does</th><th>Who it matters for</th></tr>
       </thead>
       <tbody>
-        <tr><td><strong>Attack / Lethality</strong></td><td>Increases damage dealt. Biggest priority for your backline DPS.</td></tr>
-        <tr><td><strong>Defense / HP</strong></td><td>Survivability. Extremely important for frontline tanks.</td></tr>
-        <tr><td><strong>March Size</strong></td><td>More troops in every march = more power in PvP, PvE, and rallies.</td></tr>
-        <tr><td><strong>Troop Load</strong></td><td>How many resources you can carry while gathering. Critical for economy.</td></tr>
-        <tr><td><strong>Skill-related stats</strong></td><td>Make your hero skills hit harder or last longer.</td></tr>
+        <tr><td><strong>Power</strong></td><td>Display number only — a sum of everything you've built and trained. It does <em>not</em> directly decide battles. Each troop adds fixed power (T1 = 24, T10 = 1,647, T11 = 1,840), so troop tier and hero skills create huge "hidden" gaps between equal-power accounts.</td><td>Rough gauge only — see misconceptions below</td></tr>
+        <tr><td><strong>Hero ATK / DEF / HP</strong></td><td>The hero's own stats. In battle, your squad's total = hero stat + (troop count × per-troop stat). More troops per march also means more total stats.</td><td>All heroes; ATK for back row, DEF/HP for front</td></tr>
+        <tr><td><strong>Squad ATK / DEF / HP %</strong></td><td>Percentage buffs applied to the combined hero + troop pools of the whole march. The biggest cheap multipliers at HQ 15–30.</td><td>Everyone — from research, Wall of Honor, decorations, alliance tech</td></tr>
+        <tr><td><strong>Tank / Missile / Aircraft ATK, DEF, HP %</strong></td><td>Same as above but only for that troop type. Stacks with the generic squad %.</td><td>Whatever type your main squad runs</td></tr>
+        <tr><td><strong>Damage Reduction %</strong></td><td>Cuts final incoming damage <em>after</em> DEF, and stacks multiplicatively with other reduction sources — which is why it outscales flat DEF/HP late game. Williams stacking DR can tank enemies several times his power.</td><td>Front-row tanks, above all else</td></tr>
+        <tr><td><strong>Crit Rate / Crit Damage</strong></td><td>Chance to crit and the bonus when you do. Mostly comes from hero skills (Marshall's squad crit buffs), drone chips, and some gear. Base crit values aren't published anywhere reliable.</td><td>Back-row burst DPS</td></tr>
+        <tr><td><strong>Skill Damage %</strong></td><td>Amplifies hero skill damage (not basic attacks). Most meta DPS (Kimberly, DVA, Tesla) deal the bulk of their damage through skills.</td><td>Back-row skill-based DPS</td></tr>
+        <tr><td><strong>Morale</strong></td><td>Each 1% morale above the enemy = +1% damage dealt, capped at +200% — and the lower side also takes more damage. Losing troops mid-fight drops morale, so battles snowball. Arguably the largest damage modifier in the game.</td><td>Everyone in PvP</td></tr>
+        <tr><td><strong>March Size</strong></td><td>Troops per march. More troops = more total ATK/DEF/HP and higher morale. The biggest "hidden" power stat — it's why big accounts hit so hard.</td><td>Everyone; from hero levels, troop-type Centers, research, Shirley</td></tr>
+        <tr><td><strong>Troop Load</strong></td><td>Resources each soldier carries when gathering or looting. Scales with tier (T1 = 400 → T10 = 2,200 → T11 = 2,400). Zero combat impact.</td><td>Farming marches only</td></tr>
+        <tr><td><strong>Lethality Rate</strong></td><td>Endgame stat: pushes enemy casualties toward "killed" instead of "wounded". Only appears with T11 / Armament Institute (HQ 27+). Not something you can build mid-game.</td><td>T11+ attackers</td></tr>
+        <tr><td><strong>Severe Wound Rate</strong></td><td>Endgame stat: the share of your wounded needing hospital beds vs auto-recovering. T11 Armored Trooper spec gives −5%. Lower = cheaper wars.</td><td>T11+ defenders and rally fillers</td></tr>
       </tbody>
     </table>
   </div>
 
-  <h2>Where to Get Stats</h2>
+  <h2>How Damage Actually Works</h2>
+  <p class="text-sm">No official formula exists — this is the community's reconstruction, and the well-verified pieces are:</p>
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr><th>Modifier</th><th>Value</th><th>Notes</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Type counter</strong></td><td>±20% both ways</td><td>Tank &gt; Missile &gt; Aircraft &gt; Tank. You deal +20% and take −20% vs your countered type — roughly a 40% effective swing.</td></tr>
+        <tr><td><strong>Mono-type formation bonus</strong></td><td>+5% / +10% / +15% / <strong>+20%</strong></td><td>For 3 / 3+2 / 4 / 5 same-type heroes — to ATK, DEF <em>and</em> HP of the whole march. This is why mono squads are non-negotiable.</td></tr>
+        <tr><td><strong>Morale advantage</strong></td><td>+1% damage per 1%</td><td>Capped at +200%; asymmetric (the low side also takes more).</td></tr>
+        <tr><td><strong>Skill multipliers</strong></td><td>Stack multiplicatively</td><td>A 2× skill against a countered type hits for 2.4×.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="text-sm text-[#8a96b0] mt-2">Disputed / unverified: whether DEF is subtractive or a divisor (treat % Damage Reduction as the reliable defensive layer instead); the exact War Fever mechanics; the claim that a ~30%+ raw power lead overrides type disadvantage (widely repeated, thinly sourced). We flag these rather than pretend they're settled.</p>
+
+  <h2>Stat Priority: Front Row vs Back Row</h2>
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr><th>Slot</th><th>Priority</th><th>Why</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Front row (2 tanks)</strong></td><td>Damage Reduction &gt; HP &gt; DEF &gt; ATK</td><td>DR is percentage-based and stacks multiplicatively; flat DEF is the weakest defensive stat late. Every second your front line survives is DPS uptime for the back row.</td></tr>
+        <tr><td><strong>Back row (3 DPS/support)</strong></td><td>ATK &gt; Skill Damage / Crit &gt; HP</td><td>They're shielded by row mechanics; their job is ending the fight before the front falls.</td></tr>
+        <tr><td><strong>Account-wide % (Wall of Honor, research)</strong></td><td>ATK first, conditionally</td><td>"Dead enemies deal no damage" — but if your heroes die before ultimates cycle, rotate to HP/DEF. Both camps of the community agree on this conditional.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="text-sm mt-2">So "ATK first" is correct as a default for account-wide bonuses, and wrong as a blanket per-hero rule. Gear order for DPS: Gun → Radar → Armor → Chip; tanks flip it (Armor/Radar first, Gun last).</p>
+
+  <h2>Row &amp; Targeting Mechanics</h2>
   <ul class="text-sm space-y-1">
-    <li>Hero levels and stars</li>
-    <li>Gear (especially Mythic pieces)</li>
-    <li>Research (biggest long-term source)</li>
-    <li>Exclusive weapons and hero talents</li>
-    <li>Base buildings (smaller but consistent gains)</li>
+    <li><strong>2 front, 3 back.</strong> The front row absorbs basic attacks first; the back row is protected until the front falls.</li>
+    <li><strong>Some skills bypass rows</strong> — this is why pure tank walls still lose: Tesla targets the back row directly, AoE skills (Kimberly, Stetmann, Fiona) hit everyone, Swift executes low-HP targets, DVA bursts priority targets.</li>
+    <li><strong>Never put DPS in front.</strong> They die contributing nothing.</li>
+    <li><strong>DEF shred</strong> (Morrison, up to −25% enemy DEF) makes enemy front rows melt faster.</li>
   </ul>
+
+  <h2>Common Misconceptions</h2>
+  <ul class="text-sm space-y-2">
+    <li><strong>"Higher power wins."</strong> 2M power of T1 troops is worth roughly 292K effective power vs 1M of T10s. Skill investment is invisible in power — two 5M accounts can differ ~2× in real output.</li>
+    <li><strong>"Best 5 heroes = best squad."</strong> A mono-type squad of weaker heroes usually beats a mixed squad of stronger ones, because +20% to everything on the whole march outweighs individual hero quality. (Known exception: the "Murphy Exception" 4+1 hybrid.)</li>
+    <li><strong>"Morale is flavor text."</strong> It's up to +200% damage and it snowballs mid-battle.</li>
+    <li><strong>"DEF and Damage Reduction are the same."</strong> DEF is a flat stat; DR is a multiplicative percentage cut that scales into late game.</li>
+    <li><strong>"Stack Lethality."</strong> Not available before T11/HQ 27. A guide telling you to stack Lethality mid-game is probably about a different game (Kingshot).</li>
+  </ul>
+
+  <h2>Where Stats Come From</h2>
+  <ul class="text-sm space-y-1">
+    <li><strong>Research</strong> — biggest long-term source of squad %</li>
+    <li><strong>Gear</strong> — especially the carry's Gun at Legendary 4★+</li>
+    <li><strong>Hero levels &amp; stars</strong> — also gates march size and skill caps</li>
+    <li><strong>Exclusive Weapons</strong> — multiplicative with gear</li>
+    <li><strong>Wall of Honor</strong> — type-wide % from surplus shards</li>
+    <li><strong>Drone + chips</strong> — account-wide, applies to every battle</li>
+    <li><strong>Buildings &amp; decorations</strong> — smaller but permanent</li>
+  </ul>
+
+  <p class="mt-4 text-xs text-[#8a96b0]">Sources: lastwar.wiki, cpt-hedge.com, lastwarvault.com, allclash.com, lastwar-tutorial.com, packsify.com. Numbers cross-checked against 2+ sources; disputed items are flagged inline. Game tuning changes — if you spot a stale number, it probably shifted in a patch.</p>
 </Layout>
