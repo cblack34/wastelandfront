@@ -20,7 +20,7 @@ import QuickSummary from '../components/QuickSummary.astro';
         <tr><th scope="col">Real trade-off</th><th scope="col">The call</th></tr>
       </thead>
       <tbody>
-        <tr><td><strong>Hero shards:</strong> stars vs Wall of Honor</td><td>Stars first (they gate EW unlock and Wall of Honor itself). Softened by a key mechanic: shards invested in SSRs are <em>refunded on UR promotion</em>, so early investment is low-risk.</td></tr>
+        <tr><td><strong>Hero shards:</strong> stars vs Wall of Honor</td><td>Stars first (they gate EW unlock and Wall of Honor itself). Star-ascension shards are a separate pool and do <em>not</em> refund on UR promotion — only Wall of Honor shard investment is refunded when a hero promotes, so that's the low-risk sink, not star shards.</td></tr>
         <tr><td><strong>Honor Points:</strong> blueprints vs everything else</td><td>Legendary Blueprints every refresh. Nothing else.</td></tr>
         <tr><td><strong>Alliance Coins:</strong> hero shards vs drone parts</td><td>Shards until your core 5 are built, then drone parts.</td></tr>
         <tr><td><strong>Diamonds</strong></td><td>VIP points until VIP 6 (second builder), then stamina/ceramics.</td></tr>
@@ -39,7 +39,7 @@ import QuickSummary from '../components/QuickSummary.astro';
   </ul>
 
   <h2>Exclusive Weapons — The Best-Documented Math in the Game</h2>
-  <p class="text-sm">Unlock: <strong>50 named shards</strong> + hero at 5★. Cost per level rises in bands: 20/level (1–5), 40 (5–10), 60 (10–15), 100 (15–20), 150 (20–25), 200 (25–30).</p>
+  <p class="text-sm">Unlock: <strong>50 named shards</strong> + hero at 5★ (this covers Level 1). Per-level shard cost to reach each subsequent level then rises in bands: 20/level (L2–4), 40 (L5–9), 60 (L10–14), 100 (L15–19), 150 (L20–24), 200 (L25–30).</p>
   <div class="table-wrapper">
     <table>
       <caption class="sr-only">Exclusive Weapon shard costs by milestone level</caption>
@@ -49,7 +49,7 @@ import QuickSummary from '../components/QuickSummary.astro';
       <tbody>
         <tr><td>Unlock</td><td>50</td><td>EW active, ~0.3M squad power</td></tr>
         <tr><td><strong>Level 20</strong></td><td>1,130</td><td><strong>+7.5% boost — the stop point.</strong> Best cost/benefit in the game.</td></tr>
-        <tr><td>Level 30</td><td>2,830 (another 1,750 for the back half)</td><td>Deliberately bad value until every main-squad EW is at 20.</td></tr>
+        <tr><td>Level 30</td><td>2,880 (another 1,750 for the back half)</td><td>Deliberately bad value until every main-squad EW is at 20.</td></tr>
       </tbody>
     </table>
   </div>
@@ -62,17 +62,17 @@ import QuickSummary from '../components/QuickSummary.astro';
   <h2>Wall of Honor</h2>
   <ul class="text-sm space-y-1">
     <li><strong>Unlock:</strong> hero at 5★ + that troop type's Center (Tank/Missile/Aircraft) at level 20.</li>
-    <li><strong>Fuel:</strong> surplus hero shards — and they're <em>refunded if the hero promotes to UR</em>, so there's no waste.</li>
+    <li><strong>Fuel:</strong> surplus hero shards — Wall of Honor shard investment specifically is <em>refunded if the hero promotes to UR</em>, so there's no waste. (This refund does not extend to star-ascension shards — see the trade-off table above.)</li>
     <li><strong>Order: ATK → DEF → HP, skip Troop Load.</strong> This is real consensus across sources. Bonuses apply to <em>all</em> heroes of that troop type and stack with gear/EW/research.</li>
     <li>No level cap; every 50 levels the bonus ticks up (+0.25% to +1.00% depending on hero). Focus one ATK hero (Kimberly/Mason for Tank) rather than spreading.</li>
   </ul>
 
   <h2>Tactical Drone &amp; Chips</h2>
   <ul class="text-sm space-y-1">
-    <li>The drone buffs <strong>every squad in every battle</strong> — its daily habits are near-free and always worth doing: collect Component Factory chests, always pick <strong>right-side components</strong> (Missile/Fuel Cell/Thermal Imager — left-side drops passively at ~2× the rate anyway).</li>
+    <li>The drone buffs <strong>every squad in every battle</strong> — its daily habits are near-free and always worth doing: collect Component Factory chests, and spend deliberate choice-picks on the rarer <strong>right-side components</strong> (Missile/Fuel Cell/Thermal Imager, ~11.1% passive drop rate) since left-side parts (~22.2% passive drop rate) get covered by passive drops anyway.</li>
     <li><strong>Combat Boost level 10 opens all four chip slots</strong> (arrives ~server day 85 via Age-of-Oil tech).</li>
     <li><strong>Chip priority, 2026 meta: Interference first</strong> (counters tactic-damage burst), then Defense → Initial → Attack. Note: 2024–25 guides said Attack second — that meta shifted, ignore older advice.</li>
-    <li>Keep all four chips at <strong>uniform star levels</strong> for the Resonance set bonus. Park the Chip Lab at level 20; 21–35 is expensive polish.</li>
+    <li>The Resonance set bonus triggers on <strong>rarity match</strong> — 4× Legendary or 4× Epic chips, not matched star levels. Keeping star levels roughly even across chips is still a fine resource-pacing habit, just not the Resonance trigger. Park the Chip Lab at level 20; 21–35 is expensive polish.</li>
     <li>Drone <em>spending</em> ranks below carry EW-20 and carry Gun; drone <em>habits</em> rank above almost everything because they're free.</li>
   </ul>
 
@@ -109,8 +109,8 @@ import QuickSummary from '../components/QuickSummary.astro';
   <ol class="list-decimal pl-5 text-sm space-y-1 mt-2">
     <li><strong>Carry's Mythic Gun</strong> — never split blueprints across heroes. Then Chip or Radar second (the documented community split), with Murphy's Radar as the team-wide detour.</li>
     <li>EWs to 20 on heroes #2 and #3 before anyone goes 20→30.</li>
-    <li>Legendary chips + Resonance uniformity; stockpile Drone Parts for the post-150 wall.</li>
-    <li><strong>Don't let any of this delay HQ 30 + Tech Center 30</strong> — T10 troops are the single biggest power cliff in this range.</li>
+    <li>Match chips to trigger Resonance (4× same rarity — Epic sets work too, Legendary is just the upgrade path); stockpile Drone Parts for the post-150 wall.</li>
+    <li><strong>Don't let any of this delay the T10 gate</strong> — HQ 30, Tech Center 30, Barracks 30, and the Special Forces research node all need to be cleared. In our view, T10 troops are arguably the biggest power cliff in this range.</li>
     <li>Wall of Honor becomes the long-term sink for now-surplus shards (ATK → DEF → HP).</li>
     <li>Decorations: take event-earned ones (Damage Reduction lines first); never a spending priority.</li>
   </ol>
@@ -123,5 +123,5 @@ import QuickSummary from '../components/QuickSummary.astro';
     <li>Unverified numbers we're tracking: the Honor Shop monthly blueprint cap, the drone parts-per-level curve past 150, and exact per-tier gear stat values. Flagged rather than asserted.</li>
   </ul>
 
-  <p class="mt-4 text-xs text-[#8a96b0]">Sources: cpt-hedge.com (EW cost table — verified against lastwarhandbook's chart), lastwarvault.com (Mythic gear, Wall of Honor), lastwar.wiki (WoH per-hero table), lastwar-tutorial.com (hero leveling), packsify.com (drone, research), heaven-guardian.com (chips). 2025–2026 pages; meta shifts are called out where they happened.</p>
+  <p class="mt-4 text-xs text-[#8a96b0]">Sources: cpt-hedge.com (EW cost table, UR-promotion shard refunds), lastwarvault.com (Mythic gear, T10 troops gate), lastwar.wiki (Wall of Honor refund scope, drone chip Resonance mechanics), lastwar-tutorial.com (hero leveling), packsify.com (drone drop rates, research), heaven-guardian.com (chips). 2025–2026 pages; meta shifts are called out where they happened.</p>
 </Layout>
