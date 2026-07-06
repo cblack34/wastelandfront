@@ -44,14 +44,14 @@ import QuickSummary from '../components/QuickSummary.astro';
         <tr><th scope="col">Modifier</th><th scope="col">Value</th><th scope="col">Notes</th></tr>
       </thead>
       <tbody>
-        <tr><td><strong>Type counter</strong></td><td>±20% both ways</td><td>Tank &gt; Missile &gt; Aircraft &gt; Tank per our sources, but see the dispute flag below — some sources give the opposite cycle direction. You deal +20% and take −20% vs your countered type; whether that combines additively (~40% swing) or multiplicatively (~44%) isn't settled either.</td></tr>
-        <tr><td><strong>Mono-type formation bonus</strong></td><td>+5% / +10% / +15% / <strong>+20%</strong></td><td>For 3 / 3+2 / 4 / 5 same-type heroes — to ATK, DEF <em>and</em> HP of the whole march. This is why mono squads are non-negotiable.</td></tr>
+        <tr><td><strong>Type counter</strong></td><td>±20% (Tank ↔ Missile confirmed)</td><td>Direction Tank &gt; Missile &gt; Aircraft &gt; Tank is verified. The ±20% figure is pinned only for the Tank↔Missile leg; the Missile↔Aircraft and Aircraft↔Tank magnitudes aren't quantified anywhere reliable, and whether the swing combines additively or multiplicatively is undocumented, pending in-game verification.</td></tr>
+        <tr><td><strong>Mono-type formation bonus</strong></td><td>+5% / +10% / +15% / <strong>+20%</strong></td><td>For 3 / 3+2 / 4 / 5 same-type heroes — to ATK, DEF <em>and</em> HP of the whole march. Verified via two independent Tier-1 sources (lastwarvault.com, lastwartutorial.com); this is a native Last War mechanic, not a Whiteout Survival crossover. This is why mono squads are non-negotiable.</td></tr>
         <tr><td><strong>Morale advantage</strong></td><td>+1% damage per 1%</td><td>Capped at +200%; asymmetric (the low side also takes more).</td></tr>
         <tr><td><strong>Skill multipliers</strong></td><td>Stack multiplicatively</td><td>A 2× skill against a countered type hits for 2.4×.</td></tr>
       </tbody>
     </table>
   </div>
-  <p class="text-sm text-[#8a96b0] mt-2">Disputed / unverified: the type-counter cycle's <em>direction</em> (Tank &gt; Missile &gt; Aircraft &gt; Tank) conflicts between sources, and the swing math itself is ambiguous — pending in-game verification, don't treat either as settled; the ±20% figure is reverse-engineered by the community, not from official patch notes; whether DEF is subtractive or a divisor (treat % Damage Reduction as the reliable defensive layer instead); the exact War Fever mechanics; the claim that a ~30%+ raw power lead overrides type disadvantage (widely repeated, thinly sourced). We flag these rather than pretend they're settled.</p>
+  <p class="text-sm text-[#8a96b0] mt-2">The type-counter cycle's direction is confirmed (see above). Unverified: the ±20% magnitude beyond Tank↔Missile and the additive-vs-multiplicative stacking formula (undocumented, pending in-game verification); whether DEF is subtractive or a divisor (treat % Damage Reduction as the reliable defensive layer instead); the exact War Fever mechanics; the claim that a ~30%+ raw power lead overrides type disadvantage (widely repeated, thinly sourced). We flag these rather than pretend they're settled.</p>
 
   <h2>Stat Priority: Front Row vs Back Row</h2>
   <div class="table-wrapper">
@@ -96,5 +96,5 @@ import QuickSummary from '../components/QuickSummary.astro';
     <li><strong>Buildings &amp; decorations</strong> — smaller but permanent</li>
   </ul>
 
-  <p class="mt-4 text-xs text-[#8a96b0]">Sources: lastwar.wiki, cpt-hedge.com, lastwarvault.com, allclash.com, lastwar-tutorial.com, packsify.com, the official FirstFun Zendesk help center. Numbers with 2+ independent sources agreeing are stated plainly; single-source figures and community disputes are flagged and attributed inline rather than presented as settled. Game tuning changes — if you spot a stale number, it probably shifted in a patch.</p>
+  <p class="mt-4 text-xs text-[#8a96b0]">Sources: lastwar.wiki, cpt-hedge.com, lastwarvault.com, lastwartutorial.com, theriagames.com, allclash.com, lastwar-tutorial.com, packsify.com, the official FirstFun Zendesk help center. Numbers with 2+ independent sources agreeing are stated plainly; single-source figures and community disputes are flagged and attributed inline rather than presented as settled. Game tuning changes — if you spot a stale number, it probably shifted in a patch.</p>
 </Layout>
