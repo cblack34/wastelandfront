@@ -3,9 +3,9 @@ import Layout from '../../layouts/Layout.astro';
 import QuickSummary from '../../components/QuickSummary.astro';
 ---
 
-<Layout title="Resource Chest Calculator" description="Calculate the total Food, Iron, Gold, and Hero EXP in your banked Last War: Survival chests at your HQ level — and see how much more they're worth if you wait.">
+<Layout title="Resource Chest Calculator" description="Calculate the total Food, Iron, and Gold in your banked Last War: Survival chests at your HQ level — and see how much more they're worth if you wait.">
   <h1>Resource Chest Calculator</h1>
-  <p class="text-lg text-[#8a96b0]">Chests in Last War have no fixed value — payout scales with your HQ level <em>when you open them</em>. Enter your stack to see what it's worth now, and what waiting gets you.</p>
+  <p class="text-lg text-[#8a96b0]">Chests in Last War have no fixed value — payout scales with your HQ level <em>when you open them</em>. Enter your stack to see what it's worth now, and what waiting gets you. Last verified: July 2026.</p>
 
   <QuickSummary>
     <p><strong>The rule this tool exists for:</strong> resource chests are priced at open-time, not drop-time. Opening at HQ 20 instead of HQ 35 costs you ~36% of the chest's value. Bank chests until you actually need them.</p>
@@ -78,12 +78,12 @@ import QuickSummary from '../../components/QuickSummary.astro';
   <h2>Where These Numbers Come From</h2>
   <ul class="text-sm space-y-1">
     <li><strong>Rarity ratios are the best-verified numbers:</strong> Blue = 10× Green, Purple = 80× Green, Gold = 240× Green. Three independent datasets conform exactly (theriagames item guides, Last War Vault's tool, Cpt Hedge's tool).</li>
-    <li><strong>Exact per-HQ values</strong> are community-collected for HQ 15–20 and HQ 35. We validated internal consistency ourselves (e.g., HQ 20: 12.6K green × 240 = 3.02M gold — matches the published Legendary value; HQ 35: 19.8K × 240 = 4.75M — matches).</li>
+    <li><strong>Exact per-HQ values</strong> are community-collected for HQ 15–20 and HQ 35. We validated internal consistency ourselves (e.g., HQ 20: 12.6K green × 240 = 3.02M gold — matches the published Legendary value; HQ 35: 19.8K × 240 = 4.75M — matches). This is ratio-consistency against theriagames plus our own HQ 15–20 anchors, not a fully independent cross-check — treat it as strongly consistent rather than "independently validated" until we can confirm against in-game screenshots.</li>
     <li><strong>HQ 21–34 values are interpolated estimates</strong> (marked on the slider). The real curve steps irregularly by level, so expect roughly ±5% off until we capture in-game values. If you can screenshot chest tooltips at these levels, send them our way.</li>
-    <li><strong>Gold-coin chests pay ~0.64×</strong> a food/iron chest of the same rarity. Sources disagree slightly (theriagames says 0.60; both published calculator datasets imply 0.636 at HQ 35) — we use 0.636 because it reproduces the published table values exactly, and flag the conflict.</li>
-    <li>Displayed in-game values are rounded (a chest labeled "8.6K" grants 8,424), so totals here are ±1%.</li>
+    <li><strong>Gold-coin chests pay 0.60×</strong> a food/iron chest of the same rarity, per theriagames' explicit statement. We previously used 0.636, sourced to "both published calculator datasets" — on audit we couldn't actually reproduce that figure from either site (both render their tables via JS, not static markup), and 0.636 turned out to be numerically identical to this page's own HQ20→HQ35 green-chest growth ratio (12,600 / 19,800 = 0.6364), which strongly suggests a derivation mix-up rather than a real second source. We've corrected the factor to 0.60. In-game screenshot verification is still pending — tracked in RESEARCH.md.</li>
+    <li>Displayed values are rounded for readability (e.g. the HQ 15 Green chest yield shown above as "8.6K" is exactly 8,640) — totals in your stack table use the unrounded figures, so expect the on-screen total to differ from a hand-multiplied K value by up to ±1%.</li>
     <li>Chest yield scales with <strong>HQ level only</strong> — no source shows VIP, research, or season modifiers affecting it.</li>
-    <li><strong>Hero EXP chests are excluded for now:</strong> only HQ 35 values are documented (127K/1.27M/10.17M/30.52M), and they don't follow the ×240 ratio exactly at Legendary. We'd rather leave them out than guess.</li>
+    <li><strong>Hero EXP chests are excluded for now:</strong> only HQ 35 values are documented (127K/1.27M/10.17M/30.52M). Their ratios (10.0× / 80.1× / 240.3× Uncommon) actually track the standard 10/80/240 pattern within ~0.4% — the problem isn't the ratio, it's that no Tier-1/2 source publishes these base figures at all. We'd rather leave them out than guess until a citable source turns up.</li>
   </ul>
 
   <p class="mt-4 text-xs text-[#8a96b0]">Data cross-checked July 2026 against theriagames.com chest guides, lastwarvault.com/resource-chests, and cpt-hedge.com/calculators/resource-chests. Note the public datasets likely share one community origin ("kp7") — treat this as strongly consistent, not fully independent, until we verify in-game.</p>
@@ -96,7 +96,7 @@ import QuickSummary from '../../components/QuickSummary.astro';
     };
     const VERIFIED_LEVELS = new Set([15, 16, 17, 18, 19, 20, 35]);
     const RARITY_MULT = { g: 1, b: 10, p: 80, l: 240 };
-    const GOLD_COIN_FACTOR = 0.636; // gold-coin chest vs food/iron chest of same rarity (matches both published calculator datasets at HQ 35; theriagames quotes 0.6)
+    const GOLD_COIN_FACTOR = 0.60; // gold-coin chest vs food/iron chest of same rarity (theriagames states this explicitly; in-game screenshot verification pending, see RESEARCH.md)
     const RESOURCES = ['food', 'iron', 'gold'];
     const RARITIES = ['g', 'b', 'p', 'l'];
 
