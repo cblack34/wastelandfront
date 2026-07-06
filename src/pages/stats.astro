@@ -14,8 +14,9 @@ import QuickSummary from '../components/QuickSummary.astro';
   <h2>Stat Glossary</h2>
   <div class="table-wrapper">
     <table>
+      <caption class="sr-only">Stat glossary: what each stat does and who it matters for</caption>
       <thead>
-        <tr><th>Stat</th><th>What it actually does</th><th>Who it matters for</th></tr>
+        <tr><th scope="col">Stat</th><th scope="col">What it actually does</th><th scope="col">Who it matters for</th></tr>
       </thead>
       <tbody>
         <tr><td><strong>Power</strong></td><td>Display number only — a sum of everything you've built and trained. It does <em>not</em> directly decide battles. Each troop adds fixed power (T1 = 24, T10 = 1,647, T11 = 1,840), so troop tier and hero skills create huge "hidden" gaps between equal-power accounts.</td><td>Rough gauge only — see misconceptions below</td></tr>
@@ -38,8 +39,9 @@ import QuickSummary from '../components/QuickSummary.astro';
   <p class="text-sm">No official formula exists — this is the community's reconstruction, and the well-verified pieces are:</p>
   <div class="table-wrapper">
     <table>
+      <caption class="sr-only">Damage formula modifiers and their values</caption>
       <thead>
-        <tr><th>Modifier</th><th>Value</th><th>Notes</th></tr>
+        <tr><th scope="col">Modifier</th><th scope="col">Value</th><th scope="col">Notes</th></tr>
       </thead>
       <tbody>
         <tr><td><strong>Type counter</strong></td><td>±20% both ways</td><td>Tank &gt; Missile &gt; Aircraft &gt; Tank per our sources, but see the dispute flag below — some sources give the opposite cycle direction. You deal +20% and take −20% vs your countered type; whether that combines additively (~40% swing) or multiplicatively (~44%) isn't settled either.</td></tr>
