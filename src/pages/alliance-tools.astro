@@ -20,7 +20,7 @@ import QuickSummary from '../components/QuickSummary.astro';
   <div class="card p-4 mb-4">
     <div class="flex justify-between items-start mb-2">
       <div class="font-semibold">General VS Focus Message</div>
-      <button class="copy-btn text-xs" data-copy="Today’s VS focus: Prioritize [Day-specific goal, e.g. Hero Shards / Gear / Research]. We need strong participation in the 8pm rally window. Let’s push for top 3 on server!">Copy</button>
+      <button class="copy-btn text-xs">Copy</button>
     </div>
     <pre class="text-sm bg-[#0b1220] p-3 rounded overflow-x-auto text-[#c4b5fd]">Today’s VS focus: Prioritize [Hero Shards / Gear Materials / Research Speed]. 
 
@@ -33,7 +33,7 @@ Let’s finish in the top 3 on server today!</pre>
   <div class="card p-4 mb-4">
     <div class="flex justify-between items-start mb-2">
       <div class="font-semibold">Alliance Duel Reminder</div>
-      <button class="copy-btn text-xs" data-copy="Alliance Duel starts in ~30 min. Bring your best squad and be ready to rally. Focus on [specific boss or stage] for max points. Let’s clear it fast!">Copy</button>
+      <button class="copy-btn text-xs">Copy</button>
     </div>
     <pre class="text-sm bg-[#0b1220] p-3 rounded overflow-x-auto">Alliance Duel starts in ~30 min. 
 
@@ -46,7 +46,7 @@ Focus fire and we’ll clear it quickly. Good luck everyone!</pre>
   <div class="card p-4 mb-6">
     <div class="flex justify-between items-start mb-2">
       <div class="font-semibold">Doom Elite Farming (with Monica)</div>
-      <button class="copy-btn text-xs" data-copy="Reminder: For Doom Elite rallies, please try to include Monica in your squad (even at low stars). Her skill gives a big resource bonus on elites. Swap her in for farming runs — it adds up fast for the whole alliance.">Copy</button>
+      <button class="copy-btn text-xs">Copy</button>
     </div>
     <pre class="text-sm bg-[#0b1220] p-3 rounded overflow-x-auto">Reminder for elite farming: 
 
@@ -61,7 +61,7 @@ You can swap her back out for combat content afterward. Small effort, big RSS ga
     <div class="card p-4">
       <div class="flex justify-between items-start mb-2">
         <div class="font-semibold text-sm">Wall of Honor / Shard Push</div>
-        <button class="copy-btn text-xs" data-copy="Wall of Honor push this week for [Hero Name]. If you have shards for them, please use them this week. Every star helps the whole alliance in events.">Copy</button>
+        <button class="copy-btn text-xs">Copy</button>
       </div>
       <pre class="text-xs bg-[#0b1220] p-2 rounded">Wall of Honor push this week for [Hero Name]. If you have shards for them, please use them this week. Every star helps the whole alliance in events.</pre>
     </div>
@@ -69,7 +69,7 @@ You can swap her back out for combat content afterward. Small effort, big RSS ga
     <div class="card p-4">
       <div class="flex justify-between items-start mb-2">
         <div class="font-semibold text-sm">Arms Race Coordination</div>
-        <button class="copy-btn text-xs" data-copy="Arms Race reminder: Save your big stamina and legendary chests for the final 3-4 hours. We will pop together for max alliance gifts. Smaller chests are fine to open earlier for dailies.">Copy</button>
+        <button class="copy-btn text-xs">Copy</button>
       </div>
       <pre class="text-xs bg-[#0b1220] p-2 rounded">Arms Race reminder: Save your big stamina and legendary chests for the final 3-4 hours. We will pop together for max alliance gifts. Smaller chests are fine to open earlier for dailies.</pre>
     </div>
@@ -77,7 +77,7 @@ You can swap her back out for combat content afterward. Small effort, big RSS ga
     <div class="card p-4">
       <div class="flex justify-between items-start mb-2">
         <div class="font-semibold text-sm">New Member Onboarding</div>
-        <button class="copy-btn text-xs" data-copy="Welcome! Please read the pinned Squad Building guide before asking hero questions. We strongly follow 'Main Squad First' — almost all resources go into one squad until it's very strong.">Copy</button>
+        <button class="copy-btn text-xs">Copy</button>
       </div>
       <pre class="text-xs bg-[#0b1220] p-2 rounded">Welcome! Please read the pinned Squad Building guide before asking hero questions. We strongly follow 'Main Squad First' — almost all resources go into one squad until it's very strong.</pre>
     </div>
@@ -85,17 +85,20 @@ You can swap her back out for combat content afterward. Small effort, big RSS ga
     <div class="card p-4">
       <div class="flex justify-between items-start mb-2">
         <div class="font-semibold text-sm">VS Participation Push</div>
-        <button class="copy-btn text-xs" data-copy="VS is live. Please participate in the evening rally window if possible. Every point moves us up the server rankings and improves our rewards. Let’s go!">Copy</button>
+        <button class="copy-btn text-xs">Copy</button>
       </div>
       <pre class="text-xs bg-[#0b1220] p-2 rounded">VS is live. Please participate in the evening rally window if possible. Every point moves us up the server rankings and improves our rewards. Let’s go!</pre>
     </div>
   </div>
 
   <script>
-    // Vanilla copy-to-clipboard for alliance messages (no React needed)
+    // Vanilla copy-to-clipboard for alliance messages (no React needed).
+    // Copies the adjacent <pre>'s own text so the button can never drift
+    // from what the user actually sees (see audit #37).
     document.querySelectorAll('.copy-btn').forEach(btn => {
       btn.addEventListener('click', async () => {
-        const text = btn.getAttribute('data-copy');
+        const pre = btn.closest('.card')?.querySelector('pre');
+        const text = pre?.textContent;
         if (!text) return;
 
         try {
