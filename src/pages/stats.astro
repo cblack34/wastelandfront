@@ -22,14 +22,14 @@ import QuickSummary from '../components/QuickSummary.astro';
         <tr><td><strong>Hero ATK / DEF / HP</strong></td><td>The hero's own stats. In battle, your squad's total = hero stat + (troop count × per-troop stat). More troops per march also means more total stats.</td><td>All heroes; ATK for back row, DEF/HP for front</td></tr>
         <tr><td><strong>Squad ATK / DEF / HP %</strong></td><td>Percentage buffs applied to the combined hero + troop pools of the whole march. The biggest cheap multipliers at HQ 15–30.</td><td>Everyone — from research, Wall of Honor, decorations, alliance tech</td></tr>
         <tr><td><strong>Tank / Missile / Aircraft ATK, DEF, HP %</strong></td><td>Same as above but only for that troop type. Stacks with the generic squad %.</td><td>Whatever type your main squad runs</td></tr>
-        <tr><td><strong>Damage Reduction %</strong></td><td>Cuts final incoming damage <em>after</em> DEF, and stacks multiplicatively with other reduction sources — which is why it outscales flat DEF/HP late game. Williams stacking DR can tank enemies several times his power.</td><td>Front-row tanks, above all else</td></tr>
+        <tr><td><strong>Damage Reduction %</strong></td><td>Cuts final incoming damage <em>after</em> DEF, and stacks multiplicatively with other reduction sources — which is why it outscales flat DEF/HP late game. <span class="text-[#8a96b0]">Unverified: the claim that stacking DR on Williams lets him tank enemies several times his power traces to top-up-shop blog sources only — treat the mechanic (multiplicative stacking) as solid and the specific magnitude as unconfirmed.</span></td><td>Front-row tanks, above all else</td></tr>
         <tr><td><strong>Crit Rate / Crit Damage</strong></td><td>Chance to crit and the bonus when you do. Mostly comes from hero skills (Marshall's squad crit buffs), drone chips, and some gear. Base crit values aren't published anywhere reliable.</td><td>Back-row burst DPS</td></tr>
         <tr><td><strong>Skill Damage %</strong></td><td>Amplifies hero skill damage (not basic attacks). Most meta DPS (Kimberly, DVA, Tesla) deal the bulk of their damage through skills.</td><td>Back-row skill-based DPS</td></tr>
         <tr><td><strong>Morale</strong></td><td>Each 1% morale above the enemy = +1% damage dealt, capped at +200% — and the lower side also takes more damage. Losing troops mid-fight drops morale, so battles snowball. Arguably the largest damage modifier in the game.</td><td>Everyone in PvP</td></tr>
         <tr><td><strong>March Size</strong></td><td>Troops per march. More troops = more total ATK/DEF/HP and higher morale. The biggest "hidden" power stat — it's why big accounts hit so hard.</td><td>Everyone; from hero levels, troop-type Centers, research, Shirley</td></tr>
         <tr><td><strong>Troop Load</strong></td><td>Resources each soldier carries when gathering or looting. Scales with tier (T1 = 400 → T10 = 2,200 → T11 = 2,400). Zero combat impact.</td><td>Farming marches only</td></tr>
         <tr><td><strong>Lethality Rate</strong></td><td>Endgame stat: pushes enemy casualties toward "killed" instead of "wounded". Only appears with T11 / Armament Institute (HQ 27+). Not something you can build mid-game.</td><td>T11+ attackers</td></tr>
-        <tr><td><strong>Severe Wound Rate</strong></td><td>Endgame stat: the share of your wounded needing hospital beds vs auto-recovering. T11 Armored Trooper spec gives −5%. Lower = cheaper wars.</td><td>T11+ defenders and rally fillers</td></tr>
+        <tr><td><strong>Severe Wound Rate</strong></td><td>Endgame stat: the share of your wounded needing hospital beds vs auto-recovering. Per the official Zendesk Lv.11 article, the T11 Armored Trooper spec's −5% is an active combat effect that applies while your Armored units are attacking, not a passive stat bonus. Lower = cheaper wars.</td><td>T11+ defenders and rally fillers</td></tr>
       </tbody>
     </table>
   </div>
@@ -42,14 +42,14 @@ import QuickSummary from '../components/QuickSummary.astro';
         <tr><th>Modifier</th><th>Value</th><th>Notes</th></tr>
       </thead>
       <tbody>
-        <tr><td><strong>Type counter</strong></td><td>±20% both ways</td><td>Tank &gt; Missile &gt; Aircraft &gt; Tank. You deal +20% and take −20% vs your countered type — roughly a 40% effective swing.</td></tr>
+        <tr><td><strong>Type counter</strong></td><td>±20% both ways</td><td>Tank &gt; Missile &gt; Aircraft &gt; Tank per our sources, but see the dispute flag below — some sources give the opposite cycle direction. You deal +20% and take −20% vs your countered type; whether that combines additively (~40% swing) or multiplicatively (~44%) isn't settled either.</td></tr>
         <tr><td><strong>Mono-type formation bonus</strong></td><td>+5% / +10% / +15% / <strong>+20%</strong></td><td>For 3 / 3+2 / 4 / 5 same-type heroes — to ATK, DEF <em>and</em> HP of the whole march. This is why mono squads are non-negotiable.</td></tr>
         <tr><td><strong>Morale advantage</strong></td><td>+1% damage per 1%</td><td>Capped at +200%; asymmetric (the low side also takes more).</td></tr>
         <tr><td><strong>Skill multipliers</strong></td><td>Stack multiplicatively</td><td>A 2× skill against a countered type hits for 2.4×.</td></tr>
       </tbody>
     </table>
   </div>
-  <p class="text-sm text-[#8a96b0] mt-2">Disputed / unverified: whether DEF is subtractive or a divisor (treat % Damage Reduction as the reliable defensive layer instead); the exact War Fever mechanics; the claim that a ~30%+ raw power lead overrides type disadvantage (widely repeated, thinly sourced). We flag these rather than pretend they're settled.</p>
+  <p class="text-sm text-[#8a96b0] mt-2">Disputed / unverified: the type-counter cycle's <em>direction</em> (Tank &gt; Missile &gt; Aircraft &gt; Tank) conflicts between sources, and the swing math itself is ambiguous — pending in-game verification, don't treat either as settled; the ±20% figure is reverse-engineered by the community, not from official patch notes; whether DEF is subtractive or a divisor (treat % Damage Reduction as the reliable defensive layer instead); the exact War Fever mechanics; the claim that a ~30%+ raw power lead overrides type disadvantage (widely repeated, thinly sourced). We flag these rather than pretend they're settled.</p>
 
   <h2>Stat Priority: Front Row vs Back Row</h2>
   <div class="table-wrapper">
@@ -76,8 +76,8 @@ import QuickSummary from '../components/QuickSummary.astro';
 
   <h2>Common Misconceptions</h2>
   <ul class="text-sm space-y-2">
-    <li><strong>"Higher power wins."</strong> 2M power of T1 troops is worth roughly 292K effective power vs 1M of T10s. Skill investment is invisible in power — two 5M accounts can differ ~2× in real output.</li>
-    <li><strong>"Best 5 heroes = best squad."</strong> A mono-type squad of weaker heroes usually beats a mixed squad of stronger ones, because +20% to everything on the whole march outweighs individual hero quality. (Known exception: the "Murphy Exception" 4+1 hybrid.)</li>
+    <li><strong>"Higher power wins."</strong> Power is additive per troop, but troop quality isn't: by this page's own per-troop figures above, one T10 troop (1,647 power) equals roughly 69 T1 troops (24 power each — 1,647 ÷ 24 ≈ 68.6) in raw Power terms. Two accounts sitting at the same total Power can therefore field very different real troop quality depending on tier mix, and skill investment on top of that is invisible in Power — two 5M-power accounts can differ ~2× in real output.</li>
+    <li><strong>"Best 5 heroes = best squad."</strong> A mono-type squad of weaker heroes usually beats a mixed squad of stronger ones, because +20% to everything on the whole march outweighs individual hero quality. (Known exception: what we call the Murphy exception — our own shorthand for a pattern community guides discuss as "4+1" hybrid squads.)</li>
     <li><strong>"Morale is flavor text."</strong> It's up to +200% damage and it snowballs mid-battle.</li>
     <li><strong>"DEF and Damage Reduction are the same."</strong> DEF is a flat stat; DR is a multiplicative percentage cut that scales into late game.</li>
     <li><strong>"Stack Lethality."</strong> Not available before T11/HQ 27. A guide telling you to stack Lethality mid-game is probably about a different game (Kingshot).</li>
@@ -94,5 +94,5 @@ import QuickSummary from '../components/QuickSummary.astro';
     <li><strong>Buildings &amp; decorations</strong> — smaller but permanent</li>
   </ul>
 
-  <p class="mt-4 text-xs text-[#8a96b0]">Sources: lastwar.wiki, cpt-hedge.com, lastwarvault.com, allclash.com, lastwar-tutorial.com, packsify.com. Numbers cross-checked against 2+ sources; disputed items are flagged inline. Game tuning changes — if you spot a stale number, it probably shifted in a patch.</p>
+  <p class="mt-4 text-xs text-[#8a96b0]">Sources: lastwar.wiki, cpt-hedge.com, lastwarvault.com, allclash.com, lastwar-tutorial.com, packsify.com, the official FirstFun Zendesk help center. Numbers with 2+ independent sources agreeing are stated plainly; single-source figures and community disputes are flagged and attributed inline rather than presented as settled. Game tuning changes — if you spot a stale number, it probably shifted in a patch.</p>
 </Layout>
