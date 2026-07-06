@@ -10,7 +10,7 @@
 - Strong emphasis on **UR heroes** for long-term progression while being honest about mid-game SSR use
 - Clear explanation of the **Tank squad exception** (many mid-game players successfully run two Tank squads)
 - **Monica** heavily featured for Doom Elite resource farming
-- Dozens of **ready-to-copy alliance messages** for VS, General's Trial, Arms Race, etc.
+- Dozens of **ready-to-copy alliance messages** for VS (Alliance Duel), Arms Race, and more.
 - Extremely scannable pages with Quick Summary boxes, tables, and short paragraphs
 
 ## Tech Stack
