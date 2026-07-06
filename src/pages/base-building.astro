@@ -3,45 +3,144 @@ import Layout from '../layouts/Layout.astro';
 import QuickSummary from '../components/QuickSummary.astro';
 ---
 
-<Layout title="Base Building" description="Building and research priorities from new player to mid-game in Last War: Survival.">
+<Layout title="Base Building" description="Which buildings actually gate your HQ level in Last War: Survival, the Tech Center bottleneck rule, and what to skip or stagger.">
   <h1>Base Building</h1>
+  <p class="text-lg text-[#8a96b0]">HQ level doesn't gate itself — a short list of specific buildings does, and one of them (Tech Center) gates almost every level from HQ8 to HQ30. Last verified: July 2026.</p>
 
   <QuickSummary>
-    <p><strong>Early game:</strong> Rush HQ level. <strong>Mid-game:</strong> Only upgrade buildings and research that directly power your main squad.</p>
+    <p><strong>The one-line version:</strong> keep Tech Center within 1 level of your HQ, always — it's the single hardest wall in the game. Beyond that, only level the one Tank/Air/Missile Center matching your main squad, stagger Barracks and Drill Ground instead of maxing both evenly, and check your in-game requirements tab for the secondary building each HQ level demands — it rotates and isn't fully pinned down here.</p>
   </QuickSummary>
 
-  <h2>Building Priority Order</h2>
-  <ol class="list-decimal pl-5 space-y-1 text-sm">
-    <li><strong>HQ</strong> — Unlocks everything else. Push this hard early rather than spreading resources across other buildings.</li>
-    <li><strong>Troop Center</strong> for your main squad type (Tank/Aircraft/Missile).</li>
-    <li><strong>Research Lab</strong> — Focus on combat, troop load, and training speed for your chosen type.</li>
-    <li><strong>Gear Workshop / Enhancement buildings</strong> — Critical once you start getting good gear.</li>
-    <li><strong>Resource buildings</strong> — Only what you actually need to support training and healing.</li>
-    <li>Everything else (Barracks, Hospital, etc.) can wait or be upgraded minimally.</li>
-  </ol>
+  <h2>The Headline Fact: Tech Center Gates Everything</h2>
+  <p class="text-sm">Tech Center houses the research tree, and from roughly HQ8 through HQ30, almost every HQ upgrade requires <strong>Tech Center at HQ level − 1</strong> — verified independently across two sources. Fall behind on Tech Center and every subsequent HQ level stalls, not just the next one. This is the one building you should never let lag.</p>
+  <ul class="text-sm space-y-1">
+    <li>You get access to a second Tech Center after clearing District 102, and a third at HQ30 — running them in parallel is how you keep the level-behind rule satisfied without a single queue bottleneck.</li>
+    <li>If you're choosing between Tech Center and literally anything else in the queue, Tech Center wins.</li>
+  </ul>
 
-  <h2>Research Priorities (New → Mid Game)</h2>
+  <h2>Building Roster</h2>
+  <p class="text-sm">Function, unlock point, and confidence for the buildings that matter HQ15–30. Items marked <span class="text-[#8a96b0]">[VERIFY]</span> come from a single source — treat the number as approximate, not gospel.</p>
   <div class="table-wrapper">
     <table>
+      <caption class="sr-only">Base-building roster with function, unlock requirement, and source confidence</caption>
       <thead>
-        <tr><th>Phase</th><th>Focus Areas</th></tr>
+        <tr><th scope="col">Building</th><th scope="col">Function</th><th scope="col">Unlock / notes</th><th scope="col">Confidence</th></tr>
       </thead>
       <tbody>
         <tr>
-          <td><strong>Early</strong></td>
-          <td>HQ tech, basic troop training, resource production, first combat upgrades.</td>
+          <th scope="row">Tech Center</th>
+          <td>Research tree; gates HQ level directly.</td>
+          <td>1st @HQ7; 2nd after District 102; 3rd @HQ30. Must stay within 1 level of HQ.</td>
+          <td>Verified ×3</td>
         </tr>
         <tr>
-          <td><strong>Mid-Game</strong></td>
-          <td>Troop load, march size, type-specific combat research, skill-related tech, gear enhancement speed.</td>
+          <th scope="row">Gear Factory</th>
+          <td>Craft/dismantle hero gear.</td>
+          <td>Unlocks @HQ9. Lv5→Epic, Lv10→Legendary, Lv20→Gear Promotion. <span class="text-[#8a96b0]">[VERIFY] "no major advantage past 20."</span></td>
+          <td>Verified ×2 (unlock); single-source (Lv20 ceiling)</td>
         </tr>
         <tr>
-          <td><strong>Do Not Rush</strong></td>
-          <td>Most economy buildings past the point you can support your main squad, decorative buildings, late-game prestige tech.</td>
+          <th scope="row">Material Workshop</th>
+          <td>Produces Screws feeding the Gear Factory. Up to 5 buildable.</td>
+          <td>Priority disputed — see below.</td>
+          <td>Disputed</td>
+        </tr>
+        <tr>
+          <th scope="row">Tank / Air(craft) / Missile Center</th>
+          <td>Boosts one troop type's march size, HP, ATK, DEF.</td>
+          <td>Only level the one matching your main squad. Missile Center unlock <span class="text-[#8a96b0]">[VERIFY] HQ11</span>.</td>
+          <td>Verified ×2 (single-type rule)</td>
+        </tr>
+        <tr>
+          <th scope="row">Barracks</th>
+          <td>Trains troops; gates troop tier.</td>
+          <td>Lv10 unlocks Troop Promotion ("waterfall training"). <span class="text-[#8a96b0]">[VERIFY] T10 gate = HQ30 + Tech Center 30 + Barracks 30.</span></td>
+          <td>Verified ×2 (waterfall); single-source (T10 gate)</td>
+        </tr>
+        <tr>
+          <th scope="row">Drill Ground</th>
+          <td>Troop housing/capacity.</td>
+          <td>2nd @HQ16, 3rd @HQ21, 4th via the "Siege to Siege" research node. <span class="text-[#8a96b0]">[VERIFY] capacity ~2,000 at Lv1 → ~8,000 at Lv30.</span></td>
+          <td>Verified (unlock levels, shared lineage); single-source (capacity)</td>
+        </tr>
+        <tr>
+          <th scope="row">Hospital</th>
+          <td>Heals wounded troops up to capacity; overflow is permanently lost.</td>
+          <td>Capacity trend rises from ~650 @Lv1 toward ~2,000–2,100 by Lv30–35; sources diverge on the exact curve in between.</td>
+          <td>Verified ×2 on trend only</td>
+        </tr>
+        <tr>
+          <th scope="row">Emergency Center ("ICU")</th>
+          <td>Overflow safety net — recovers a percentage of otherwise-lost troops as "fainted units."</td>
+          <td>Unlocks @HQ22. <span class="text-[#8a96b0]">[VERIFY] Lv1 figures ~21% / 450 units, shared-lineage sourcing.</span></td>
+          <td>Verified ×2 (unlock); single-source (figures)</td>
+        </tr>
+        <tr>
+          <th scope="row">Wall</th>
+          <td>Base defense — governs fire/damage recovery and casualty rate when breached.</td>
+          <td>Required at multiple HQ gates. Costs Oil from Lv31+.</td>
+          <td>Verified ×2</td>
+        </tr>
+        <tr>
+          <th scope="row">Alliance Center</th>
+          <td>Alliance-help timer reduction.</td>
+          <td>Required at several HQ gates. <span class="text-[#8a96b0]">[VERIFY] in-game name inconsistent between sources.</span></td>
+          <td>Verified ×2</td>
         </tr>
       </tbody>
     </table>
   </div>
 
-  <p class="mt-4 text-sm text-[#8a96b0]">The biggest trap is upgrading every building to the same level. Many buildings give almost no meaningful power until very high levels. Stay focused on what helps your #1 squad today.</p>
+  <h2>HQ 15–30 Gate Structure</h2>
+  <p class="text-sm">The verified spine is simple: <strong>Tech Center = HQ level − 1</strong>, required at essentially every level from HQ8 to HQ30, confirmed independently by two sources. Each level also demands one secondary building, and that requirement rotates. The rotation below comes from a single source — <strong>cross-check your in-game requirements tab before committing resources</strong>, since exact levels can shift by patch or server.</p>
+  <div class="table-wrapper">
+    <table>
+      <caption class="sr-only">HQ level gate requirements, verified Tech Center spine plus single-source secondary rotation</caption>
+      <thead>
+        <tr><th scope="col">HQ level</th><th scope="col">Tech Center required</th><th scope="col">Secondary requirement <span class="text-[#8a96b0]">[VERIFY]</span></th></tr>
+      </thead>
+      <tbody>
+        <tr><th scope="row">15</th><td>14</td><td>Wall 14</td></tr>
+        <tr><th scope="row">16</th><td>15</td><td>Alliance Center 15</td></tr>
+        <tr><th scope="row">20</th><td>19</td><td>Barracks 19</td></tr>
+        <tr><th scope="row">22</th><td>21</td><td>Drill Ground 21</td></tr>
+        <tr><th scope="row">25</th><td>24</td><td>Tank Center 24</td></tr>
+        <tr><th scope="row">30</th><td>29</td><td>Drill Ground 29</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="text-sm text-[#8a96b0]">The secondary slot rotates roughly Wall → Alliance Center → Tank Center → Hospital → Barracks → Drill Ground across the full HQ range — this is a pattern observation from a single source, not a confirmed formula. Treat it as "expect one of these," not a fixed schedule.</p>
+
+  <h3>Practical priority order</h3>
+  <ol class="list-decimal pl-5 text-sm space-y-1">
+    <li>Tech Center — never let it fall behind HQ level.</li>
+    <li>Whatever secondary building your <em>next</em> HQ level demands (check the requirements tab).</li>
+    <li>Your one Tank/Air/Missile Center — combat power, not a gate, but it's your main damage lever.</li>
+    <li>Gear Factory to Lv20, then deprioritize.</li>
+    <li>Barracks and Drill Ground, staggered rather than maxed evenly (see below).</li>
+  </ol>
+
+  <h2>What to Skip or Stagger</h2>
+  <ul class="text-sm space-y-1">
+    <li><strong>Only level the Tank/Air/Missile Center matching your main squad type.</strong> If you're running Tank as your carry type, Air and Missile Centers can sit untouched — they don't gate anything for you and the boost only applies to their own type.</li>
+    <li><strong>Stagger Barracks and Drill Ground ("waterfall training") instead of maxing both evenly</strong> — verified across two sources. Push one ahead to unlock the next troop tier, then bring the other up to match, rather than leveling them in lockstep.</li>
+    <li>Resource-production buildings (Field, Mine, Vault-type structures) — keep these low relative to combat buildings. This is a medium-confidence, genre-wide pattern rather than a Last War-specific citation, so treat it as directional rather than precise.</li>
+  </ul>
+
+  <h2>Contested: Material Workshop Priority</h2>
+  <p class="text-sm">The community genuinely disagrees here, and this page won't launder it into settled advice:</p>
+  <ul class="text-sm space-y-1">
+    <li><strong>Skip-it camp:</strong> treats Material Workshop as a resource trap — Screws feed only the Gear Factory, and early Screw demand is low enough that building it out doesn't pay off relative to combat buildings.</li>
+    <li><strong>Prioritize-it camp:</strong> a dedicated gear-progression guide argues Material Workshop should be built up early because Screw shortages become the actual bottleneck on gear leveling once you're mid-game, and by then you're behind on a queue that takes a long time to catch up.</li>
+  </ul>
+  <p class="text-sm">Both camps come from usable sources; neither is a Tier-1 slam dunk. If your gear is already outpacing your Screw income, lean toward building more workshops (up to 5 are buildable). If gear isn't your bottleneck yet, the skip-it camp's logic holds. See the <a href="/upgrade-roadmap" class="text-[#f59e0b] hover:underline">Upgrade Roadmap</a> for how gear fits into your broader spend order.</p>
+
+  <h2>Healing: Hospital and the Emergency Center</h2>
+  <ul class="text-sm space-y-1">
+    <li><strong>Hospital capacity trends upward</strong> from roughly 650 at Lv1 toward 2,000–2,100 by Lv30–35 — confirmed on the trend by two sources, but they diverge on the intermediate values, so no level-by-level chart is published here. Troops beyond Hospital capacity when wounded are lost permanently, not queued.</li>
+    <li><strong>Emergency Center (the "ICU") is the real overflow mechanic</strong>, not a bigger Hospital. It unlocks at HQ22 and recovers a percentage of troops that would otherwise be lost once Hospital capacity is exceeded, converting them into recoverable "fainted units" instead. The Lv1 recovery figures circulating (~21% / 450 units) trace back to a single lineage of sources — treat them as approximate.</li>
+    <li><strong>No public capacity formula exists</strong> tying Hospital level to safe troop counts, and no verified multi-hospital stagger pattern exists either. Don't trust a heuristic that claims otherwise — build Hospital and Emergency Center up together as your troop count grows, and don't overcommit to offense faster than your healing capacity can absorb losses.</li>
+  </ul>
+
+  <p class="mt-4 text-xs text-[#8a96b0]">Sources: lastwar.wiki (Tech Center, Gear Factory, Drill Ground, Hospital, Emergency Center, Wall, Alliance Center building pages), theriagames.com (HQ gate guide, per-type Tank/Air/Missile Center guide, Material Workshop priority guide, Wall guide, Alliance Center guide), cpt-hedge.com (Tech Center snippet, T11 troops/waterfall training guide, Material Workshop skip-it synthesis), lastwarvault.com (waterfall training guide), heaven-guardian.com (Hospital, Wall). Items marked [VERIFY] rely on a single source or on sources that likely share one origin — cross-check against your in-game requirements tab before planning around exact numbers. The Material Workshop section is presented as contested, not resolved.</p>
 </Layout>
