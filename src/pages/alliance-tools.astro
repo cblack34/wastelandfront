@@ -3,57 +3,78 @@ import Layout from '../layouts/Layout.astro';
 import QuickSummary from '../components/QuickSummary.astro';
 ---
 
-<Layout 
-  title="Alliance Tools" 
-  description="Ready-to-copy daily VS focus messages, Alliance Duel posts, and Monica elite rally reminders for Last War: Survival alliance leaders."
+<Layout
+  title="Alliance Tools"
+  description="Ready-to-copy Alliance Duel (VS), Arms Race, and Doom Elite chat templates for Last War: Survival alliance leaders."
 >
   <h1>Alliance Tools</h1>
-  <p class="text-lg text-[#8a96b0]">Copy, paste, win. Replace anything in [brackets] with your actual numbers.</p>
+  <p class="text-lg text-[#8a96b0]">Copy, paste, win. Replace anything in [brackets] with your actual numbers. Last verified: July 2026.</p>
 
   <QuickSummary>
-    <p>Consistent, clear alliance communication is one of the highest-ROI things a leader can do. These templates are battle-tested patterns used by strong mid-game alliances.</p>
+    <p>Consistent, clear alliance communication is one of the highest-ROI things a leader can do. These templates cover Alliance Duel (VS) day themes, phase-matched Arms Race chest opening, and Doom Elite/Monica calls — with disputed or unverified numbers flagged rather than baked into the copy.</p>
   </QuickSummary>
 
-  <h2>Daily VS Focus</h2>
-  <p class="text-sm text-[#8a96b0]">Post one of these (or a variation) in alliance chat every day during VS.</p>
+  <h2>Daily VS / Alliance Duel Focus</h2>
+  <p class="text-sm text-[#8a96b0]">"VS" and "Alliance Duel" are the same event — post one of these (or a variation) in alliance chat during it.</p>
 
   <div class="card p-4 mb-4">
     <div class="flex justify-between items-start mb-2">
       <div class="font-semibold">General VS Focus Message</div>
       <button type="button" class="copy-btn text-xs">Copy</button>
     </div>
-    <pre class="text-sm bg-[#0b1220] p-3 rounded overflow-x-auto text-[#c4b5fd]">Today’s VS focus: Prioritize [Hero Shards / Gear Materials / Research Speed]. 
+    <pre class="text-sm bg-[#0b1220] p-3 rounded overflow-x-auto text-[#c4b5fd]">Today’s VS (Alliance Duel) focus: [DAY THEME] — prioritize [Hero Shards / Gear Materials / Research Speed] accordingly.
 
-We’re aiming for strong participation in the evening rally window. Every point helps the alliance.
+We’re aiming for strong participation during our alliance’s chosen rally window. Every point helps.
 
 Let’s finish in the top 3 on server today!</pre>
   </div>
 
-  <h2>Alliance Duel / 2x Events</h2>
+  <div class="table-wrapper mb-4">
+    <table class="text-sm">
+      <caption class="sr-only">Alliance Duel (VS) day themes, Day 1 through Day 6</caption>
+      <thead>
+        <tr>
+          <th scope="col">Day</th>
+          <th scope="col">Theme</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><th scope="row">D1</th><td>Radar Training</td></tr>
+        <tr><th scope="row">D2</th><td>Base Expansion</td></tr>
+        <tr><th scope="row">D3</th><td>Age of Science</td></tr>
+        <tr><th scope="row">D4</th><td>Train Heroes</td></tr>
+        <tr><th scope="row">D5</th><td>Total Mobilization</td></tr>
+        <tr><th scope="row">D6</th><td>Enemy Buster</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="text-xs text-[#8a96b0] mb-4">Day themes verified against lastwartutorial.com/duel-vs and lastwar.wiki. Day 6 (Enemy Buster) runs the full 24 hours — there’s no game-enforced clock time for rallying, so use your alliance’s own chosen window.</p>
+
   <div class="card p-4 mb-4">
     <div class="flex justify-between items-start mb-2">
-      <div class="font-semibold">Alliance Duel Reminder</div>
+      <div class="font-semibold">Alliance Duel (VS) Rally Reminder</div>
       <button type="button" class="copy-btn text-xs">Copy</button>
     </div>
-    <pre class="text-sm bg-[#0b1220] p-3 rounded overflow-x-auto">Alliance Duel starts in ~30 min. 
+    <pre class="text-sm bg-[#0b1220] p-3 rounded overflow-x-auto">VS (Alliance Duel) is live.
 
-Bring your best squad and be ready to rally on the main target. 
+Bring your best squad and be ready to rally during our chosen window.
 
 Focus fire and we’ll clear it quickly. Good luck everyone!</pre>
   </div>
 
   <h2>Monica Elite Rally Call</h2>
-  <div class="card p-4 mb-6">
+  <div class="card p-4 mb-2">
     <div class="flex justify-between items-start mb-2">
       <div class="font-semibold">Doom Elite Farming (with Monica)</div>
       <button type="button" class="copy-btn text-xs">Copy</button>
     </div>
-    <pre class="text-sm bg-[#0b1220] p-3 rounded overflow-x-auto">Reminder for elite farming: 
+    <pre class="text-sm bg-[#0b1220] p-3 rounded overflow-x-auto">Reminder for elite farming:
 
-Include Monica in your squad when hitting Doom Elites (lead or join). Her resource bonus is significant and helps everyone.
+Bring Monica if you have her — her skill boosts her holder’s resource drops from Doom Elites. If you don’t have her, join the rally anyway.
 
-You can swap her back out for combat content afterward. Small effort, big RSS gains.</pre>
+You can swap her back out for combat content afterward.</pre>
   </div>
+  <p class="text-xs text-[#8a96b0] mb-6">Sources disagree on the exact bonus percentage (reports range from roughly 31% to 39%, depending on skill level), and there’s no reliable source on whether the bonus extends beyond Monica’s own holder — so no number or "helps everyone" claim is baked into the template above. Check your in-game tooltip.</p>
 
   <h2>Other High-ROI Templates</h2>
 
@@ -71,7 +92,7 @@ You can swap her back out for combat content afterward. Small effort, big RSS ga
         <div class="font-semibold text-sm">Arms Race Coordination</div>
         <button type="button" class="copy-btn text-xs">Copy</button>
       </div>
-      <pre class="text-xs bg-[#0b1220] p-2 rounded">Arms Race reminder: Save your big stamina and legendary chests for the final 3-4 hours. We will pop together for max alliance gifts. Smaller chests are fine to open earlier for dailies.</pre>
+      <pre class="text-xs bg-[#0b1220] p-2 rounded">Arms Race reminder: Points post when a chest is opened, not when it finishes. Finish your builds/research/training as normal, but keep the chests packaged and open them during the matching phase — open on-phase, not at the buzzer. Smaller chests are fine to open earlier for dailies.</pre>
     </div>
 
     <div class="card p-4">
@@ -90,6 +111,8 @@ You can swap her back out for combat content afterward. Small effort, big RSS ga
       <pre class="text-xs bg-[#0b1220] p-2 rounded">VS is live. Please participate in the evening rally window if possible. Every point moves us up the server rankings and improves our rewards. Let’s go!</pre>
     </div>
   </div>
+
+  <p class="text-xs text-[#8a96b0] mt-8">Verified against lastwartutorial.com/duel-vs, lastwar.wiki, and lastwartutorial.com/arms-race: VS and Alliance Duel are the same event; the six day themes above; and Arms Race points posting on chest open (matching-phase opening, not a final-hours rush). The "open together for alliance gifts" idea some fan sites repeat has no source and isn't in these templates. Monica's Doom Elite bonus size and reach beyond her own holder are disputed/unverified and intentionally left out of the copy — see the note above the Monica template.</p>
 
   <script>
     // Vanilla copy-to-clipboard for alliance messages (no React needed).
